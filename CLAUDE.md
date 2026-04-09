@@ -36,13 +36,14 @@ argument-hint: "[target]"     # optional
 - `.acumen/features.md` — maintained by `/features`
 - `.acumen/value-chain.md` — maintained by `/teach-acumen`, updated by `/profile` and `/workshop`
 - `.acumen/sources.md` — data source configuration (analytics, DB, backlog)
+- `.acumen/value.md` — maintained by `/value`
 - `.acumen/reports/` — point-in-time outputs from `/diagnose`, `/measure`, `/workshop`
 
 ## Skill layers
 
-- **Context**: `/teach-acumen`, `/scout`, `/persona`, `/features`
+- **Context**: `/teach-acumen`, `/scout`, `/persona`, `/features`, `/value`
 - **Audit**: `/orientation`, `/defensibility`
 - **Ideate**: `/diagnose`, `/measure`, `/workshop`
 - **Craft**: `/roadmap`, `/increment`, `/critique-product`
 - **Communicate**: `/narrate`, `/changelog`
-- **Meta**: `/update-acumen`
+- **Meta**: `/update-acumen`, `/cheatsheet`

@@ -1,6 +1,6 @@
 # Acumen
 
-Product fluency for AI. 1 skill, 15 commands, and curated anti-patterns for sharp product thinking.
+Product fluency for AI. 1 skill, 16 commands, and curated anti-patterns for sharp product thinking.
 
 ## Why Acumen?
 
@@ -10,7 +10,7 @@ Every LLM learned from the same generic templates. Without guidance, you get the
 
 Acumen fights that bias with:
 - **A core skill** with 7 domain-specific reference documents ([view source](source/skills/product-thinking/))
-- **15 commands** organized in 5 layers — from context gathering to shipping changelogs
+- **16 commands** organized in 5 layers — from context gathering to shipping changelogs
 - **12 named anti-patterns** ("AI Product Slop") that explicitly tell the AI what NOT to produce
 
 ## What's Included
@@ -39,6 +39,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | `/scout` | Build and maintain a living competitor map. Supports quick scans and deep analysis |
 | `/persona` | Build and maintain behavioral personas grounded in real user patterns |
 | `/features` | Build and maintain a lightweight feature inventory |
+| `/value` | Map per-persona value delivery to the usage and north star metrics that prove it |
 
 #### Audit Layer (assess product health)
 
@@ -75,6 +76,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | Command | What it does |
 |---------|--------------|
 | `/update-acumen` | Fetch the latest Acumen skills from GitHub and update local copies |
+| `/cheatsheet` | Print a quick-reference cheatsheet of all Acumen skills, organized by layer |
 
 #### Usage Examples
 
@@ -143,6 +145,7 @@ source/                          # Source of truth
     scout/SKILL.md               # Context: competitors (+ deep analysis)
     profile/SKILL.md             # Context: personas
     features/SKILL.md            # Context: features
+    value/SKILL.md               # Context: per-persona value & metrics
     update-acumen/SKILL.md       # Meta: sync skills from GitHub
     orientation/SKILL.md         # Audit: product identity
     defensibility/SKILL.md       # Audit: moats
@@ -169,6 +172,7 @@ source/                          # Source of truth
 | `.acumen/competitors.md` | `/scout` | Living competitor map |
 | `.acumen/personas.md` | `/persona` | Behavioral personas |
 | `.acumen/features.md` | `/features` | Feature inventory |
+| `.acumen/value.md` | `/value` | Per-persona value map with proof metrics |
 | `.acumen/value-chain.md` | `/teach-acumen`, `/profile`, `/workshop` | Value chain map per persona |
 | `.acumen/sources.md` | `/teach-acumen` | Data source configuration |
 | `.acumen/reports/` | `/diagnose`, `/measure`, `/workshop` | Point-in-time analysis reports |

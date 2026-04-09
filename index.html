@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acumen — Product fluency for AI</title>
+  <meta name="description" content="1 skill, 13 commands, and curated anti-patterns for sharp product thinking. Stop getting AI product slop.">
+  <meta property="og:title" content="Acumen — Product fluency for AI">
+  <meta property="og:description" content="1 skill, 13 commands, and curated anti-patterns for sharp product thinking.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9650;</text></svg>">
+  <style>
+    :root {
+      --bg: #fafafa;
+      --fg: #111;
+      --fg-muted: #555;
+      --fg-faint: #999;
+      --accent: #111;
+      --border: #ddd;
+      --border-strong: #111;
+      --surface: #fff;
+      --surface-alt: #f5f5f5;
+      --code-bg: #f0f0f0;
+      --red: #c00;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(250, 250, 250, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 52px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg-muted);
+      text-decoration: none;
+      padding: 0.4rem 0.65rem;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--fg); }
+
+    .nav-gh {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--fg);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.75rem;
+      transition: border-color 0.15s;
+    }
+
+    .nav-gh:hover { border-color: var(--fg); }
+
+    /* LAYOUT */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--fg-faint);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    p { color: var(--fg-muted); max-width: 640px; }
+    p + p { margin-top: 1rem; }
+
+    /* HERO */
+    .hero {
+      padding: 10rem 0 6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span {
+      color: var(--fg-faint);
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--fg-muted);
+      max-width: 540px;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg-faint);
+      margin-top: 0.35rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      background: var(--fg);
+      color: var(--bg);
+      border: none;
+      padding: 0.7rem 1.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .btn-primary:hover { opacity: 0.8; }
+
+    .btn-secondary {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      color: var(--fg-muted);
+      text-decoration: none;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .btn-secondary:hover { color: var(--fg); border-color: var(--fg); }
+
+    /* PROBLEM */
+    .problem-list {
+      list-style: none;
+      margin-top: 2rem;
+      display: grid;
+      gap: 0;
+    }
+
+    .problem-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .problem-list li:first-child { border-top: 1px solid var(--border); }
+
+    .problem-list .bullet {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--fg-faint);
+      flex-shrink: 0;
+      width: 1rem;
+    }
+
+    .problem-list .text {
+      font-size: 0.95rem;
+      color: var(--fg-muted);
+    }
+
+    .problem-list .text strong {
+      color: var(--fg);
+    }
+
+    /* SKILL / REFERENCES */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    .ref-card {
+      background: var(--surface);
+      padding: 1.5rem;
+    }
+
+    .ref-card h4 {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .ref-card p {
+      font-size: 0.85rem;
+      color: var(--fg-muted);
+      line-height: 1.5;
+    }
+
+    /* COMMANDS */
+    .cmd-group { margin-top: 2rem; }
+    .cmd-group + .cmd-group { margin-top: 3rem; }
+
+    .cmd-group-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fg-faint);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cmd-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .cmd-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cmd-table td {
+      padding: 0.75rem 0;
+      vertical-align: top;
+    }
+
+    .cmd-table td:first-child {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      width: 180px;
+      padding-right: 2rem;
+    }
+
+    .cmd-table td:last-child {
+      font-size: 0.9rem;
+      color: var(--fg-muted);
+    }
+
+    /* EXAMPLES */
+    .examples {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .example-card {
+      background: var(--surface);
+      padding: 1.5rem;
+    }
+
+    .example-card .cmd-name {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg-faint);
+      margin-bottom: 0.75rem;
+    }
+
+    .example-card code {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--fg);
+      padding: 0.5rem 0.75rem;
+      background: var(--surface-alt);
+      margin-bottom: 0.35rem;
+    }
+
+    /* ANTI-PATTERNS */
+    .slop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 0;
+      margin-top: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .slop-item {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      display: flex;
+      gap: 1rem;
+      align-items: baseline;
+    }
+
+    .slop-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--fg-faint);
+      flex-shrink: 0;
+    }
+
+    .slop-content {}
+
+    .slop-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .slop-desc {
+      font-size: 0.8rem;
+      color: var(--fg-muted);
+      line-height: 1.5;
+    }
+
+    /* INSTALL */
+    .install-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    .install-method {
+      background: var(--surface);
+      padding: 1.5rem;
+    }
+
+    .install-method h4 {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .install-method pre {
+      background: var(--fg);
+      color: #e0e0e0;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 1rem;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+
+    .install-method pre .comment {
+      color: #666;
+    }
+
+    .install-method p {
+      font-size: 0.85rem;
+      color: var(--fg-muted);
+      margin-top: 0.75rem;
+    }
+
+    /* PRINCIPLES */
+    .principles-list {
+      list-style: none;
+      margin-top: 2rem;
+      counter-reset: principle;
+    }
+
+    .principles-list li {
+      counter-increment: principle;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 1.5rem;
+      align-items: baseline;
+    }
+
+    .principles-list li:first-child { border-top: 1px solid var(--border); }
+
+    .principles-list li::before {
+      content: counter(principle, decimal-leading-zero);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--fg-faint);
+      flex-shrink: 0;
+    }
+
+    .principles-list .rule {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .principles-list .detail {
+      font-size: 0.85rem;
+      color: var(--fg-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--fg-faint);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--fg-faint);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--fg); }
+
+    /* MOBILE NAV */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: var(--fg);
+      margin: 4px 0;
+      transition: transform 0.2s;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+
+      nav.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 52px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 2rem;
+      }
+
+      .hero { padding: 7rem 0 4rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero-stats { gap: 2rem; }
+      .stat-number { font-size: 1.5rem; }
+
+      .ref-grid,
+      .examples,
+      .install-methods { grid-template-columns: 1fr; }
+
+      .slop-grid { grid-template-columns: 1fr; }
+      .slop-item { border-right: none; }
+
+      .cmd-table td:first-child { width: auto; display: block; }
+      .cmd-table td:last-child { display: block; padding-top: 0; }
+
+      .footer-inner { flex-direction: column; gap: 1rem; }
+
+      section { padding: 3rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">/Acumen</a>
+      <button class="nav-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#problem">01 Problem</a></li>
+        <li><a href="#skill">02 Skill</a></li>
+        <li><a href="#commands">03 Commands</a></li>
+        <li><a href="#slop">04 Anti-Patterns</a></li>
+        <li><a href="#install">05 Install</a></li>
+        <li><a href="#principles">06 Principles</a></li>
+      </ul>
+      <a href="https://github.com/contenty/acumen" class="nav-gh" target="_blank">GitHub</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <h1>Product fluency<br><span>for AI.</span></h1>
+      <p class="hero-sub">Every LLM learned from the same generic templates. Without guidance, you get product slop. Acumen teaches your AI real product thinking and gives you 13 commands to steer the result.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">1</span>
+          <span class="stat-label">Core Skill</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">13</span>
+          <span class="stat-label">Commands</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Anti-Patterns</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">7</span>
+          <span class="stat-label">Reference Docs</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#install" class="btn-primary">Get started</a>
+        <a href="#problem" class="btn-secondary">Why Acumen?</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 01 PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <div class="section-label">01 &mdash; The Problem</div>
+      <h2>AI product work has a slop problem.</h2>
+      <p>Ask any LLM to write a PRD, build personas, or draft a strategy. You'll get the same predictable output every time:</p>
+      <ul class="problem-list">
+        <li>
+          <span class="bullet">&mdash;</span>
+          <span class="text"><strong>Vague value props</strong> that could describe any product in any market</span>
+        </li>
+        <li>
+          <span class="bullet">&mdash;</span>
+          <span class="text"><strong>Demographic personas</strong> like "Marketing Manager, 28-35" instead of behavioral segments</span>
+        </li>
+        <li>
+          <span class="bullet">&mdash;</span>
+          <span class="text"><strong>Vanity metrics</strong> that always go up and never tell you if something worked</span>
+        </li>
+        <li>
+          <span class="bullet">&mdash;</span>
+          <span class="text"><strong>Feature checklists</strong> with no thesis, no sequencing, no opinion</span>
+        </li>
+        <li>
+          <span class="bullet">&mdash;</span>
+          <span class="text"><strong>Specs that could belong to any company</strong> &mdash; every section filled, none specific</span>
+        </li>
+        <li>
+          <span class="bullet">&mdash;</span>
+          <span class="text"><strong>Hedge documents</strong> where every recommendation is qualified into meaninglessness</span>
+        </li>
+      </ul>
+      <p style="margin-top: 2rem;">Acumen fights this bias at the source. Not with templates &mdash; with vocabulary.</p>
+    </div>
+  </section>
+
+  <!-- 02 SKILL -->
+  <section id="skill">
+    <div class="container">
+      <div class="section-label">02 &mdash; The Skill</div>
+      <h2>Deep reference knowledge across 7 product dimensions.</h2>
+      <p>The <code style="font-family: var(--font-mono); background: var(--code-bg); padding: 0.15rem 0.4rem; font-size: 0.85em;">product-thinking</code> core skill loads automatically. It injects 7 reference documents that calibrate your AI's product vocabulary.</p>
+      <div class="ref-grid">
+        <div class="ref-card">
+          <h4>Problem Discovery</h4>
+          <p>JTBD, Five Whys, Switch Framework, interview anti-patterns</p>
+        </div>
+        <div class="ref-card">
+          <h4>User Segmentation</h4>
+          <p>Behavioral cohorts, personas, anti-personas, journey mapping</p>
+        </div>
+        <div class="ref-card">
+          <h4>Prioritization &amp; Strategy</h4>
+          <p>ICE/RICE limitations, sequencing logic, regret minimization</p>
+        </div>
+        <div class="ref-card">
+          <h4>Metrics &amp; Measurement</h4>
+          <p>Metric trees, counter-metrics, leading indicators, north stars</p>
+        </div>
+        <div class="ref-card">
+          <h4>Specification Craft</h4>
+          <p>Working backward, acceptance criteria, edge case categories</p>
+        </div>
+        <div class="ref-card">
+          <h4>Stakeholder Alignment</h4>
+          <p>DACI, disagree-and-commit, managing upward, pre-mortems</p>
+        </div>
+        <div class="ref-card">
+          <h4>Competitive Intelligence</h4>
+          <p>Moat analysis, win/loss, competitive response playbooks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 COMMANDS -->
+  <section id="commands">
+    <div class="container">
+      <div class="section-label">03 &mdash; Commands</div>
+      <h2>13 commands. A shared vocabulary between you and your AI.</h2>
+      <p>Each command is a focused product operation &mdash; not a template, but a thinking posture that pushes back when the output smells generic.</p>
+
+      <div class="cmd-group">
+        <div class="cmd-group-label">Context Layer &mdash; build &amp; maintain product knowledge</div>
+        <table class="cmd-table">
+          <tr><td>/teach-acumen</td><td>One-time setup: gather product context, save to <code>.acumen.md</code></td></tr>
+          <tr><td>/scout</td><td>Build and maintain a living competitor map</td></tr>
+          <tr><td>/profile</td><td>Build behavioral personas from real user patterns</td></tr>
+          <tr><td>/catalog</td><td>Build a lightweight feature inventory from the codebase</td></tr>
+        </table>
+      </div>
+
+      <div class="cmd-group">
+        <div class="cmd-group-label">Thinking Mode</div>
+        <table class="cmd-table">
+          <tr><td>/simulate</td><td>Evaluate a feature or decision AS a specific persona</td></tr>
+        </table>
+      </div>
+
+      <div class="cmd-group">
+        <div class="cmd-group-label">Steering Commands &mdash; create PM artifacts</div>
+        <table class="cmd-table">
+          <tr><td>/diagnose</td><td>Root cause analysis with Five Whys and reframing lenses</td></tr>
+          <tr><td>/specify</td><td>Write specs that drive good execution, with competitive context</td></tr>
+          <tr><td>/measure</td><td>Define metrics with baselines, targets, and counter-metrics</td></tr>
+          <tr><td>/compete</td><td>Deep competitive analysis with JTBD and moat evaluation</td></tr>
+          <tr><td>/roadmap</td><td>Sequence bets into shippable increments</td></tr>
+          <tr><td>/validate</td><td>Test the riskiest assumption before building</td></tr>
+          <tr><td>/critique-product</td><td>Score PM artifacts across 9 dimensions (/36)</td></tr>
+          <tr><td>/narrate</td><td>Communicate to any audience: execs, engineers, customers</td></tr>
+        </table>
+      </div>
+
+      <div class="examples">
+        <div class="example-card">
+          <div class="cmd-name">/diagnose</div>
+          <code>/diagnose why churn spiked in Q1</code>
+          <code>/diagnose onboarding drop-off</code>
+        </div>
+        <div class="example-card">
+          <div class="cmd-name">/specify</div>
+          <code>/specify self-serve onboarding for SMB</code>
+          <code>/specify billing migration to usage-based</code>
+        </div>
+        <div class="example-card">
+          <div class="cmd-name">/critique-product</div>
+          <code>/critique-product the PRD I just wrote</code>
+          <code>/critique-product our Q3 roadmap</code>
+        </div>
+        <div class="example-card">
+          <div class="cmd-name">/simulate</div>
+          <code>/simulate power-user reacting to new pricing</code>
+          <code>/simulate ops-manager evaluating export redesign</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 ANTI-PATTERNS -->
+  <section id="slop">
+    <div class="container">
+      <div class="section-label">04 &mdash; Anti-Patterns</div>
+      <h2>12 named tells of AI product slop.</h2>
+      <p>Acumen explicitly teaches the AI what NOT to produce. Each pattern is named, defined, and detected.</p>
+      <div class="slop-grid">
+        <div class="slop-item">
+          <span class="slop-num">01</span>
+          <div class="slop-content">
+            <div class="slop-name">Template Filler</div>
+            <div class="slop-desc">Every section filled, none specific to this product</div>
+          </div>
+        </div>
+        <div class="slop-item">
+          <span class="slop-num">02</span>
+          <div class="slop-content">
+            <div class="slop-name">Demographic Persona</div>
+            <div class="slop-desc">"Marketing Manager, 28-35" instead of behavioral segments</div>
+          </div>
+        </div>
+        <div class="slop-item">
+          <span class="slop-num">03</span>
+          <div class="slop-content">
+            <div class="slop-name">Inverted Solution</div>
+            <div class="slop-desc">Problem statement is the solution described negatively</div>
+          </div>
+        </div>
+        <div class="slop-item">
+          <span class="slop-num">04</span>
+          <div class="slop-content">
+            <div class="slop-name">Vanity Metric</div>
+            <div class="slop-desc">Success measured by things that always go up</div>
+          </div>
+        </div>
+        <div class="slop-item">
+          <span class="slop-num">05</span>
+          <div class="slop-content">
+            <div class="slop-name">Feature Checklist</div>
+            <div class="slop-desc">Flat list with no sequencing or thesis</div>
+          </div>
+        </div>
+        <div class="slop-item">
+          <span class="slop-num">06</span>
+          <div class="slop-content">
+            <div class="slop-name">Generic Risk</div>
+            <div class="slop-desc">"Technical complexity" appears in every project</div>
+          </div>
+        </div>
+        <div class="slop-item">
+          <span class="slop-num">07</span>
+          <div class="slop-content">
+            <div class="slop-name">Tautology Story</div>
+            <div class="slop-desc">User story restates the feature</div>
+          </div>
+        </div>
+        <div class="slop-item">
+          <span class="slop-num">08</span>
+          <div class="slop-content">
+            <div class="slop-name">Restated Criteria</div>
+            <div class="slop-desc">Acceptance criteria that restate requirements</div>
+          </div>
+        </div>
+        <div class="slop-item">
+          <span class="slop-num">09</span>
+          <div class="slop-content">
+            <div class="slop-name">Strategy of Everything</div>
+            <div class="slop-desc">Lists every direction without choosing</div>
+          </div>
+        </div>
+        <div class="slop-item">
+          <span class="slop-num">10</span>
+          <div class="slop-content">
+            <div class="slop-name">Feature Roadmap</div>
+            <div class="slop-desc">Timeline of features with no connecting thesis</div>
+          </div>
+        </div>
+        <div class="slop-item">
+          <span class="slop-num">11</span>
+          <div class="slop-content">
+            <div class="slop-name">Hedge Document</div>
+            <div class="slop-desc">Every recommendation qualified into meaninglessness</div>
+          </div>
+        </div>
+        <div class="slop-item">
+          <span class="slop-num">12</span>
+          <div class="slop-content">
+            <div class="slop-name">Consensus Document</div>
+            <div class="slop-desc">Designed to be inoffensive rather than useful</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 INSTALL -->
+  <section id="install">
+    <div class="container">
+      <div class="section-label">05 &mdash; Get Started</div>
+      <h2>Install in under a minute.</h2>
+      <p>Acumen follows the <a href="https://agentskills.io/specification" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">Agent Skills spec</a>. Drop the skills into your AI tool and go.</p>
+      <div class="install-methods">
+        <div class="install-method">
+          <h4>Claude Code (project)</h4>
+          <pre><span class="comment"># Copy skills into your project</span>
+cp -r .claude your-project/
+cp -r .agents your-project/</pre>
+          <p>Skills load automatically via Claude Code's skill system.</p>
+        </div>
+        <div class="install-method">
+          <h4>Claude Code (global)</h4>
+          <pre><span class="comment"># Install skills globally</span>
+cp -r .agents/skills/* ~/.claude/skills/</pre>
+          <p>Available in every project on your machine.</p>
+        </div>
+        <div class="install-method">
+          <h4>Other AI Tools</h4>
+          <pre><span class="comment"># Copy the Agent Skills directory</span>
+cp -r .agents/skills/ ~/your-tool/skills/</pre>
+          <p>Any tool supporting the Agent Skills spec.</p>
+        </div>
+        <div class="install-method">
+          <h4>Then run setup</h4>
+          <pre><span class="comment"># One-time product context</span>
+/teach-acumen
+
+<span class="comment"># Start using commands</span>
+/diagnose
+/specify
+/measure</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 PRINCIPLES -->
+  <section id="principles">
+    <div class="container">
+      <div class="section-label">06 &mdash; Principles</div>
+      <h2>Design decisions.</h2>
+      <ul class="principles-list">
+        <li>
+          <div>
+            <div class="rule">Mindset injection > workflow templates</div>
+            <div class="detail">Skills set a thinking posture, not process steps.</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="rule">Opinion > comprehensiveness</div>
+            <div class="detail">"RICE doesn't ship products, judgment does."</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="rule">Brevity > coverage</div>
+            <div class="detail">50-100 lines per skill. Depth lives in reference docs.</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="rule">Context layer feeds steering commands</div>
+            <div class="detail">Not passive storage &mdash; active inputs that shape every artifact.</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="rule">Vocabulary calibration</div>
+            <div class="detail">Replace AI slop with product-fluent language.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">Acumen &mdash; Apache 2.0. Inspired by <a href="https://github.com/pbakaus/impeccable" target="_blank" style="color: var(--fg-faint); text-decoration: underline;">Impeccable</a>.</div>
+        <ul class="footer-links">
+          <li><a href="https://github.com/contenty/acumen" target="_blank">GitHub</a></li>
+          <li><a href="https://agentskills.io" target="_blank">Agent Skills</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav').classList.remove('open');
+      });
+    });
+
+    // Highlight active section in nav
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.style.color = link.getAttribute('href') === '#' + entry.target.id
+              ? 'var(--fg)' : '';
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -60% 0px' });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>

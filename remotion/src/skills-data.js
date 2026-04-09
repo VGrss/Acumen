@@ -5,6 +5,8 @@ export const skills = [
     abbr: "Te",
     layer: "Context",
     color: "#c4636c",
+    borderColor: "#e8b4b8",
+    hoverColor: "#d4868d",
     tagline: "One-time product context setup",
     steps: [
       "Scans your codebase",
@@ -19,6 +21,8 @@ export const skills = [
     abbr: "Sc",
     layer: "Context",
     color: "#c4636c",
+    borderColor: "#e8b4b8",
+    hoverColor: "#d4868d",
     tagline: "Living competitor map",
     steps: [
       "Maps competitors by JTBD",
@@ -33,6 +37,8 @@ export const skills = [
     abbr: "Pe",
     layer: "Context",
     color: "#c4636c",
+    borderColor: "#e8b4b8",
+    hoverColor: "#d4868d",
     tagline: "Behavioral personas from real patterns",
     steps: [
       "Behavior-first, not demographics",
@@ -47,6 +53,8 @@ export const skills = [
     abbr: "Fe",
     layer: "Context",
     color: "#c4636c",
+    borderColor: "#e8b4b8",
+    hoverColor: "#d4868d",
     tagline: "Lightweight feature inventory",
     steps: [
       "Scans codebase for features",
@@ -61,6 +69,8 @@ export const skills = [
     abbr: "Va",
     layer: "Context",
     color: "#c4636c",
+    borderColor: "#e8b4b8",
+    hoverColor: "#d4868d",
     tagline: "Per-persona value & proof metrics",
     steps: [
       "Maps value per persona",
@@ -73,8 +83,10 @@ export const skills = [
     id: "update",
     name: "/update",
     abbr: "Up",
-    layer: "Context",
-    color: "#c4636c",
+    layer: "Meta",
+    color: "#7a5a9a",
+    borderColor: "#c8b8d8",
+    hoverColor: "#a890c0",
     tagline: "Sync latest Acumen skills",
     steps: [
       "Pulls from GitHub",
@@ -89,6 +101,8 @@ export const skills = [
     abbr: "Or",
     layer: "Audit",
     color: "#5a9a5a",
+    borderColor: "#b8d4b8",
+    hoverColor: "#8cba8c",
     tagline: "Product identity audit",
     steps: [
       "Thesis coherence check",
@@ -103,6 +117,8 @@ export const skills = [
     abbr: "De",
     layer: "Audit",
     color: "#5a9a5a",
+    borderColor: "#b8d4b8",
+    hoverColor: "#8cba8c",
     tagline: "Moat & resilience audit",
     steps: [
       "7 AI-era moat dimensions",
@@ -117,6 +133,8 @@ export const skills = [
     abbr: "Di",
     layer: "Ideate",
     color: "#5a8abf",
+    borderColor: "#b4c8e8",
+    hoverColor: "#8aaddb",
     tagline: "Find product problems",
     steps: [
       "Value delivery audit",
@@ -131,6 +149,8 @@ export const skills = [
     abbr: "Me",
     layer: "Ideate",
     color: "#5a8abf",
+    borderColor: "#b4c8e8",
+    hoverColor: "#8aaddb",
     tagline: "KPI health check",
     steps: [
       "Map metric landscape",
@@ -145,6 +165,8 @@ export const skills = [
     abbr: "Wo",
     layer: "Ideate",
     color: "#5a8abf",
+    borderColor: "#b4c8e8",
+    hoverColor: "#8aaddb",
     tagline: "Ideation & opportunity discovery",
     steps: [
       "Value chain analysis",
@@ -159,6 +181,8 @@ export const skills = [
     abbr: "Ro",
     layer: "Craft",
     color: "#3da63d",
+    borderColor: "#b8e0b8",
+    hoverColor: "#7ccc7c",
     tagline: "Sequence bets into increments",
     steps: [
       "Organize by strategic themes",
@@ -173,6 +197,8 @@ export const skills = [
     abbr: "In",
     layer: "Craft",
     color: "#3da63d",
+    borderColor: "#b8e0b8",
+    hoverColor: "#7ccc7c",
     tagline: "End-to-end increment spec",
     steps: [
       "Context & opportunity",
@@ -187,6 +213,8 @@ export const skills = [
     abbr: "Cr",
     layer: "Craft",
     color: "#3da63d",
+    borderColor: "#b8e0b8",
+    hoverColor: "#7ccc7c",
     tagline: "Validate PM artifacts",
     steps: [
       "AI Slop Test (12 tells)",
@@ -201,6 +229,8 @@ export const skills = [
     abbr: "Na",
     layer: "Communicate",
     color: "#b89430",
+    borderColor: "#e8d4a8",
+    hoverColor: "#d4b878",
     tagline: "Product communication writer",
     steps: [
       "Executive summary",
@@ -215,6 +245,8 @@ export const skills = [
     abbr: "Ch",
     layer: "Communicate",
     color: "#b89430",
+    borderColor: "#e8d4a8",
+    hoverColor: "#d4b878",
     tagline: "Changelog from commits",
     steps: [
       "Gathers commit history",
@@ -229,6 +261,8 @@ export const skills = [
     abbr: "Cs",
     layer: "Meta",
     color: "#7a5a9a",
+    borderColor: "#c8b8d8",
+    hoverColor: "#a890c0",
     tagline: "Quick-reference skill card",
     steps: [
       "Lists all 16 commands",

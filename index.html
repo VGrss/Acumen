@@ -308,52 +308,122 @@
       line-height: 1.5;
     }
 
-    /* COMMANDS */
-    .cmd-group { margin-top: 2rem; }
-    .cmd-group + .cmd-group { margin-top: 3rem; }
+    /* COMMANDS — periodic table layout */
+    .periodic-table {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
 
-    .cmd-group-label {
+    .element-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .element-group-label {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--fg-faint);
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.25rem;
     }
 
-    .cmd-table {
-      width: 100%;
-      border-collapse: collapse;
+    .element-group-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
-    .cmd-table tr {
-      border-bottom: 1px solid var(--border);
+    .element {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: default;
+      transition: border-color 0.15s;
     }
 
-    .cmd-table td {
-      padding: 0.75rem 0;
-      vertical-align: top;
-    }
-
-    .cmd-table td:first-child {
+    .element-abbr {
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 1.1rem;
       font-weight: 600;
-      white-space: nowrap;
-      width: 180px;
-      padding-right: 2rem;
+      line-height: 1;
+      color: var(--fg);
     }
 
-    .cmd-table td:last-child {
-      font-size: 0.9rem;
-      color: var(--fg-muted);
+    .element-name {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--fg-faint);
+      margin-top: 0.3rem;
+      text-align: center;
+      line-height: 1.1;
     }
+
+    /* Tooltip on hover */
+    .element-tooltip {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--fg);
+      color: var(--bg);
+      font-size: 0.78rem;
+      line-height: 1.4;
+      padding: 0.6rem 0.8rem;
+      border-radius: 4px;
+      width: 220px;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .element-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--fg);
+    }
+
+    .element:hover .element-tooltip {
+      display: block;
+    }
+
+    /* Category colors */
+    .element--context { border-color: #e8b4b8; }
+    .element--context:hover { border-color: #d4868d; }
+    .element--context .element-abbr { color: #c4636c; }
+
+    .element--audit { border-color: #b8d4b8; }
+    .element--audit:hover { border-color: #8cba8c; }
+    .element--audit .element-abbr { color: #5a9a5a; }
+
+    .element--ideate { border-color: #b4c8e8; }
+    .element--ideate:hover { border-color: #8aaddb; }
+    .element--ideate .element-abbr { color: #5a8abf; }
+
+    .element--craft { border-color: #b8e0b8; }
+    .element--craft:hover { border-color: #7ccc7c; }
+    .element--craft .element-abbr { color: #3da63d; }
+
+    .element--communicate { border-color: #e8d4a8; }
+    .element--communicate:hover { border-color: #d4b878; }
+    .element--communicate .element-abbr { color: #b89430; }
 
     /* EXAMPLES */
     .examples {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 1px;
@@ -785,8 +855,10 @@
       .slop-grid { grid-template-columns: 1fr; }
       .slop-item { border-right: none; }
 
-      .cmd-table td:first-child { width: auto; display: block; }
-      .cmd-table td:last-child { display: block; padding-top: 0; }
+      .periodic-table { gap: 1.5rem; }
+      .element { width: 60px; height: 60px; }
+      .element-abbr { font-size: 0.95rem; }
+      .element-name { font-size: 0.5rem; }
 
       .footer-inner { flex-direction: column; gap: 1rem; }
 
@@ -813,7 +885,7 @@
         <li><a href="#principles">07 Principles</a></li>
         <li><a href="#faq">08 New &amp; FAQ</a></li>
       </ul>
-      <a href="https://github.com/contenty/acumen" class="nav-gh" target="_blank">GitHub</a>
+      <a href="https://github.com/VGrss/Acumen" class="nav-gh" target="_blank">GitHub</a>
     </div>
   </nav>
 
@@ -929,49 +1001,111 @@
       <h2>15 commands. A shared vocabulary between you and your AI.</h2>
       <p>Each command is a focused product operation &mdash; not a template, but a thinking posture that pushes back when the output smells generic.</p>
 
-      <div class="cmd-group">
-        <div class="cmd-group-label">Context Layer &mdash; build &amp; maintain product knowledge</div>
-        <table class="cmd-table">
-          <tr><td>/teach-acumen</td><td>One-time setup that gathers product context and saves it to <code>.acumen.md</code>. Run once to establish persistent product guidelines.</td></tr>
-          <tr><td>/scout</td><td>Build and maintain a living competitor map. Supports both quick scans and deep competitive analysis.</td></tr>
-          <tr><td>/persona</td><td>Build and maintain behavioral personas grounded in real user patterns.</td></tr>
-          <tr><td>/features</td><td>Build and maintain a lightweight feature inventory. Use after shipping, when planning, or to understand the current product surface.</td></tr>
-          <tr><td>/update-acumen</td><td>Fetch the latest Acumen skills from GitHub and update local copies.</td></tr>
-        </table>
-      </div>
+      <div class="periodic-table">
+        <div class="element-group">
+          <div class="element-group-label">Context</div>
+          <div class="element-group-items">
+            <div class="element element--context">
+              <div class="element-abbr">Te</div>
+              <div class="element-name">teach</div>
+              <div class="element-tooltip">One-time setup that gathers product context and saves it to .acumen.md</div>
+            </div>
+            <div class="element element--context">
+              <div class="element-abbr">Sc</div>
+              <div class="element-name">scout</div>
+              <div class="element-tooltip">Build and maintain a living competitor map with quick scans and deep analysis</div>
+            </div>
+            <div class="element element--context">
+              <div class="element-abbr">Pe</div>
+              <div class="element-name">persona</div>
+              <div class="element-tooltip">Build and maintain behavioral personas grounded in real user patterns</div>
+            </div>
+            <div class="element element--context">
+              <div class="element-abbr">Fe</div>
+              <div class="element-name">features</div>
+              <div class="element-tooltip">Build and maintain a lightweight feature inventory</div>
+            </div>
+            <div class="element element--context">
+              <div class="element-abbr">Up</div>
+              <div class="element-name">update</div>
+              <div class="element-tooltip">Fetch the latest Acumen skills from GitHub and update local copies</div>
+            </div>
+          </div>
+        </div>
 
-      <div class="cmd-group">
-        <div class="cmd-group-label">Audit Layer &mdash; assess product health</div>
-        <table class="cmd-table">
-          <tr><td>/orientation</td><td>Audit product identity &mdash; what we do, for whom, whether the feature surface is coherent with the thesis.</td></tr>
-          <tr><td>/defensibility</td><td>Audit what&rsquo;s hard to copy &mdash; moats, switching costs, data advantages, network effects, and AI-era resilience.</td></tr>
-        </table>
-      </div>
+        <div class="element-group">
+          <div class="element-group-label">Audit</div>
+          <div class="element-group-items">
+            <div class="element element--audit">
+              <div class="element-abbr">Or</div>
+              <div class="element-name">orientation</div>
+              <div class="element-tooltip">Audit product identity &mdash; what we do, for whom, whether the feature surface is coherent</div>
+            </div>
+            <div class="element element--audit">
+              <div class="element-abbr">De</div>
+              <div class="element-name">defensibility</div>
+              <div class="element-tooltip">Audit moats, switching costs, data advantages, network effects, and AI-era resilience</div>
+            </div>
+          </div>
+        </div>
 
-      <div class="cmd-group">
-        <div class="cmd-group-label">Ideate Layer &mdash; find problems and opportunities</div>
-        <table class="cmd-table">
-          <tr><td>/diagnose</td><td>Find current problems in the product based on data, value delivery for main personas, and current features. Suggests /workshop for ideation on solutions.</td></tr>
-          <tr><td>/measure</td><td>Check KPI health &mdash; what&rsquo;s working, what&rsquo;s not, where to dig deeper. Suggests /workshop for opportunities.</td></tr>
-          <tr><td>/workshop</td><td>Ideation workshop to explore opportunities &mdash; value chain analysis, competitive gaps, user feedback synthesis.</td></tr>
-        </table>
-      </div>
+        <div class="element-group">
+          <div class="element-group-label">Ideate</div>
+          <div class="element-group-items">
+            <div class="element element--ideate">
+              <div class="element-abbr">Di</div>
+              <div class="element-name">diagnose</div>
+              <div class="element-tooltip">Find current problems based on data, value delivery, and feature health</div>
+            </div>
+            <div class="element element--ideate">
+              <div class="element-abbr">Me</div>
+              <div class="element-name">measure</div>
+              <div class="element-tooltip">Check KPI health &mdash; what&rsquo;s working, what&rsquo;s not, where to dig deeper</div>
+            </div>
+            <div class="element element--ideate">
+              <div class="element-abbr">Wo</div>
+              <div class="element-name">workshop</div>
+              <div class="element-tooltip">Ideation workshop &mdash; value chain analysis, competitive gaps, feedback synthesis</div>
+            </div>
+          </div>
+        </div>
 
-      <div class="cmd-group">
-        <div class="cmd-group-label">Craft Layer &mdash; build product artifacts</div>
-        <table class="cmd-table">
-          <tr><td>/roadmap</td><td>Plan a sequence of bets, break into shippable increments, prioritize.</td></tr>
-          <tr><td>/increment</td><td>Scope a product increment end-to-end &mdash; context, spec, implementation, wireframes, and engineering considerations.</td></tr>
-          <tr><td>/critique-product</td><td>Evaluate and validate a PM artifact &mdash; score for rigor, test riskiest assumptions, and decide if it&rsquo;s ready to ship.</td></tr>
-        </table>
-      </div>
+        <div class="element-group">
+          <div class="element-group-label">Craft</div>
+          <div class="element-group-items">
+            <div class="element element--craft">
+              <div class="element-abbr">Ro</div>
+              <div class="element-name">roadmap</div>
+              <div class="element-tooltip">Plan a sequence of bets, break into shippable increments, prioritize</div>
+            </div>
+            <div class="element element--craft">
+              <div class="element-abbr">In</div>
+              <div class="element-name">increment</div>
+              <div class="element-tooltip">Scope an increment end-to-end &mdash; context, spec, implementation, wireframes</div>
+            </div>
+            <div class="element element--craft">
+              <div class="element-abbr">Cr</div>
+              <div class="element-name">critique</div>
+              <div class="element-tooltip">Evaluate and validate a PM artifact &mdash; score for rigor, test riskiest assumptions</div>
+            </div>
+          </div>
+        </div>
 
-      <div class="cmd-group">
-        <div class="cmd-group-label">Communicate Layer &mdash; share with the world</div>
-        <table class="cmd-table">
-          <tr><td>/narrate</td><td>Write product communication for a specific audience, including when stakes are high and stakeholders disagree.</td></tr>
-          <tr><td>/changelog</td><td>Write a changelog from recent PRs and commits, grounded in feature context.</td></tr>
-        </table>
+        <div class="element-group">
+          <div class="element-group-label">Communicate</div>
+          <div class="element-group-items">
+            <div class="element element--communicate">
+              <div class="element-abbr">Na</div>
+              <div class="element-name">narrate</div>
+              <div class="element-tooltip">Write product communication for any audience, even when stakes are high</div>
+            </div>
+            <div class="element element--communicate">
+              <div class="element-abbr">Ch</div>
+              <div class="element-name">changelog</div>
+              <div class="element-tooltip">Write a changelog from recent PRs and commits, grounded in feature context</div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="examples">
@@ -1364,7 +1498,7 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
           <li><a href="#commands">Commands</a></li>
           <li><a href="#slop">Anti-Patterns</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="https://github.com/contenty/acumen" target="_blank">GitHub</a></li>
+          <li><a href="https://github.com/VGrss/Acumen" target="_blank">GitHub</a></li>
           <li><a href="https://agentskills.io" target="_blank">Agent Skills</a></li>
         </ul>
       </div>

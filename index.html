@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acumen — Product fluency for AI</title>
-  <meta name="description" content="1 skill, 15 commands, and curated anti-patterns for sharp product thinking. Stop getting AI product slop.">
+  <meta name="description" content="1 core skill, 15 commands, and 12 anti-patterns for sharp product thinking. Stop getting AI product slop.">
   <meta property="og:title" content="Acumen — Product fluency for AI">
-  <meta property="og:description" content="1 skill, 15 commands, and curated anti-patterns for sharp product thinking.">
+  <meta property="og:description" content="1 core skill, 15 commands, and 12 anti-patterns for sharp product thinking.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9650;</text></svg>">
   <style>
@@ -619,6 +619,90 @@
       margin-top: 0.25rem;
     }
 
+    /* SPLIT: WHAT'S NEW + FAQ */
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .split-column h3 {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--fg-faint);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .changelog-entry {
+      margin-bottom: 1.75rem;
+    }
+
+    .changelog-date {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--fg-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .changelog-entry ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .changelog-entry li {
+      font-size: 0.85rem;
+      color: var(--fg-muted);
+      line-height: 1.6;
+      padding: 0.25rem 0;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .changelog-entry li::before {
+      content: '\2013';
+      position: absolute;
+      left: 0;
+      color: var(--fg-faint);
+    }
+
+    .faq-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-q {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .faq-a {
+      font-size: 0.85rem;
+      color: var(--fg-muted);
+      line-height: 1.6;
+    }
+
+    .faq-a code {
+      font-family: var(--font-mono);
+      background: var(--code-bg);
+      padding: 0.15rem 0.4rem;
+      font-size: 0.85em;
+    }
+
+    @media (max-width: 768px) {
+      .split-section { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
     /* FOOTER */
     footer {
       padding: 3rem 0;
@@ -727,6 +811,7 @@
         <li><a href="#slop">05 Anti-Patterns</a></li>
         <li><a href="#install">06 Install</a></li>
         <li><a href="#principles">07 Principles</a></li>
+        <li><a href="#faq">08 New &amp; FAQ</a></li>
       </ul>
       <a href="https://github.com/contenty/acumen" class="nav-gh" target="_blank">GitHub</a>
     </div>
@@ -736,7 +821,7 @@
   <header class="hero">
     <div class="container">
       <h1>Product fluency<br><span>for AI.</span></h1>
-      <p class="hero-sub">Every LLM learned from the same generic templates. Without guidance, you get product slop. Acumen teaches your AI real product thinking and gives you 15 commands to steer the result.</p>
+      <p class="hero-sub">Great product work requires product vocabulary. Most AI doesn't have it. Acumen teaches your AI deep product thinking and gives you 15 commands to steer the result.</p>
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-number">1</span>
@@ -847,45 +932,45 @@
       <div class="cmd-group">
         <div class="cmd-group-label">Context Layer &mdash; build &amp; maintain product knowledge</div>
         <table class="cmd-table">
-          <tr><td>/teach-acumen</td><td>One-time setup: gather product context, map value chain, save to <code>.acumen.md</code></td></tr>
-          <tr><td>/scout</td><td>Build and maintain a living competitor map (includes deep analysis mode)</td></tr>
-          <tr><td>/persona</td><td>Build behavioral personas from real user patterns</td></tr>
-          <tr><td>/features</td><td>Build a lightweight feature inventory from the codebase</td></tr>
-          <tr><td>/update-acumen</td><td>Fetch latest skills from GitHub and sync locally</td></tr>
+          <tr><td>/teach-acumen</td><td>One-time setup that gathers product context and saves it to <code>.acumen.md</code>. Run once to establish persistent product guidelines.</td></tr>
+          <tr><td>/scout</td><td>Build and maintain a living competitor map. Supports both quick scans and deep competitive analysis.</td></tr>
+          <tr><td>/persona</td><td>Build and maintain behavioral personas grounded in real user patterns.</td></tr>
+          <tr><td>/features</td><td>Build and maintain a lightweight feature inventory. Use after shipping, when planning, or to understand the current product surface.</td></tr>
+          <tr><td>/update-acumen</td><td>Fetch the latest Acumen skills from GitHub and update local copies.</td></tr>
         </table>
       </div>
 
       <div class="cmd-group">
         <div class="cmd-group-label">Audit Layer &mdash; assess product health</div>
         <table class="cmd-table">
-          <tr><td>/orientation</td><td>Audit product identity: thesis coherence, persona alignment, surface coherence, positioning accuracy</td></tr>
-          <tr><td>/defensibility</td><td>Audit moats: network effects, data advantages, switching costs, where to build more</td></tr>
+          <tr><td>/orientation</td><td>Audit product identity &mdash; what we do, for whom, whether the feature surface is coherent with the thesis.</td></tr>
+          <tr><td>/defensibility</td><td>Audit what&rsquo;s hard to copy &mdash; moats, switching costs, data advantages, network effects, and AI-era resilience.</td></tr>
         </table>
       </div>
 
       <div class="cmd-group">
         <div class="cmd-group-label">Ideate Layer &mdash; find problems and opportunities</div>
         <table class="cmd-table">
-          <tr><td>/diagnose</td><td>Find problems based on data, value delivery per persona, feature health</td></tr>
-          <tr><td>/measure</td><td>Check KPI health: what&rsquo;s working, what&rsquo;s not, where to dig deeper</td></tr>
-          <tr><td>/workshop</td><td>Ideation workshop: explore extension points on the value chain, competitive gaps, user feedback synthesis</td></tr>
+          <tr><td>/diagnose</td><td>Find current problems in the product based on data, value delivery for main personas, and current features. Suggests /workshop for ideation on solutions.</td></tr>
+          <tr><td>/measure</td><td>Check KPI health &mdash; what&rsquo;s working, what&rsquo;s not, where to dig deeper. Suggests /workshop for opportunities.</td></tr>
+          <tr><td>/workshop</td><td>Ideation workshop to explore opportunities &mdash; value chain analysis, competitive gaps, user feedback synthesis.</td></tr>
         </table>
       </div>
 
       <div class="cmd-group">
         <div class="cmd-group-label">Craft Layer &mdash; build product artifacts</div>
         <table class="cmd-table">
-          <tr><td>/roadmap</td><td>Plan a sequence of bets as a todo of shippable increments</td></tr>
-          <tr><td>/increment</td><td>Scope a shippable increment end-to-end: spec, implementation, wireframes</td></tr>
-          <tr><td>/critique-product</td><td>Evaluate and validate a PM artifact: score, test assumptions, verdict</td></tr>
+          <tr><td>/roadmap</td><td>Plan a sequence of bets, break into shippable increments, prioritize.</td></tr>
+          <tr><td>/increment</td><td>Scope a product increment end-to-end &mdash; context, spec, implementation, wireframes, and engineering considerations.</td></tr>
+          <tr><td>/critique-product</td><td>Evaluate and validate a PM artifact &mdash; score for rigor, test riskiest assumptions, and decide if it&rsquo;s ready to ship.</td></tr>
         </table>
       </div>
 
       <div class="cmd-group">
         <div class="cmd-group-label">Communicate Layer &mdash; share with the world</div>
         <table class="cmd-table">
-          <tr><td>/narrate</td><td>Write product communication for any audience: execs, engineers, customers, investors</td></tr>
-          <tr><td>/changelog</td><td>Write a changelog from recent PRs, grounded in feature context</td></tr>
+          <tr><td>/narrate</td><td>Write product communication for a specific audience, including when stakes are high and stakeholders disagree.</td></tr>
+          <tr><td>/changelog</td><td>Write a changelog from recent PRs and commits, grounded in feature context.</td></tr>
         </table>
       </div>
 
@@ -1108,13 +1193,19 @@
     </div>
   </section>
 
-  <!-- 05 INSTALL -->
+  <!-- 06 INSTALL -->
   <section id="install">
     <div class="container">
       <div class="section-label">06 &mdash; Get Started</div>
       <h2>Install in under a minute.</h2>
       <p>Acumen follows the <a href="https://agentskills.io/specification" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">Agent Skills spec</a>. Drop the skills into your AI tool and go.</p>
       <div class="install-methods">
+        <div class="install-method">
+          <h4>Recommended</h4>
+          <pre><span class="comment"># Auto-detect your tool and install</span>
+npx skills add contenty/acumen</pre>
+          <p>Works with any tool that supports the Agent Skills spec.</p>
+        </div>
         <div class="install-method">
           <h4>Claude Code (project)</h4>
           <pre><span class="comment"># Copy skills into your project</span>
@@ -1146,10 +1237,12 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
 /measure</pre>
         </div>
       </div>
+
+      <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--fg-faint);">Works with: Claude Code &middot; Cursor &middot; Gemini CLI &middot; Codex CLI &middot; VS Code Copilot &middot; Kiro &middot; OpenCode &middot; and any tool supporting the <a href="https://agentskills.io/specification" target="_blank" style="color: var(--fg-faint); border-bottom: 1px solid var(--border);">Agent Skills spec</a>.</p>
     </div>
   </section>
 
-  <!-- 06 PRINCIPLES -->
+  <!-- 07 PRINCIPLES -->
   <section id="principles">
     <div class="container">
       <div class="section-label">07 &mdash; Principles</div>
@@ -1185,7 +1278,80 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
             <div class="detail">Replace AI slop with product-fluent language.</div>
           </div>
         </li>
+        <li>
+          <div>
+            <div class="rule">Natural flow between skills</div>
+            <div class="detail">Skills suggest the next skill: /diagnose &rarr; /workshop &rarr; /increment &rarr; /critique-product.</div>
+          </div>
+        </li>
       </ul>
+    </div>
+  </section>
+
+  <!-- 08 WHAT'S NEW + FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-label">08 &mdash; What's New &amp; FAQ</div>
+      <div class="split-section">
+
+        <!-- LEFT: What's New -->
+        <div class="split-column" id="whats-new">
+          <h3>What's New</h3>
+
+          <div class="changelog-entry">
+            <div class="changelog-date">April 9, 2026</div>
+            <ul>
+              <li>Value chain context now feeds every skill &mdash; maps each persona's end-to-end workflow with extension points</li>
+              <li>New skills: <strong>/orientation</strong>, <strong>/defensibility</strong>, <strong>/measure</strong>, <strong>/workshop</strong>, <strong>/narrate</strong>, <strong>/changelog</strong></li>
+              <li>Existing skills rewritten with sharper anti-slop guards and cross-skill flow</li>
+              <li><strong>/scout</strong> now categorizes competitors and pulls website data</li>
+              <li><strong>/increment</strong> added &mdash; scope a product increment end-to-end with spec, wireframes, and engineering considerations</li>
+              <li>Renamed <strong>/catalog</strong> to <strong>/features</strong> for clarity</li>
+              <li>Copy-to-clipboard on all install code blocks</li>
+            </ul>
+          </div>
+
+          <div class="changelog-entry">
+            <div class="changelog-date">April 8, 2026</div>
+            <ul>
+              <li>Initial release: 1 core skill, 15 commands, 12 named anti-patterns</li>
+              <li>Product-thinking skill with 7 reference documents across problem discovery, segmentation, prioritization, metrics, spec craft, stakeholder alignment, and competitive intelligence</li>
+              <li>Landing page and full documentation</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- RIGHT: FAQ -->
+        <div class="split-column">
+          <h3>FAQ</h3>
+
+          <div class="faq-item">
+            <div class="faq-q">How do I install Acumen?</div>
+            <div class="faq-a">Run <code>npx skills add contenty/acumen</code> for auto-detection, or copy the <code>.agents</code> and <code>.claude</code> directories into your project root.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">How do I update?</div>
+            <div class="faq-a">Run <code>/update-acumen</code> from within your AI tool, or run <code>npx skills update</code>. Your <code>.acumen.md</code> and context files are preserved.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Commands aren't showing up.</div>
+            <div class="faq-a">Verify the skill files are in the right directory for your tool. For Claude Code, check that <code>.claude/skills/</code> contains the symlinks. For Cursor, ensure Agent Skills is enabled.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Which tools are supported?</div>
+            <div class="faq-a">Claude Code, Cursor, Gemini CLI, Codex CLI, VS Code Copilot, Kiro, OpenCode, and any tool supporting the <a href="https://agentskills.io/specification" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">Agent Skills spec</a>.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Is Acumen free?</div>
+            <div class="faq-a">Everything is Apache 2.0: skills, commands, reference docs &mdash; all free and open source.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Do I need /teach-acumen in every project?</div>
+            <div class="faq-a">Yes, once per project. It generates <code>.acumen.md</code> with your product's context. Without it, commands still work but produce less targeted output.</div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -1193,8 +1359,11 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-left">Acumen &mdash; Apache 2.0. Inspired by <a href="https://github.com/pbakaus/impeccable" target="_blank" style="color: var(--fg-faint); text-decoration: underline;">Impeccable</a>.</div>
+        <div class="footer-left">Acumen &mdash; Apache 2.0. Inspired by <a href="https://impeccable.style" target="_blank" style="color: var(--fg-faint); text-decoration: underline;">Impeccable</a>.</div>
         <ul class="footer-links">
+          <li><a href="#commands">Commands</a></li>
+          <li><a href="#slop">Anti-Patterns</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="https://github.com/contenty/acumen" target="_blank">GitHub</a></li>
           <li><a href="https://agentskills.io" target="_blank">Agent Skills</a></li>
         </ul>

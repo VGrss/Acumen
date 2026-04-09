@@ -12,8 +12,8 @@ export const RemotionRoot = () => {
           component={SkillVideo}
           durationInFrames={450}
           fps={30}
-          width={640}
-          height={360}
+          width={960}
+          height={540}
           defaultProps={{ skill }}
         />
       ))}

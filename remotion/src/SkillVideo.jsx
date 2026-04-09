@@ -24,9 +24,9 @@ const ElementCard = ({ abbr, name, color, frame, fps }) => {
   return (
     <div
       style={{
-        width: 100,
-        height: 100,
-        border: `2px solid ${color}`,
+        width: 140,
+        height: 140,
+        border: `2.5px solid ${color}`,
         background: SURFACE,
         display: "flex",
         flexDirection: "column",
@@ -36,8 +36,8 @@ const ElementCard = ({ abbr, name, color, frame, fps }) => {
         opacity,
       }}
     >
-      <div style={{ fontFamily: FONT, fontSize: 32, fontWeight: 700, color }}>{abbr}</div>
-      <div style={{ fontFamily: FONT, fontSize: 11, color: FAINT, marginTop: 4 }}>{name}</div>
+      <div style={{ fontFamily: FONT, fontSize: 46, fontWeight: 700, color }}>{abbr}</div>
+      <div style={{ fontFamily: FONT, fontSize: 14, color: FAINT, marginTop: 6 }}>{name}</div>
     </div>
   );
 };
@@ -78,7 +78,7 @@ const StepItem = ({ text, index, frame, fps }) => {
       >
         ✓
       </div>
-      <span style={{ fontFamily: SANS, fontSize: 16, color: MUTED }}>{text}</span>
+      <span style={{ fontFamily: SANS, fontSize: 20, color: MUTED }}>{text}</span>
     </div>
   );
 };
@@ -90,7 +90,7 @@ const TypedText = ({ text, frame, charsPerFrame = 0.8 }) => {
   const showCursor = frame % 16 < 10 && chars < text.length;
 
   return (
-    <span style={{ fontFamily: SANS, fontSize: 17, color: MUTED, lineHeight: 1.5 }}>
+    <span style={{ fontFamily: SANS, fontSize: 22, color: MUTED, lineHeight: 1.5 }}>
       {displayed}
       {showCursor && <span style={{ color: FG }}>|</span>}
     </span>
@@ -124,7 +124,7 @@ export const SkillVideo = ({ skill }) => {
   const { fps } = useVideoConfig();
 
   return (
-    <AbsoluteFill style={{ background: BG, padding: 40, fontFamily: SANS }}>
+    <AbsoluteFill style={{ background: BG, padding: 50, fontFamily: SANS }}>
       {/* Phase 1: Intro (0-90 frames / 0-3s) */}
       <Sequence from={0} durationInFrames={90}>
         <AbsoluteFill
@@ -171,9 +171,9 @@ export const SkillVideo = ({ skill }) => {
             <div style={{ flexShrink: 0 }}>
               <div
                 style={{
-                  width: 72,
-                  height: 72,
-                  border: `2px solid ${skill.color}`,
+                  width: 96,
+                  height: 96,
+                  border: `2.5px solid ${skill.color}`,
                   background: SURFACE,
                   display: "flex",
                   flexDirection: "column",
@@ -181,10 +181,10 @@ export const SkillVideo = ({ skill }) => {
                   justifyContent: "center",
                 }}
               >
-                <div style={{ fontFamily: FONT, fontSize: 22, fontWeight: 700, color: skill.color }}>
+                <div style={{ fontFamily: FONT, fontSize: 30, fontWeight: 700, color: skill.color }}>
                   {skill.abbr}
                 </div>
-                <div style={{ fontFamily: FONT, fontSize: 9, color: FAINT, marginTop: 2 }}>
+                <div style={{ fontFamily: FONT, fontSize: 12, color: FAINT, marginTop: 3 }}>
                   {skill.name}
                 </div>
               </div>
@@ -192,7 +192,7 @@ export const SkillVideo = ({ skill }) => {
 
             {/* Right: steps */}
             <div style={{ flex: 1 }}>
-              <div style={{ fontFamily: FONT, fontSize: 13, color: FAINT, marginBottom: 20, letterSpacing: 1 }}>
+              <div style={{ fontFamily: FONT, fontSize: 16, color: FAINT, marginBottom: 24, letterSpacing: 1.5 }}>
                 WHAT IT DOES
               </div>
               {skill.steps.map((step, i) => (
@@ -223,7 +223,7 @@ export const SkillVideo = ({ skill }) => {
           <div
             style={{
               fontFamily: FONT,
-              fontSize: 28,
+              fontSize: 36,
               fontWeight: 700,
               color: FG,
               opacity: interpolate(Math.max(0, frame - 360), [0, 15], [0, 1], {
@@ -236,7 +236,7 @@ export const SkillVideo = ({ skill }) => {
           <div
             style={{
               fontFamily: FONT,
-              fontSize: 13,
+              fontSize: 17,
               color: FAINT,
               opacity: interpolate(Math.max(0, frame - 370), [0, 15], [0, 1], {
                 extrapolateRight: "clamp",

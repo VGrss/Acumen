@@ -83,7 +83,7 @@ For each issue found, assign severity and suggest the Acumen command that would 
 - **P2** — Weakness. Makes the artifact less effective but doesn't block.
 - **P3** — Polish. Would make it better but not urgent.
 
-Available fix commands: `/diagnose`, `/specify`, `/measure`, `/compete`, `/roadmap`, `/validate`, `/simulate`, `/scout`, `/profile`, `/catalog`, `/narrate`
+Available fix commands: `/diagnose`, `/specify`, `/measure`, `/compete`, `/roadmap`, `/validate`, `/simulate`, `/scout`, `/profile`, `/features`, `/narrate`
 
 ## Output Format
 

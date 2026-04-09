@@ -15,6 +15,7 @@ Before doing any product work, establish what you are working on:
 2. **Check `.acumen.md`** in the project root. This is the compact product context file — stage of company, core users, key problems, current bets, what success looks like.
 3. **Run `/teach-acumen`** if neither source exists. Do not hallucinate product context. Ask.
 4. **Check `.acumen/` directory** for extended context files — competitor briefs, persona research, feature inventories, interview notes. Load what is relevant to the current task, not everything.
+5. **Check `.acumen/sources.md`** for data sources (analytics, database, backlog). When a source declares MCP access, use the corresponding MCP tool to pull real data instead of asking the user to describe it. When access is manual, tell the user exactly what data to pull and from where.
 
 If you still lack context after these steps, say so. Fabricated context is worse than no context.
 

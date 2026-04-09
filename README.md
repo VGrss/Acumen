@@ -29,7 +29,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | [Stakeholder Alignment](source/skills/product-thinking/reference/stakeholder-alignment.md) | DACI, disagree-and-commit, managing upward, pre-mortems |
 | [Competitive Intelligence](source/skills/product-thinking/reference/competitive-intelligence.md) | Moat analysis, win/loss, competitive response playbooks |
 
-### 15 Commands in 5 Layers
+### 15 Commands in 6 Layers
 
 #### Context Layer (build & maintain product knowledge)
 
@@ -39,7 +39,6 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | `/scout` | Build and maintain a living competitor map. Supports quick scans and deep analysis |
 | `/persona` | Build and maintain behavioral personas grounded in real user patterns |
 | `/features` | Build and maintain a lightweight feature inventory |
-| `/update-acumen` | Fetch the latest Acumen skills from GitHub and update local copies |
 
 #### Audit Layer (assess product health)
 
@@ -70,6 +69,12 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 |---------|--------------|
 | `/narrate` | Write product communication for a specific audience, including when stakes are high and stakeholders disagree |
 | `/changelog` | Write a changelog from recent PRs and commits, grounded in feature context |
+
+#### Meta Layer (manage Acumen itself)
+
+| Command | What it does |
+|---------|--------------|
+| `/update-acumen` | Fetch the latest Acumen skills from GitHub and update local copies |
 
 #### Usage Examples
 
@@ -138,7 +143,7 @@ source/                          # Source of truth
     scout/SKILL.md               # Context: competitors (+ deep analysis)
     profile/SKILL.md             # Context: personas
     features/SKILL.md            # Context: features
-    update-acumen/SKILL.md       # Context: sync skills from GitHub
+    update-acumen/SKILL.md       # Meta: sync skills from GitHub
     orientation/SKILL.md         # Audit: product identity
     defensibility/SKILL.md       # Audit: moats
     diagnose/SKILL.md            # Ideate: find problems

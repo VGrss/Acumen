@@ -45,3 +45,4 @@ argument-hint: "[target]"     # optional
 - **Ideate**: `/diagnose`, `/measure`, `/workshop`
 - **Craft**: `/roadmap`, `/increment`, `/critique-product`
 - **Communicate**: `/narrate`, `/changelog`
+- **Meta**: `/update-acumen`

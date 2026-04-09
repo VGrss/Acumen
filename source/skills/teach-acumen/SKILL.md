@@ -61,6 +61,8 @@ Synthesize your findings and the user's answers into `.acumen.md` in the project
 ```markdown
 # Product Context
 
+_Last updated: [date]_
+
 ## Users
 [Who they are, the job to be done, switching costs]
 

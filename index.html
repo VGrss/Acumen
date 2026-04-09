@@ -929,6 +929,46 @@
       border-bottom: 1px solid var(--border);
     }
 
+    .changelog-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--fg-faint);
+      cursor: pointer;
+      font-size: 0.6rem;
+      line-height: 1;
+      padding: 0.15rem 0.35rem;
+      margin-left: 0.5rem;
+      border-radius: 3px;
+      vertical-align: middle;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .changelog-toggle:hover {
+      color: var(--fg);
+      border-color: var(--fg-muted);
+    }
+
+    .changelog-toggle-icon {
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+
+    .changelog-toggle-icon.rotated {
+      transform: rotate(180deg);
+    }
+
+    #changelog-entries {
+      overflow: hidden;
+      max-height: 2000px;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 1;
+    }
+
+    #changelog-entries.collapsed {
+      max-height: 0;
+      opacity: 0;
+    }
+
     .changelog-entry {
       margin-bottom: 1.75rem;
     }
@@ -1805,28 +1845,46 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
 
         <!-- LEFT: What's New -->
         <div class="split-column" id="whats-new">
-          <h3>What's New</h3>
+          <h3>
+            What's New
+            <button class="changelog-toggle" onclick="var el=document.getElementById('changelog-entries');el.classList.toggle('collapsed');this.querySelector('.changelog-toggle-icon').classList.toggle('rotated')" aria-label="Toggle changelog">
+              <span class="changelog-toggle-icon">&#x25B4;</span>
+            </button>
+          </h3>
 
-          <div class="changelog-entry">
-            <div class="changelog-date">April 9, 2026</div>
-            <ul>
-              <li>Value chain context now feeds every skill &mdash; maps each persona's end-to-end workflow with extension points</li>
-              <li>New skills: <strong>/orientation</strong>, <strong>/defensibility</strong>, <strong>/measure</strong>, <strong>/workshop</strong>, <strong>/narrate</strong>, <strong>/changelog</strong></li>
-              <li>Existing skills rewritten with sharper anti-slop guards and cross-skill flow</li>
-              <li><strong>/scout</strong> now categorizes competitors and pulls website data</li>
-              <li><strong>/increment</strong> added &mdash; scope a product increment end-to-end with spec, wireframes, and engineering considerations</li>
-              <li>Renamed <strong>/catalog</strong> to <strong>/features</strong> for clarity</li>
-              <li>Copy-to-clipboard on all install code blocks</li>
-            </ul>
-          </div>
+          <div id="changelog-entries">
+            <div class="changelog-entry">
+              <div class="changelog-date">April 9, 2026 &mdash; evening</div>
+              <ul>
+                <li>Periodic-table skill cards with interactive carousel and embedded skill videos</li>
+                <li>"Works with" provider icons showing all supported AI tools</li>
+                <li>New skills: <strong>/cheatsheet</strong>, <strong>/value</strong>, <strong>/feedback</strong></li>
+                <li>Unified Skills &amp; Commands section with knowledge-layer breakdown</li>
+                <li><strong>/update-acumen</strong> moved to new Meta layer</li>
+              </ul>
+            </div>
 
-          <div class="changelog-entry">
-            <div class="changelog-date">April 8, 2026</div>
-            <ul>
-              <li>Initial release: 1 core skill, 16 commands, 12 named anti-patterns</li>
-              <li>Product-thinking skill with 7 reference documents across problem discovery, segmentation, prioritization, metrics, spec craft, stakeholder alignment, and competitive intelligence</li>
-              <li>Landing page and full documentation</li>
-            </ul>
+            <div class="changelog-entry">
+              <div class="changelog-date">April 9, 2026</div>
+              <ul>
+                <li>Value chain context now feeds every skill &mdash; maps each persona's end-to-end workflow with extension points</li>
+                <li>New skills: <strong>/orientation</strong>, <strong>/defensibility</strong>, <strong>/measure</strong>, <strong>/workshop</strong>, <strong>/narrate</strong>, <strong>/changelog</strong></li>
+                <li>Existing skills rewritten with sharper anti-slop guards and cross-skill flow</li>
+                <li><strong>/scout</strong> now categorizes competitors and pulls website data</li>
+                <li><strong>/increment</strong> added &mdash; scope a product increment end-to-end with spec, wireframes, and engineering considerations</li>
+                <li>Renamed <strong>/catalog</strong> to <strong>/features</strong> for clarity</li>
+                <li>Copy-to-clipboard on all install code blocks</li>
+              </ul>
+            </div>
+
+            <div class="changelog-entry">
+              <div class="changelog-date">April 8, 2026</div>
+              <ul>
+                <li>Initial release: 1 core skill, 16 commands, 12 named anti-patterns</li>
+                <li>Product-thinking skill with 7 reference documents across problem discovery, segmentation, prioritization, metrics, spec craft, stakeholder alignment, and competitive intelligence</li>
+                <li>Landing page and full documentation</li>
+              </ul>
+            </div>
           </div>
         </div>
 

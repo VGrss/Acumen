@@ -24,6 +24,8 @@ Mindset: Competitors are everyone hired for the same job — not just companies 
 1. Read `.acumen.md` for product context — users, job to be done, strategy, deliberate exclusions
 2. Read `.acumen/competitors.md` for existing map
 3. For each competitor (new or updated), gather:
+   - Their website URL
+   - Their category: **Direct** (same job, same approach), **Indirect** (same job, different approach), or **Adjacent** (different job, overlapping users)
    - What job they're hired for (may overlap partially with yours)
    - How they position themselves
    - Their actual strengths (not what they claim — what users would say)
@@ -44,10 +46,11 @@ _Last updated: [date]_
 ## The Job
 [One sentence: the job users hire this category of product to do]
 
-## Competitors
+## Direct Competitors
+[Same job, same approach]
 
 ### [Competitor Name]
-- **Type**: Direct / Indirect / Adjacent / DIY alternative
+- **Website**: [URL]
 - **Position**: [How they frame themselves]
 - **Strengths**: [What they're genuinely good at]
 - **Weaknesses**: [Structural, not cosmetic]
@@ -55,13 +58,24 @@ _Last updated: [date]_
 - **Recent moves**: [Last 6 months]
 - **Feature parity trap**: [Features they have that we should NOT blindly copy, and why]
 
-### [Next competitor...]
+## Indirect Competitors
+[Same job, different approach — includes DIY alternatives, manual processes, spreadsheets]
 
-## Our Position
-[How we're different — not better, different. What job do we do that they don't?]
+### [Competitor Name]
+- **Website**: [URL if applicable]
+- **Position**: [How they frame themselves]
+- **Strengths**: [What they're genuinely good at]
+- **Weaknesses**: [Structural, not cosmetic]
+- **Moat**: [What makes them hard to displace]
+- **Recent moves**: [Last 6 months]
 
-## Gaps & Opportunities
-[Underserved jobs, weak spots across the landscape, areas where no one is good enough]
+## Adjacent Competitors
+[Different job, overlapping users — could expand into your space]
+
+### [Competitor Name]
+- **Website**: [URL]
+- **Position**: [How they frame themselves]
+- **Why they matter**: [How they could become direct competitors]
 ```
 
 ## Maintenance

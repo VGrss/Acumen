@@ -265,10 +265,26 @@ export const skills = [
     hoverColor: "#a890c0",
     tagline: "Quick-reference skill card",
     steps: [
-      "Lists all 16 commands",
+      "Lists all 17 commands",
       "Organized by layer",
       "One-line descriptions",
       "Scannable box format",
+    ],
+  },
+  {
+    id: "feedback",
+    name: "/feedback",
+    abbr: "Fb",
+    layer: "Meta",
+    color: "#7a5a9a",
+    borderColor: "#c8b8d8",
+    hoverColor: "#a890c0",
+    tagline: "Structured feedback via GitHub",
+    steps: [
+      "Pick category: bug, idea, general",
+      "Describe the problem",
+      "Clarify impact & who it affects",
+      "Submit as GitHub Discussion",
     ],
   },
 ];

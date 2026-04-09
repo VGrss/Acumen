@@ -47,6 +47,7 @@ Print the cheatsheet in exactly this format. Do not add commentary before or aft
 │  META (manage Acumen itself)                                │
 │    /update-acumen ... Sync latest skills from GitHub         │
 │    /cheatsheet ...... This reference card                    │
+│    /feedback ........ Submit structured feedback via GitHub   │
 │                                                             │
 ├─────────────────────────────────────────────────────────────┤
 │  Tip: Run /teach-acumen first to set up product context.    │

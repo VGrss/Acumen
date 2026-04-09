@@ -455,6 +455,31 @@
       padding: 1rem;
       overflow-x: auto;
       line-height: 1.6;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: transparent;
+      border: 1px solid #444;
+      color: #888;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .copy-btn:hover {
+      color: #e0e0e0;
+      border-color: #888;
+    }
+
+    .copy-btn.copied {
+      color: #4ade80;
+      border-color: #4ade80;
     }
 
     .install-method pre .comment {
@@ -996,6 +1021,28 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
     }, { rootMargin: '-40% 0px -60% 0px' });
 
     sections.forEach(section => observer.observe(section));
+  </script>
+
+  <script>
+    document.querySelectorAll('.install-method pre').forEach(pre => {
+      const btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = 'Copy';
+      btn.addEventListener('click', () => {
+        const clone = pre.cloneNode(true);
+        clone.querySelector('.copy-btn')?.remove();
+        const text = clone.textContent.trim();
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = 'Copied';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = 'Copy';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      pre.appendChild(btn);
+    });
   </script>
 </body>
 </html>

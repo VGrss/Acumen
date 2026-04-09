@@ -1,6 +1,6 @@
 ---
 name: critique-product
-description: Evaluate a PM artifact for rigor, clarity, and slop. Use when reviewing a PRD, spec, strategy, roadmap, or any product document.
+description: Evaluate and validate a PM artifact — score for rigor, test riskiest assumptions, and decide if it's ready to ship. Use when reviewing a PRD, spec, increment, strategy, or roadmap.
 user-invocable: true
 argument-hint: "[artifact]"
 ---
@@ -54,7 +54,7 @@ Count the tells. More than 4 is a problem. More than 7 means the artifact needs 
 
 ### Step 2: Score Across 9 Dimensions
 
-Score each dimension 0-4. Be honest. A 4 means genuinely excellent — clear enough to act on, rigorous enough to defend, and better than 90% of what you've seen. Most artifacts score 18-28 out of 36.
+Score each dimension 0-4. Be honest. A 4 means genuinely excellent. Most artifacts score 18-28 out of 36.
 
 | # | Dimension | What you're evaluating | 0 | 2 | 4 |
 |---|-----------|----------------------|---|---|---|
@@ -74,7 +74,22 @@ Reference [pm-heuristics](reference/pm-heuristics.md) for the full scoring rubri
 
 Reference [reviewer-personas](reference/reviewer-personas.md) to evaluate the artifact from each reviewer's perspective. Flag where specific audiences would get stuck or push back.
 
-### Step 4: Priority Issues
+### Step 4: Assumption Validation
+
+After scoring, identify the riskiest assumptions in the artifact — the ones that, if wrong, make everything else irrelevant. For each:
+
+- **State the assumption** as a falsifiable hypothesis ("We believe [persona] will [behavior] because [reason]")
+- **Check existing signal** — does feedback, analytics, or prior research already validate or invalidate this? Don't propose a test for something you already know.
+- **Match method to assumption type:**
+  - **Behavioral** (will they do X?) — observe actions, not words. Analytics, session recordings.
+  - **Preference** (do they want X over Y?) — ask with commitment attached. "Would you pay?" has signal.
+  - **Technical feasibility** (can we build X?) — prototype or spike, timeboxed.
+  - **Market demand** (does anyone care?) — fake door tests, landing pages, waitlists.
+- **Define decision criteria** before the test: "If we see X, we proceed. If Y, we pivot. If Z, we kill it."
+
+If all key assumptions already have strong signal, say so — validation is not always needed. If the artifact is based on assumptions with no evidence, flag that as the primary issue.
+
+### Step 5: Priority Issues
 
 For each issue found, assign severity and suggest the Acumen command that would fix it:
 
@@ -83,7 +98,7 @@ For each issue found, assign severity and suggest the Acumen command that would 
 - **P2** — Weakness. Makes the artifact less effective but doesn't block.
 - **P3** — Polish. Would make it better but not urgent.
 
-Available fix commands: `/diagnose`, `/specify`, `/measure`, `/compete`, `/roadmap`, `/validate`, `/simulate`, `/scout`, `/profile`, `/features`, `/narrate`
+Available fix commands: `/diagnose`, `/measure`, `/scout`, `/persona`, `/features`, `/narrate`, `/workshop`, `/increment`, `/roadmap`, `/orientation`, `/defensibility`
 
 ## Output Format
 
@@ -93,7 +108,7 @@ Structure your response as:
 Pass or fail, with the specific tells found and quoted evidence from the artifact.
 
 ### Context Grounding Assessment
-How well does this artifact reference the product's actual competitive landscape, personas, and existing user feedback? Is it operating in reality or in a vacuum?
+How well does this artifact reference the product's actual competitive landscape, personas, and existing user feedback?
 
 ### Score Table
 
@@ -113,17 +128,25 @@ How well does this artifact reference the product's actual competitive landscape
 ### What's Working
 Two to three specific strengths. Quote the artifact where it's strong.
 
+### Riskiest Assumptions
+
+For each (up to 3):
+- **Assumption**: [falsifiable hypothesis]
+- **Existing signal**: [what we already know]
+- **Validation method**: [if needed — or "Already validated" / "Low risk"]
+- **Decision criteria**: [go/pivot/kill thresholds]
+
 ### Priority Issues
 
 For each issue:
 - **What**: the specific problem
 - **Why it matters**: the consequence if not fixed
 - **Fix**: concrete suggestion
-- **Command**: which Acumen skill would address this (`/measure`, `/specify`, etc.)
+- **Command**: which Acumen skill would address this
 
 ### Verdict
 
 One of three:
-- **Ship it** — minor polish needed, fundamentally sound
-- **Tighten it** — good bones, but gaps that will cause problems downstream
+- **Ship it** — minor polish needed, fundamentally sound, assumptions are validated or low-risk
+- **Tighten it** — good bones, but gaps that will cause problems downstream. Validate before building.
 - **Rethink it** — structural issues that revision won't fix; needs a different approach

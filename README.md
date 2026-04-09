@@ -1,6 +1,6 @@
 # Acumen
 
-Product fluency for AI. 1 skill, 14 commands, and curated anti-patterns for sharp product thinking.
+Product fluency for AI. 1 skill, 15 commands, and curated anti-patterns for sharp product thinking.
 
 ## Why Acumen?
 
@@ -10,7 +10,7 @@ Every LLM learned from the same generic templates. Without guidance, you get the
 
 Acumen fights that bias with:
 - **A core skill** with 7 domain-specific reference documents ([view source](source/skills/product-thinking/))
-- **14 commands** to diagnose, specify, measure, compete, roadmap, validate, and more
+- **15 commands** organized in 5 layers — from context gathering to shipping changelogs
 - **12 named anti-patterns** ("AI Product Slop") that explicitly tell the AI what NOT to produce
 
 ## What's Included
@@ -29,36 +29,47 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | [Stakeholder Alignment](source/skills/product-thinking/reference/stakeholder-alignment.md) | DACI, disagree-and-commit, managing upward, pre-mortems |
 | [Competitive Intelligence](source/skills/product-thinking/reference/competitive-intelligence.md) | Moat analysis, win/loss, competitive response playbooks |
 
-### 14 Commands
+### 15 Commands in 5 Layers
 
 #### Context Layer (build & maintain product knowledge)
 
 | Command | What it does |
 |---------|--------------|
 | `/teach-acumen` | One-time setup: gather product context, save to `.acumen.md` |
-| `/scout` | Build and maintain a living competitor map |
-| `/profile` | Build behavioral personas from real user patterns |
+| `/scout` | Build and maintain a living competitor map (includes deep analysis mode) |
+| `/persona` | Build behavioral personas from real user patterns |
 | `/features` | Build a lightweight feature inventory from the codebase |
+| `/update-acumen` | Fetch latest skills from GitHub and sync locally (source, .agents, .claude) |
 
-#### Thinking Mode
-
-| Command | What it does |
-|---------|--------------|
-| `/simulate` | Evaluate a feature/decision AS a specific persona |
-
-#### Steering Commands (create PM artifacts)
+#### Audit Layer (assess product health)
 
 | Command | What it does |
 |---------|--------------|
-| `/diagnose` | Root cause analysis with Five Whys and reframing lenses |
-| `/specify` | Write specs that drive good execution, with competitive context |
-| `/measure` | Define metrics with baselines, targets, and counter-metrics |
-| `/compete` | Deep competitive analysis with JTBD and moat evaluation |
-| `/roadmap` | Sequence bets into shippable increments |
-| `/validate` | Test the riskiest assumption before building |
-| `/critique-product` | Score PM artifacts across 9 dimensions (/36) |
-| `/narrate` | Communicate to any audience: execs, engineers, customers, investors |
-| `/increment` | Scope a shippable increment end-to-end: context, implementation, wireframes |
+| `/orientation` | Audit product identity: thesis coherence, persona alignment, surface coherence, positioning accuracy |
+| `/defensibility` | Audit moats: network effects, data advantages, switching costs, where to build more |
+
+#### Ideate Layer (find problems and opportunities)
+
+| Command | What it does |
+|---------|--------------|
+| `/diagnose` | Find problems based on data, value delivery per persona, feature health. Suggests `/workshop` |
+| `/measure` | Check KPI health: what's working, what's not, where to dig deeper. Suggests `/workshop` |
+| `/workshop` | Ideation workshop: value chain analysis, competitive gaps, user feedback synthesis |
+
+#### Craft Layer (build product artifacts)
+
+| Command | What it does |
+|---------|--------------|
+| `/roadmap` | Plan a sequence of bets as a todo of shippable increments |
+| `/increment` | Scope a shippable increment end-to-end: spec, implementation, wireframes. Leads to `/critique-product` |
+| `/critique-product` | Evaluate and validate a PM artifact: score, test assumptions, verdict |
+
+#### Communicate Layer (share with the world)
+
+| Command | What it does |
+|---------|--------------|
+| `/narrate` | Write product communication for any audience: execs, engineers, customers, investors |
+| `/changelog` | Write a changelog from recent PRs, grounded in feature context. Text and video script |
 
 #### Usage Examples
 
@@ -68,16 +79,16 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 /diagnose onboarding drop-off
 ```
 
-**`/specify`** - Write a spec
+**`/orientation`** - Audit product identity
 ```
-/specify self-serve onboarding for SMB
-/specify billing migration to usage-based
+/orientation
+/orientation after the pivot
 ```
 
-**`/critique-product`** - Score an artifact
+**`/workshop`** - Ideate on opportunities
 ```
-/critique-product the PRD I just wrote
-/critique-product our Q3 roadmap
+/workshop integration onboarding
+/workshop expanding into enterprise
 ```
 
 **`/increment`** - Scope a shippable increment
@@ -86,10 +97,16 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 /increment real-time collaboration on dashboards
 ```
 
-**`/simulate`** - Think as a persona
+**`/changelog`** - Write a changelog
 ```
-/simulate power-user reacting to the new pricing page
-/simulate ops-manager evaluating the export redesign
+/changelog last 7 days
+/changelog since v2.1
+```
+
+**`/critique-product`** - Score and validate an artifact
+```
+/critique-product the PRD I just wrote
+/critique-product our Q3 roadmap
 ```
 
 ### Anti-Patterns: AI Product Slop
@@ -118,25 +135,38 @@ source/                          # Source of truth
       SKILL.md
       reference/                 # 7 domain-specific reference docs
     teach-acumen/SKILL.md        # Context: setup
-    scout/SKILL.md               # Context: competitors
+    scout/SKILL.md               # Context: competitors (+ deep analysis)
     profile/SKILL.md             # Context: personas
     features/SKILL.md            # Context: features
-    simulate/SKILL.md            # Thinking mode
-    diagnose/SKILL.md            # Steering command
-    specify/SKILL.md             # Steering command
-    measure/SKILL.md             # Steering command
-    compete/SKILL.md             # Steering command
-    roadmap/SKILL.md             # Steering command
-    validate/SKILL.md            # Steering command
-    critique-product/            # Steering command
+    update-acumen/SKILL.md       # Context: sync skills from GitHub
+    orientation/SKILL.md         # Audit: product identity
+    defensibility/SKILL.md       # Audit: moats
+    diagnose/SKILL.md            # Ideate: find problems
+    measure/SKILL.md             # Ideate: KPI health check
+    workshop/SKILL.md            # Ideate: opportunity exploration
+    roadmap/SKILL.md             # Craft: sequence bets
+    increment/SKILL.md           # Craft: scope increment
+    critique-product/            # Craft: evaluate & validate
       SKILL.md
       reference/                 # Scoring rubric + reviewer personas
-    narrate/SKILL.md             # Steering command
-    increment/SKILL.md           # Steering command
+    narrate/SKILL.md             # Communicate: write for audience
+    changelog/SKILL.md           # Communicate: write changelog
 
 .agents/skills/                  # Agent Skills spec (generic)
 .claude/skills/                  # Claude Code (symlinks to .agents/)
 ```
+
+## Context Files (per-project, gitignored)
+
+| File | Maintained by | Purpose |
+|------|--------------|---------|
+| `.acumen.md` | `/teach-acumen` | Product context |
+| `.acumen/competitors.md` | `/scout` | Living competitor map |
+| `.acumen/personas.md` | `/persona` | Behavioral personas |
+| `.acumen/features.md` | `/features` | Feature inventory |
+| `.acumen/value-chain.md` | `/teach-acumen`, `/profile`, `/workshop` | Value chain map per persona |
+| `.acumen/sources.md` | `/teach-acumen` | Data source configuration |
+| `.acumen/reports/` | `/diagnose`, `/measure`, `/workshop` | Point-in-time analysis reports |
 
 ## Installation
 
@@ -148,6 +178,7 @@ cp -r .claude your-project/
 cp -r .agents your-project/
 
 # Or global
+mkdir -p ~/.claude/skills
 cp -r .agents/skills/* ~/.claude/skills/
 ```
 
@@ -162,17 +193,33 @@ Once installed, start with setup:
 ```
 /teach-acumen              # One-time: gather product context
 /scout                     # Build competitor map
-/profile                   # Build personas
+/persona                   # Build personas
 /features                  # Inventory features
 ```
 
-Then use steering commands as needed:
+Then audit to understand where you are:
+
+```
+/orientation               # Is the product coherent?
+/defensibility             # What's hard to copy?
+```
+
+Then ideate and build:
 
 ```
 /diagnose                  # Find the real problem
-/specify                   # Write a spec
-/measure                   # Define metrics
-/critique-product          # Score your work
+/measure                   # Check KPI health
+/workshop                  # Explore opportunities
+/roadmap                   # Sequence the work
+/increment                 # Scope an increment
+/critique-product          # Score and validate before shipping
+```
+
+And communicate:
+
+```
+/narrate                   # Write for any audience
+/changelog                 # Write a changelog
 ```
 
 ## Design Principles
@@ -180,8 +227,9 @@ Then use steering commands as needed:
 1. **Mindset injection > workflow templates** - Skills set a thinking posture, not process steps
 2. **Opinion > comprehensiveness** - "RICE doesn't ship products, judgment does"
 3. **Brevity > coverage** - 50-100 lines per skill, depth in reference docs
-4. **Context layer feeds steering commands** - Not passive storage, active inputs
+4. **Context layer feeds everything** - Not passive storage, active inputs
 5. **Vocabulary calibration** - Replace AI slop with product-fluent language
+6. **Natural flow** - Skills suggest the next skill: diagnose -> workshop -> increment -> critique
 
 ## License
 

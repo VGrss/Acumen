@@ -1,68 +1,127 @@
 ---
 name: measure
-description: Define metrics that prove whether something worked. Use when you need KPIs, success criteria, experiment design, or analytics requirements.
+description: Check KPI health — what's working, what's not, where to dig deeper. Suggests /workshop for opportunities. Use for metric reviews, health checks, or when something feels off in the numbers.
 user-invocable: true
-argument-hint: "[feature or initiative]"
+argument-hint: "[metric area or question]"
 ---
 
-# Measure
+## MANDATORY PREPARATION
 
-## Preparation
+Invoke /product-thinking — it contains the Context Gathering Protocol and the AI Slop Test. Follow the protocol before proceeding.
 
-Before anything else, invoke `/product-thinking` to load strategic context, user segments, and current product landscape. Without that grounding, metrics float detached from reality.
+---
 
 ## Mindset
 
-If you can't state the baseline, you can't set a target. If you can't define the metric, you can't claim it improved. Metrics exist to create accountability and learning, not dashboards. A metric nobody acts on is waste.
+This is not "define metrics." This is "read the dashboard and tell me what's happening." Metrics exist to create accountability and learning. A metric nobody acts on is waste. Your job is to look at what's actually happening in the numbers, identify where things are working well, where they're not, and surface opportunities for investigation or action.
 
-## Core Reflex
+If you can't get real data, say so. A metric review without data is fiction.
 
-Build a metric tree. Start from the north star and work down:
+## Context Pull
 
-1. **North star metric** — the single number that best captures the value users get
-2. **Input metrics** — the levers that directly influence the north star (things teams can act on)
-3. **Counter-metrics** — guardrails that detect when optimizing one thing breaks another
+1. **Product context.** Read `.acumen.md` — north star metric, strategy, current bets, what success looks like.
+2. **Features.** Read `.acumen/features.md` — what's shipped, feature health, adoption signals.
+3. **Personas.** Read `.acumen/personas.md` — who we serve and how we measure value for each.
+4. **Value chain.** Read `.acumen/value-chain.md` — the end-to-end workflow per persona. Use this to structure metric analysis by chain step: are we measuring value at every step we own?
+5. **Data sources.** Check `.acumen/sources.md` and pull real metrics:
+   - **Analytics** — key funnels, activation rates, retention cohorts, usage patterns. If an MCP server is configured, pull directly. If manual, tell the user exactly what to check.
+   - **Database** — user counts, segment breakdowns, growth rates, churn data.
+   - **Revenue** — MRR/ARR, conversion rates, expansion/contraction if available.
 
-Every layer must connect causally to the one above. If you can't explain the mechanism, the metric doesn't belong in the tree.
+If no data sources are configured, ask the user to share the numbers they have. Work with what exists.
 
-## Key Heuristics
+## Core Protocol
 
-### Every metric needs five things
-- **Precise definition**: no ambiguity about what counts (e.g., "active" means performed core action X in the last 7 days)
-- **Baseline**: the current number, measured the same way
-- **Target**: grounded in realistic change rates, not aspirational round numbers
-- **Measurement method**: where the data comes from, how it's computed, known limitations
-- **Owner**: one person accountable for watching and acting on it
+### 1. Metric Landscape
 
-### Counter-metrics are non-negotiable
-For every primary metric, define what could break. Optimize conversion rate? Watch support tickets and refund rate. Optimize time-to-first-value? Watch retention at day 30. No counter-metric means you're flying blind to second-order effects.
+Start by mapping what's being measured today:
 
-### Leading over lagging
-Prefer leading indicators (behavior changes you can observe now) over lagging indicators (revenue, churn — things you learn about too late to course-correct). Revenue tells you what happened. Activation rate tells you what's about to happen.
+- **North star** — what is it? Is it clearly defined? Is everyone aligned on the definition?
+- **Input metrics** — what levers drive the north star? Are they being tracked?
+- **Counter-metrics** — are guardrails in place? What are they watching?
+- **Gaps** — what should be measured but isn't? What decisions are being made without data?
 
-### Targets grounded in reality
-A 2x improvement on a mature metric is fantasy. Look at historical trends, cohort behavior, and comparable benchmarks. A realistic target you actually hit teaches more than an ambitious one you ignore.
+If the product doesn't have a clear metric framework, flag it. Suggest defining one — and note that `/increment` includes metric definition for new features.
 
-### Instrument before you ship
-Define metrics and confirm instrumentation before launch, not after. If you ship without tracking, you shipped without learning.
+### 2. Health Check
 
-## Reference
+For each key metric, assess:
 
-Consult [metrics-measurement](../product-thinking/reference/metrics-measurement.md) for deeper frameworks on metric hierarchies, experiment design, statistical significance, and common measurement pitfalls.
+| Metric | Current | Trend | Assessment | Action |
+|--------|---------|-------|------------|--------|
+| [name] | [value] | Up / Down / Flat | Healthy / Warning / Critical | [what to do] |
+
+**Healthy** — metric is at or above target, trend is positive or stable.
+**Warning** — metric is below target or trending down, but not yet critical.
+**Critical** — metric is significantly below target, declining, or indicating a structural problem.
+
+### 3. What's Working
+
+Identify bright spots — metrics that are performing well. For each:
+
+- **What's driving it?** Name the specific feature, flow, or behavior.
+- **Is it sustainable?** One-time boost or structural improvement?
+- **Can we amplify it?** Is there an opportunity to double down?
+
+Bright spots are underrated. Teams fixate on problems and miss opportunities to accelerate what's already working.
+
+### 4. What's Not Working
+
+Identify problem areas — metrics that are underperforming. For each:
+
+- **How bad is it?** Quantify the gap between current and target.
+- **Since when?** When did this start? Was there a trigger event?
+- **Who's affected?** Which persona segments show this pattern?
+- **What's the hypothesis?** Why might this be happening?
+
+For each problem area, recommend either:
+- **`/diagnose`** — if the root cause is unclear
+- **`/workshop`** — if the cause is known but the solution isn't
+
+### 5. Persona Value Check
+
+For each primary persona, assess whether the metrics reflect value delivery:
+
+- **Are they activating?** First meaningful action within expected timeframe.
+- **Are they retaining?** Coming back at the expected frequency.
+- **Are they expanding?** Using more features, inviting teammates, upgrading.
+
+If metrics show healthy topline but a specific persona is underperforming, flag it — aggregate health can mask segment-level problems.
 
 ## Output Format
 
-Structure your response as:
+### Metric Health Summary
+One paragraph: overall health posture. Are things broadly healthy with specific concerns, or is there a systemic issue?
 
-1. **North star metric** — definition, current baseline (if known), target, rationale
-2. **Input metrics table**
+### Dashboard
 
-| Metric | Definition | Baseline | Target | Method | Owner |
-|--------|-----------|----------|--------|--------|-------|
-| | | | | | |
+| Metric | Current | Target | Trend | Status | Notes |
+|--------|---------|--------|-------|--------|-------|
+| North star: [name] | | | | | |
+| Input: [name] | | | | | |
+| Counter: [name] | | | | | |
 
-3. **Counter-metrics** — what each guards against, thresholds for alarm
-4. **Experiment design** (if applicable) — hypothesis, variant design, sample size reasoning, duration, success/failure criteria
-5. **Data requirements** — events to instrument, data sources needed, known gaps, privacy considerations
+### What's Working
+Two to three bright spots with evidence and amplification opportunities.
 
-Be specific. "Improve engagement" is not a metric. "Increase 7-day repeat usage from 34% to 40% within 8 weeks of launch" is.
+### What's Not Working
+Two to three problem areas with quantified gaps, hypotheses, and recommended next steps.
+
+### Persona Health
+
+| Persona | Activation | Retention | Expansion | Overall | Action |
+|---------|-----------|-----------|-----------|---------|--------|
+| | | | | Healthy / Warning / Critical | |
+
+### Metric Gaps
+What should be measured but isn't. What decisions are flying blind.
+
+### Suggested Next Steps
+For each finding, recommend the appropriate Acumen command:
+- `/diagnose [area]` — when the cause is unclear
+- `/workshop [topic]` — when ideation is needed
+- `/increment [feature]` — when the fix is scoped and ready to build
+
+---
+
+Save measure output to `.acumen/reports/measure-[date].md`.

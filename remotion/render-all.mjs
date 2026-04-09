@@ -9,11 +9,12 @@ const outDir = path.join(__dirname, "..", "videos");
 if (!existsSync(outDir)) mkdirSync(outDir, { recursive: true });
 
 const skills = [
-  "teach", "scout", "persona", "features", "update",
+  "teach", "scout", "persona", "features", "value", "update",
   "orientation", "defensibility",
   "diagnose", "measure", "workshop",
   "roadmap", "increment", "critique",
   "narrate", "changelog",
+  "cheatsheet",
 ];
 
 for (const skill of skills) {

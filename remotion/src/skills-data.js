@@ -56,6 +56,20 @@ export const skills = [
     ],
   },
   {
+    id: "value",
+    name: "/value",
+    abbr: "Va",
+    layer: "Context",
+    color: "#c4636c",
+    tagline: "Per-persona value & proof metrics",
+    steps: [
+      "Maps value per persona",
+      "Links to north star metrics",
+      "Usage signals that prove delivery",
+      "Confidence matrix: proven vs assumed",
+    ],
+  },
+  {
     id: "update",
     name: "/update",
     abbr: "Up",
@@ -207,6 +221,20 @@ export const skills = [
       "Grounds in feature context",
       "New / improved / fixed",
       "Benefit-first, jargon-free",
+    ],
+  },
+  {
+    id: "cheatsheet",
+    name: "/cheatsheet",
+    abbr: "Cs",
+    layer: "Meta",
+    color: "#7a5a9a",
+    tagline: "Quick-reference skill card",
+    steps: [
+      "Lists all 16 commands",
+      "Organized by layer",
+      "One-line descriptions",
+      "Scannable box format",
     ],
   },
 ];

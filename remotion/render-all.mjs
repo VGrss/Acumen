@@ -15,6 +15,7 @@ const skills = [
   "roadmap", "increment", "critique",
   "narrate", "changelog",
   "cheatsheet",
+  "feedback",
 ];
 
 for (const skill of skills) {

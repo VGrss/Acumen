@@ -263,6 +263,7 @@
       display: flex;
       gap: 1rem;
       align-items: center;
+      justify-content: center;
       flex-wrap: wrap;
     }
 
@@ -1185,6 +1186,24 @@
           <a href="https://ampcode.com" target="_blank" title="Amp">
             <img src="images/providers/amp.svg" alt="Amp" width="22" height="22">
           </a>
+          <a href="https://cline.bot" target="_blank" title="Cline">
+            <img src="images/providers/cline.svg" alt="Cline" width="22" height="22">
+          </a>
+          <a href="https://aider.chat" target="_blank" title="Aider">
+            <img src="images/providers/aider.svg" alt="Aider" width="22" height="22">
+          </a>
+          <a href="https://roocode.com" target="_blank" title="Roo Code">
+            <img src="images/providers/roocode.svg" alt="Roo Code" width="22" height="22">
+          </a>
+          <a href="https://continue.dev" target="_blank" title="Continue">
+            <img src="images/providers/continue.svg" alt="Continue" width="22" height="22">
+          </a>
+          <a href="https://zed.dev" target="_blank" title="Zed">
+            <img src="images/providers/zed.svg" alt="Zed" width="22" height="22">
+          </a>
+          <a href="https://trae.ai" target="_blank" title="Trae">
+            <img src="images/providers/trae.svg" alt="Trae" width="22" height="22">
+          </a>
         </div>
       </div>
     </div>
@@ -1349,6 +1368,11 @@
                 <div class="element-name">cheatsheet</div>
                 <div class="element-tooltip">Quick-reference cheatsheet of all Acumen skills</div>
               </div>
+              <div class="element element--meta" data-skill="feedback">
+                <div class="element-abbr">Fb</div>
+                <div class="element-name">feedback</div>
+                <div class="element-tooltip">Submit structured feedback as a GitHub Discussion</div>
+              </div>
             </div>
           </div>
         </div>
@@ -1421,6 +1445,9 @@
             </div>
             <div class="skill-carousel-nav-item" data-skill="cheatsheet">
               <span class="nav-abbr" style="color:#7a5a9a">Cs</span> cheatsheet
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="feedback">
+              <span class="nav-abbr" style="color:#7a5a9a">Fb</span> feedback
             </div>
           </div>
         </div>
@@ -1720,7 +1747,7 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
         </div>
       </div>
 
-      <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--fg-faint);">Works with: Claude Code &middot; Cursor &middot; Gemini CLI &middot; Codex CLI &middot; VS Code Copilot &middot; Kiro &middot; OpenCode &middot; and any tool supporting the <a href="https://agentskills.io/specification" target="_blank" style="color: var(--fg-faint); border-bottom: 1px solid var(--border);">Agent Skills spec</a>.</p>
+      <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--fg-faint);">Works with: Claude Code &middot; Cursor &middot; Windsurf &middot; Gemini CLI &middot; Codex CLI &middot; GitHub Copilot &middot; Kiro &middot; OpenCode &middot; Amp &middot; Cline &middot; Aider &middot; Roo Code &middot; Continue &middot; Zed &middot; Trae &middot; and any tool supporting the <a href="https://agentskills.io/specification" target="_blank" style="color: var(--fg-faint); border-bottom: 1px solid var(--border);">Agent Skills spec</a>.</p>
     </div>
   </section>
 
@@ -1821,7 +1848,7 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
           </div>
           <div class="faq-item">
             <div class="faq-q">Which tools are supported?</div>
-            <div class="faq-a">Claude Code, Cursor, Gemini CLI, Codex CLI, VS Code Copilot, Kiro, OpenCode, and any tool supporting the <a href="https://agentskills.io/specification" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">Agent Skills spec</a>.</div>
+            <div class="faq-a">Claude Code, Cursor, Windsurf, Gemini CLI, Codex CLI, GitHub Copilot, Kiro, OpenCode, Amp, Cline, Aider, Roo Code, Continue, Zed, Trae, and any tool supporting the <a href="https://agentskills.io/specification" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">Agent Skills spec</a>.</div>
           </div>
           <div class="faq-item">
             <div class="faq-q">Is Acumen free?</div>
@@ -1897,7 +1924,8 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
       narrate: { name: '/narrate', layer: 'Communicate', desc: 'Write product communication for any audience, even when stakes are high. Adapts across five formats: executive summary, engineering brief, customer communication, investor update, and tradeoff negotiation.', examples: ['/narrate board update Q2', '/narrate eng brief for search rewrite'] },
       changelog: { name: '/changelog', layer: 'Communicate', desc: 'Write a changelog from recent PRs and commits, grounded in feature context. Gathers commit history, grounds changes in feature context, categorizes into new/improved/fixed/changed, and generates benefit-first, jargon-free copy.', examples: ['/changelog last 7 days', '/changelog since v2.1'] },
       update: { name: '/update', layer: 'Meta', desc: 'Fetch the latest Acumen skills from GitHub and update local copies. Syncs content into source/skills/, distributes to .agents/skills/, and creates symlinks in .claude/skills/. Reports what\u2019s new, removed, and unchanged.', examples: ['/update-acumen', '/update-acumen --force'] },
-      cheatsheet: { name: '/cheatsheet', layer: 'Meta', desc: 'Print a quick-reference cheatsheet of all Acumen skills, organized by layer. Shows every command with a one-line description in a compact, scannable box format.', examples: ['/cheatsheet'] }
+      cheatsheet: { name: '/cheatsheet', layer: 'Meta', desc: 'Print a quick-reference cheatsheet of all Acumen skills, organized by layer. Shows every command with a one-line description in a compact, scannable box format.', examples: ['/cheatsheet'] },
+      feedback: { name: '/feedback', layer: 'Meta', desc: 'Walk through structured feedback and submit it as a GitHub Discussion. Guides you through problem, impact, and optional solution, then formats and submits to the Acumen repo.', examples: ['/feedback', '/feedback I have a skill idea'] }
     };
 
     // Helper: activate a skill in the carousel

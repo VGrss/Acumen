@@ -1,6 +1,6 @@
 # Acumen
 
-Product fluency for AI. 1 skill, 13 commands, and curated anti-patterns for sharp product thinking.
+Product fluency for AI. 1 skill, 14 commands, and curated anti-patterns for sharp product thinking.
 
 ## Why Acumen?
 
@@ -10,7 +10,7 @@ Every LLM learned from the same generic templates. Without guidance, you get the
 
 Acumen fights that bias with:
 - **A core skill** with 7 domain-specific reference documents ([view source](source/skills/product-thinking/))
-- **13 commands** to diagnose, specify, measure, compete, roadmap, validate, and more
+- **14 commands** to diagnose, specify, measure, compete, roadmap, validate, and more
 - **12 named anti-patterns** ("AI Product Slop") that explicitly tell the AI what NOT to produce
 
 ## What's Included
@@ -29,7 +29,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | [Stakeholder Alignment](source/skills/product-thinking/reference/stakeholder-alignment.md) | DACI, disagree-and-commit, managing upward, pre-mortems |
 | [Competitive Intelligence](source/skills/product-thinking/reference/competitive-intelligence.md) | Moat analysis, win/loss, competitive response playbooks |
 
-### 13 Commands
+### 14 Commands
 
 #### Context Layer (build & maintain product knowledge)
 
@@ -38,7 +38,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | `/teach-acumen` | One-time setup: gather product context, save to `.acumen.md` |
 | `/scout` | Build and maintain a living competitor map |
 | `/profile` | Build behavioral personas from real user patterns |
-| `/catalog` | Build a lightweight feature inventory from the codebase |
+| `/features` | Build a lightweight feature inventory from the codebase |
 
 #### Thinking Mode
 
@@ -58,6 +58,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | `/validate` | Test the riskiest assumption before building |
 | `/critique-product` | Score PM artifacts across 9 dimensions (/36) |
 | `/narrate` | Communicate to any audience: execs, engineers, customers, investors |
+| `/increment` | Scope a shippable increment end-to-end: context, implementation, wireframes |
 
 #### Usage Examples
 
@@ -77,6 +78,12 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 ```
 /critique-product the PRD I just wrote
 /critique-product our Q3 roadmap
+```
+
+**`/increment`** - Scope a shippable increment
+```
+/increment self-serve team onboarding
+/increment real-time collaboration on dashboards
 ```
 
 **`/simulate`** - Think as a persona
@@ -113,7 +120,7 @@ source/                          # Source of truth
     teach-acumen/SKILL.md        # Context: setup
     scout/SKILL.md               # Context: competitors
     profile/SKILL.md             # Context: personas
-    catalog/SKILL.md             # Context: features
+    features/SKILL.md            # Context: features
     simulate/SKILL.md            # Thinking mode
     diagnose/SKILL.md            # Steering command
     specify/SKILL.md             # Steering command
@@ -125,6 +132,7 @@ source/                          # Source of truth
       SKILL.md
       reference/                 # Scoring rubric + reviewer personas
     narrate/SKILL.md             # Steering command
+    increment/SKILL.md           # Steering command
 
 .agents/skills/                  # Agent Skills spec (generic)
 .claude/skills/                  # Claude Code (symlinks to .agents/)
@@ -155,7 +163,7 @@ Once installed, start with setup:
 /teach-acumen              # One-time: gather product context
 /scout                     # Build competitor map
 /profile                   # Build personas
-/catalog                   # Inventory features
+/features                  # Inventory features
 ```
 
 Then use steering commands as needed:

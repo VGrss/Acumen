@@ -1,5 +1,5 @@
 ---
-name: catalog
+name: features
 description: Build and maintain a lightweight feature inventory. Use after shipping, when planning, or to understand the current product surface.
 user-invocable: true
 argument-hint: "[feature name or area]"

@@ -47,6 +47,11 @@ Ask the user directly. Focus only on what you couldn't infer from the codebase:
 - Where does user feedback live? (Linear, Notion, Slack channel, local file, interviews, support tickets, other)
 - How often is it reviewed?
 
+### Data Sources
+- **Analytics**: What analytics tool do you use? (PostHog, Amplitude, Mixpanel, GA, other) How is it accessed? (MCP server, API, dashboard URL)
+- **Database**: What database holds user/product data? (Supabase, Postgres, Planetscale, other) Is there read access available? (MCP server, read replica, direct connection)
+- **Backlog**: Where does the product backlog live? (Linear, Notion database, Jira, GitHub Issues, other) How is it accessed? (MCP server, API, URL)
+
 Skip questions where the answer is already clear from the codebase exploration.
 
 ## Step 3: Write Product Context
@@ -55,6 +60,8 @@ Synthesize your findings and the user's answers into `.acumen.md` in the project
 
 ```markdown
 # Product Context
+
+_Last updated: [date]_
 
 ## Users
 [Who they are, the job to be done, switching costs]
@@ -76,6 +83,9 @@ Synthesize your findings and the user's answers into `.acumen.md` in the project
 
 ## Feedback Source
 [Where feedback lives, how it's accessed, review cadence]
+
+## Data Sources
+[Analytics, database, and backlog tools — what they are, how they're accessed, what key data they hold]
 ```
 
 If `.acumen.md` already exists, update sections in place.
@@ -86,19 +96,56 @@ Create the `.acumen/` directory with placeholder files:
 
 - **`.acumen/competitors.md`**: Empty with header `# Competitor Map` and note: "Run /scout to build this out."
 - **`.acumen/personas.md`**: Empty with header `# Personas` and note: "Run /profile to build this out."
-- **`.acumen/features.md`**: Empty with header `# Feature Inventory` and note: "Run /catalog to build this out."
+- **`.acumen/features.md`**: Empty with header `# Feature Inventory` and note: "Run /features to build this out."
+- **`.acumen/sources.md`**: Structured data sources file based on the user's answers. See format below.
 
 If any file already exists, leave it untouched.
+
+### `.acumen/sources.md` Format
+
+```markdown
+# Data Sources
+
+Sources of real data available to product skills. Each source declares what it is, how to access it, and what key data it holds.
+
+## Analytics
+<!-- Tool used to track product usage -->
+
+- **Tool**: [PostHog / Amplitude / Mixpanel / GA / other]
+- **Access**: [MCP server name / API / dashboard URL / manual]
+- **Key events**: [signup, feature_used, checkout, etc.]
+- **Key dashboards**: [retention, activation funnel, etc.]
+
+## Database
+<!-- Primary data store for users and product data -->
+
+- **Tool**: [Supabase / Postgres / Planetscale / other]
+- **Access**: [MCP server name / read replica / manual query]
+- **Key tables**: [users, subscriptions, usage_logs, etc.]
+- **Read-only**: [yes / no]
+
+## Backlog
+<!-- Where product work is tracked -->
+
+- **Tool**: [Linear / Notion / Jira / GitHub Issues / other]
+- **Access**: [MCP server name / API / URL / manual]
+- **Project / space**: [project identifier]
+- **Key views**: [triage, in progress, shipped, etc.]
+```
+
+If the user has no tool for a category, omit that section entirely. Do not fill with "Unknown — needs setup."
 
 ## Step 5: Next Steps
 
 Confirm completion and tell the user:
 
-> Product context saved to `.acumen.md`. Three living knowledge files are ready to build:
+> Product context saved to `.acumen.md`. Data sources captured in `.acumen/sources.md`. Three living knowledge files are ready to build:
 >
 > - `/scout` — map your competitive landscape
 > - `/profile` — build behavioral personas from real user patterns
-> - `/catalog` — inventory your feature surface
+> - `/features` — inventory your feature surface
+>
+> Skills like `/diagnose`, `/measure`, and `/profile` will use your configured data sources to pull real data instead of relying on narrative alone.
 >
 > Run any of these now, or come back to them as needed. They stay current by being re-run.
 

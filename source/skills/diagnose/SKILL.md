@@ -21,6 +21,13 @@ Before diagnosing anything, gather signal:
 
 3. **Quantify.** How many users? Which segments? What severity — annoyance, blocker, or churn trigger? If you cannot quantify, say so. "We think it's bad" is not a diagnosis.
 
+4. **Data sources.** Check `.acumen/sources.md` and pull real data to ground the diagnosis:
+   - **Analytics** — Query for usage patterns, funnels, drop-offs, and trends related to the symptom. If a MCP server is configured, pull the data directly. If manual, tell the user exactly what query or dashboard to check.
+   - **Database** — Query for user segments, cohort sizes, and behavioral patterns that quantify the problem. Use read-only access to count affected users, measure frequency, segment by plan/role/tenure.
+   - **Backlog** — Search for related tickets, bugs, and feature requests. How many times has this been reported? Is there existing work in progress? What priority was it assigned?
+
+   If no data sources are configured, say so explicitly — and flag that the diagnosis is based on narrative, not measurement.
+
 ---
 
 ## Mindset

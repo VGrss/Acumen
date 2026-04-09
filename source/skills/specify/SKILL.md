@@ -21,7 +21,7 @@ This is what makes specify different from generic spec writing. A spec without c
 
 3. **User signal.** Check configured feedback sources for evidence that this problem exists and matters. How many users mentioned it? What exact words did they use? What workarounds do they have? If there is no signal, flag it — you may be solving a problem nobody has.
 
-4. **After specifying**, update `.acumen/features.md` with the new feature entry. Include name, status, target persona, and the core bet. Keep the inventory current.
+4. **After specifying**, update `.acumen/features.md` with the new feature entry. Include name, status, target persona, and the core bet. Update the `_Last updated_` line to today's date. Keep the inventory current.
 
 ---
 

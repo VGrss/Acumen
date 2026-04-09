@@ -280,32 +280,214 @@
       color: var(--fg);
     }
 
-    /* SKILL / REFERENCES */
+    /* SKILL / REFERENCES — Mendeleev periodic table style */
     .ref-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-top: 2rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin-top: 2.5rem;
     }
 
     .ref-card {
       background: var(--surface);
-      padding: 1.5rem;
+      border: 1.5px solid var(--border);
+      padding: 1rem;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .ref-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .ref-card .ref-number {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--fg-faint);
+      position: absolute;
+      top: 0.6rem;
+      left: 0.75rem;
+    }
+
+    .ref-card .ref-abbr {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 1.2rem;
+      text-align: center;
+      line-height: 1;
     }
 
     .ref-card h4 {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 0.5rem;
+      letter-spacing: 0.02em;
     }
 
     .ref-card p {
-      font-size: 0.85rem;
+      font-size: 0.7rem;
       color: var(--fg-muted);
-      line-height: 1.5;
+      line-height: 1.4;
+      text-align: center;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+
+    /* Ref card category colors */
+    .ref-card--discover { border-color: #e8b4b8; }
+    .ref-card--discover .ref-abbr { color: #c4636c; }
+    .ref-card--users { border-color: #d4b8e8; }
+    .ref-card--users .ref-abbr { color: #8a5ab5; }
+    .ref-card--strategy { border-color: #b4c8e8; }
+    .ref-card--strategy .ref-abbr { color: #5a8abf; }
+    .ref-card--metrics { border-color: #b8e0b8; }
+    .ref-card--metrics .ref-abbr { color: #3da63d; }
+    .ref-card--spec { border-color: #e8d4a8; }
+    .ref-card--spec .ref-abbr { color: #b89430; }
+    .ref-card--align { border-color: #a8d8e8; }
+    .ref-card--align .ref-abbr { color: #3090b0; }
+    .ref-card--intel { border-color: #e8c4a8; }
+    .ref-card--intel .ref-abbr { color: #c06830; }
+
+    /* SKILL CAROUSEL */
+    .skill-carousel {
+      display: flex;
+      gap: 0;
+      margin-top: 3rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      min-height: 420px;
+    }
+
+    .skill-carousel-nav {
+      width: 220px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      max-height: 420px;
+    }
+
+    .skill-carousel-nav-group {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-carousel-nav-group:last-child {
+      border-bottom: none;
+    }
+
+    .skill-carousel-nav-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fg-faint);
+      padding: 0.6rem 1rem 0.3rem;
+    }
+
+    .skill-carousel-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--fg-muted);
+      transition: background 0.1s, color 0.1s;
+      border-left: 3px solid transparent;
+    }
+
+    .skill-carousel-nav-item:hover {
+      background: var(--surface-alt);
+      color: var(--fg);
+    }
+
+    .skill-carousel-nav-item.active {
+      background: var(--surface-alt);
+      color: var(--fg);
+      font-weight: 600;
+      border-left-color: var(--fg);
+    }
+
+    .skill-carousel-nav-item .nav-abbr {
+      font-size: 0.7rem;
+      font-weight: 600;
+      width: 24px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .skill-carousel-detail {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .skill-carousel-detail-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-carousel-detail-header h3 {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .skill-carousel-detail-header .skill-layer {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fg-faint);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+    }
+
+    .skill-carousel-detail-desc {
+      font-size: 0.9rem;
+      color: var(--fg-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 540px;
+    }
+
+    .skill-carousel-video {
+      flex: 1;
+      min-height: 200px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .skill-carousel-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+
+    .skill-carousel-video .video-placeholder {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--fg-faint);
+      text-align: center;
     }
 
     /* COMMANDS — periodic table layout */
@@ -847,7 +1029,23 @@
       .hero-stats { gap: 2rem; }
       .stat-number { font-size: 1.5rem; }
 
-      .ref-grid,
+      .ref-grid { grid-template-columns: repeat(2, 1fr); }
+      .ref-card { aspect-ratio: auto; min-height: 120px; }
+
+      .skill-carousel { flex-direction: column; min-height: auto; }
+      .skill-carousel-nav {
+        width: 100%;
+        max-height: 200px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        overflow-x: auto;
+      }
+      .skill-carousel-nav-group { border-bottom: none; }
+      .skill-carousel-nav-item { border-left: none; border-bottom: 3px solid transparent; padding: 0.4rem 0.75rem; }
+      .skill-carousel-nav-item.active { border-left-color: transparent; border-bottom-color: var(--fg); }
+
       .examples,
       .install-methods,
       .context-files { grid-template-columns: 1fr; }
@@ -962,33 +1160,126 @@
       <h2>Deep reference knowledge across 7 product dimensions.</h2>
       <p>The <code style="font-family: var(--font-mono); background: var(--code-bg); padding: 0.15rem 0.4rem; font-size: 0.85em;">product-thinking</code> core skill loads automatically. It injects 7 reference documents that calibrate your AI's product vocabulary.</p>
       <div class="ref-grid">
-        <div class="ref-card">
+        <div class="ref-card ref-card--discover">
+          <span class="ref-number">01</span>
+          <div class="ref-abbr">Pd</div>
           <h4>Problem Discovery</h4>
           <p>JTBD, Five Whys, Switch Framework, interview anti-patterns</p>
         </div>
-        <div class="ref-card">
+        <div class="ref-card ref-card--users">
+          <span class="ref-number">02</span>
+          <div class="ref-abbr">Us</div>
           <h4>User Segmentation</h4>
           <p>Behavioral cohorts, personas, anti-personas, journey mapping</p>
         </div>
-        <div class="ref-card">
+        <div class="ref-card ref-card--strategy">
+          <span class="ref-number">03</span>
+          <div class="ref-abbr">Ps</div>
           <h4>Prioritization &amp; Strategy</h4>
           <p>ICE/RICE limitations, sequencing logic, regret minimization</p>
         </div>
-        <div class="ref-card">
+        <div class="ref-card ref-card--metrics">
+          <span class="ref-number">04</span>
+          <div class="ref-abbr">Mm</div>
           <h4>Metrics &amp; Measurement</h4>
           <p>Metric trees, counter-metrics, leading indicators, north stars</p>
         </div>
-        <div class="ref-card">
+        <div class="ref-card ref-card--spec">
+          <span class="ref-number">05</span>
+          <div class="ref-abbr">Sc</div>
           <h4>Specification Craft</h4>
           <p>Working backward, acceptance criteria, edge case categories</p>
         </div>
-        <div class="ref-card">
+        <div class="ref-card ref-card--align">
+          <span class="ref-number">06</span>
+          <div class="ref-abbr">Sa</div>
           <h4>Stakeholder Alignment</h4>
           <p>DACI, disagree-and-commit, managing upward, pre-mortems</p>
         </div>
-        <div class="ref-card">
+        <div class="ref-card ref-card--intel">
+          <span class="ref-number">07</span>
+          <div class="ref-abbr">Ci</div>
           <h4>Competitive Intelligence</h4>
           <p>Moat analysis, win/loss, competitive response playbooks</p>
+        </div>
+      </div>
+
+      <!-- Skill Carousel -->
+      <div class="skill-carousel" id="skill-carousel">
+        <div class="skill-carousel-nav" id="skill-carousel-nav">
+          <div class="skill-carousel-nav-group">
+            <div class="skill-carousel-nav-label">Context</div>
+            <div class="skill-carousel-nav-item active" data-skill="teach">
+              <span class="nav-abbr" style="color:#c4636c">Te</span> teach
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="scout">
+              <span class="nav-abbr" style="color:#c4636c">Sc</span> scout
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="persona">
+              <span class="nav-abbr" style="color:#c4636c">Pe</span> persona
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="features">
+              <span class="nav-abbr" style="color:#c4636c">Fe</span> features
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="update">
+              <span class="nav-abbr" style="color:#c4636c">Up</span> update
+            </div>
+          </div>
+          <div class="skill-carousel-nav-group">
+            <div class="skill-carousel-nav-label">Audit</div>
+            <div class="skill-carousel-nav-item" data-skill="orientation">
+              <span class="nav-abbr" style="color:#5a9a5a">Or</span> orientation
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="defensibility">
+              <span class="nav-abbr" style="color:#5a9a5a">De</span> defensibility
+            </div>
+          </div>
+          <div class="skill-carousel-nav-group">
+            <div class="skill-carousel-nav-label">Ideate</div>
+            <div class="skill-carousel-nav-item" data-skill="diagnose">
+              <span class="nav-abbr" style="color:#5a8abf">Di</span> diagnose
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="measure">
+              <span class="nav-abbr" style="color:#5a8abf">Me</span> measure
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="workshop">
+              <span class="nav-abbr" style="color:#5a8abf">Wo</span> workshop
+            </div>
+          </div>
+          <div class="skill-carousel-nav-group">
+            <div class="skill-carousel-nav-label">Craft</div>
+            <div class="skill-carousel-nav-item" data-skill="roadmap">
+              <span class="nav-abbr" style="color:#3da63d">Ro</span> roadmap
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="increment">
+              <span class="nav-abbr" style="color:#3da63d">In</span> increment
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="critique">
+              <span class="nav-abbr" style="color:#3da63d">Cr</span> critique
+            </div>
+          </div>
+          <div class="skill-carousel-nav-group">
+            <div class="skill-carousel-nav-label">Communicate</div>
+            <div class="skill-carousel-nav-item" data-skill="narrate">
+              <span class="nav-abbr" style="color:#b89430">Na</span> narrate
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="changelog">
+              <span class="nav-abbr" style="color:#b89430">Ch</span> changelog
+            </div>
+          </div>
+        </div>
+        <div class="skill-carousel-detail" id="skill-carousel-detail">
+          <div class="skill-carousel-detail-header">
+            <h3 id="skill-detail-name">/teach</h3>
+            <span class="skill-layer" id="skill-detail-layer">Context</span>
+          </div>
+          <p class="skill-carousel-detail-desc" id="skill-detail-desc">One-time setup that gathers product context for your project and saves it to .acumen.md. It guides you through exploring the codebase, asking product-focused questions about users, market, business model, strategy, and metrics, then synthesizes findings into persistent context.</p>
+          <div class="skill-carousel-video" id="skill-detail-video">
+            <video id="skill-video" autoplay loop muted playsinline>
+              <source src="videos/teach.mp4" type="video/mp4">
+            </video>
+            <div class="video-placeholder" id="video-placeholder" style="display:none;">Video loading...</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1529,6 +1820,56 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
     }, { rootMargin: '-40% 0px -60% 0px' });
 
     sections.forEach(section => observer.observe(section));
+  </script>
+
+  <script>
+    // Skill carousel data
+    const skillData = {
+      teach: { name: '/teach', layer: 'Context', desc: 'One-time setup that gathers product context for your project and saves it to .acumen.md. It guides you through exploring the codebase, asking product-focused questions about users, market, business model, strategy, and metrics, then synthesizes findings into persistent context.' },
+      scout: { name: '/scout', layer: 'Context', desc: 'Build and maintain a living competitor map. Supports quick scans and deep competitive analysis. Maps competitors using job-to-be-done thinking, categorizing them as direct, indirect, or adjacent. Includes deep analysis mode with moat evaluation and positioning.' },
+      persona: { name: '/persona', layer: 'Context', desc: 'Build and maintain behavioral personas grounded in real user patterns. Builds personas from behavior outward\u2014not demographics\u2014capturing the job they hire the product to do, context of use, pain points, success criteria, and feedback signals.' },
+      features: { name: '/features', layer: 'Context', desc: 'Build and maintain a lightweight feature inventory. Scans the codebase for feature surfaces, maps each feature to personas, tracks status and metrics, groups into coherent areas, and identifies gaps, decay, and unmeasured features.' },
+      update: { name: '/update', layer: 'Context', desc: 'Fetch the latest Acumen skills from GitHub and update local copies. Syncs content into source/skills/, distributes to .agents/skills/, and creates symlinks in .claude/skills/. Reports what\u2019s new, removed, and unchanged.' },
+      orientation: { name: '/orientation', layer: 'Audit', desc: 'Audit product identity \u2014 what we do, for whom, whether the feature surface is coherent with the thesis. Examines thesis coherence, persona alignment, surface coherence through breadth vs. depth, and tests the positioning statement.' },
+      defensibility: { name: '/defensibility', layer: 'Audit', desc: 'Audit what\u2019s hard to copy \u2014 moats, switching costs, data advantages, network effects, and AI-era resilience. Evaluates 7 AI-era moat dimensions, classical moats, vulnerability scenarios, and value chain control.' },
+      diagnose: { name: '/diagnose', layer: 'Ideate', desc: 'Find current problems based on data, value delivery, and feature health. Uses a value delivery audit, five whys protocol with evidence categorization, feature health checks, and reframing lenses before recommending action.' },
+      measure: { name: '/measure', layer: 'Ideate', desc: 'Check KPI health \u2014 what\u2019s working, what\u2019s not, where to dig deeper. Maps the metric landscape (north star, input metrics, counter-metrics), performs health checks, identifies bright spots and problems, and assesses value delivery by persona.' },
+      workshop: { name: '/workshop', layer: 'Ideate', desc: 'Ideation workshop to explore opportunities. Applies three lenses\u2014value chain analysis, competitive feature scan, and user signal synthesis\u2014then generates opportunities ranked by evidence strength and thesis fit.' },
+      roadmap: { name: '/roadmap', layer: 'Craft', desc: 'Plan a sequence of bets, break into shippable increments, prioritize. Organizes by strategic themes, sequences by dependencies and compounding value, breaks into vertical slices, and includes triage mode for backlog prioritization.' },
+      increment: { name: '/increment', layer: 'Craft', desc: 'Scope a product increment end-to-end \u2014 context, spec, implementation, wireframes, and engineering considerations. Produces a comprehensive spec including the bet, opportunity, personas, success metrics, scope tiers, and wireframes.' },
+      critique: { name: '/critique', layer: 'Craft', desc: 'Evaluate and validate a PM artifact \u2014 score for rigor, test riskiest assumptions. Runs the AI Slop Test (12 tells), scores across 9 dimensions, identifies riskiest assumptions with validation methods, and provides a ship/tighten/rethink verdict.' },
+      narrate: { name: '/narrate', layer: 'Communicate', desc: 'Write product communication for any audience, even when stakes are high. Adapts across five formats: executive summary, engineering brief, customer communication, investor update, and tradeoff negotiation.' },
+      changelog: { name: '/changelog', layer: 'Communicate', desc: 'Write a changelog from recent PRs and commits, grounded in feature context. Gathers commit history, grounds changes in feature context, categorizes into new/improved/fixed/changed, and generates benefit-first, jargon-free copy.' }
+    };
+
+    // Carousel navigation
+    document.querySelectorAll('.skill-carousel-nav-item').forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelectorAll('.skill-carousel-nav-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        const skill = item.dataset.skill;
+        const data = skillData[skill];
+        document.getElementById('skill-detail-name').textContent = data.name;
+        document.getElementById('skill-detail-layer').textContent = data.layer;
+        document.getElementById('skill-detail-desc').textContent = data.desc;
+        const video = document.getElementById('skill-video');
+        const placeholder = document.getElementById('video-placeholder');
+        video.src = 'videos/' + skill + '.mp4';
+        video.load();
+        video.play().catch(() => {
+          video.style.display = 'none';
+          placeholder.style.display = 'block';
+        });
+        video.style.display = 'block';
+        placeholder.style.display = 'none';
+      });
+    });
+
+    // Handle missing video gracefully
+    document.getElementById('skill-video').addEventListener('error', function() {
+      this.style.display = 'none';
+      document.getElementById('video-placeholder').style.display = 'block';
+    });
   </script>
 
   <script>

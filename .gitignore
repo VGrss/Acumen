@@ -16,3 +16,6 @@ Thumbs.db
 
 # Context directory (Conductor workspace)
 .context/
+
+# Remotion build artifacts
+remotion/node_modules/

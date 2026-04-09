@@ -1,5 +1,5 @@
 ---
-name: profile
+name: persona
 description: Build and maintain behavioral personas grounded in real user patterns. Use when launching, after user research, or when user understanding feels stale.
 user-invocable: true
 argument-hint: "[persona name or user segment]"

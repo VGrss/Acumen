@@ -28,6 +28,11 @@ Ask the user directly. Focus only on what you couldn't infer from the codebase:
 - Who else gets hired for the same job? (Direct competitors, spreadsheets, manual processes, doing nothing)
 - What's the switching cost away from you?
 
+### Value Chain
+- What does the user do before and after using the product? Walk me through the full workflow end-to-end.
+- Where in that workflow does the product bring value? Where is the user on their own (manual steps, other tools)?
+- Are there different workflows per user type?
+
 ### Business Model
 - How does it make money? (Or how will it?)
 - What stage is the product in? (Pre-launch, finding PMF, scaling, mature)
@@ -95,11 +100,43 @@ If `.acumen.md` already exists, update sections in place.
 Create the `.acumen/` directory with placeholder files:
 
 - **`.acumen/competitors.md`**: Empty with header `# Competitor Map` and note: "Run /scout to build this out."
-- **`.acumen/personas.md`**: Empty with header `# Personas` and note: "Run /profile to build this out."
+- **`.acumen/personas.md`**: Empty with header `# Personas` and note: "Run /persona to build this out."
 - **`.acumen/features.md`**: Empty with header `# Feature Inventory` and note: "Run /features to build this out."
+- **`.acumen/value-chain.md`**: Value chain map based on the user's answers. See format below.
 - **`.acumen/sources.md`**: Structured data sources file based on the user's answers. See format below.
 
 If any file already exists, leave it untouched.
+
+### `.acumen/value-chain.md` Format
+
+```markdown
+# Value Chain
+
+_Last updated: [date]_
+
+The end-to-end workflow showing where the product sits in each persona's job. One unified chain with persona-specific annotations.
+
+## Workflow Steps
+
+| Step | What happens | Persona(s) involved | Our role | Current tool / method | Friction / workaround |
+|------|-------------|---------------------|----------|----------------------|----------------------|
+| 1. [Step name] | [Description] | [Persona A, Persona B] | Own / Assist / None | [Tool or manual] | [Pain point if any] |
+| 2. ... | | | | | |
+
+## Where We Bring Value
+
+Steps where the product owns or significantly assists the workflow. Note the value delivered and how it's measured.
+
+## Extension Points
+
+Steps where the persona switches tools, does manual work, or loses time. These are potential expansion opportunities for the product.
+
+## Persona Paths
+
+If personas follow different workflows, note the divergence points and why.
+```
+
+If the user cannot describe the workflow in detail, seed the file with what's known from the codebase and mark gaps with "Unknown — needs discovery." This file will be enriched by `/profile` and `/workshop` as understanding deepens.
 
 ### `.acumen/sources.md` Format
 
@@ -139,13 +176,13 @@ If the user has no tool for a category, omit that section entirely. Do not fill 
 
 Confirm completion and tell the user:
 
-> Product context saved to `.acumen.md`. Data sources captured in `.acumen/sources.md`. Three living knowledge files are ready to build:
+> Product context saved to `.acumen.md`. Value chain mapped in `.acumen/value-chain.md`. Data sources captured in `.acumen/sources.md`. Three living knowledge files are ready to build:
 >
 > - `/scout` — map your competitive landscape
-> - `/profile` — build behavioral personas from real user patterns
+> - `/persona` — build behavioral personas from real user patterns
 > - `/features` — inventory your feature surface
 >
-> Skills like `/diagnose`, `/measure`, and `/profile` will use your configured data sources to pull real data instead of relying on narrative alone.
+> Skills like `/diagnose`, `/measure`, and `/persona` will use your configured data sources to pull real data instead of relying on narrative alone.
 >
 > Run any of these now, or come back to them as needed. They stay current by being re-run.
 

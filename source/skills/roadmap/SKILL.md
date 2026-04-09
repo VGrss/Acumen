@@ -13,7 +13,7 @@ Before anything else, invoke `/product-thinking` to load strategic context, user
 
 ## Context Pull
 
-Read `.acumen/features.md` for the current product landscape and known gaps. Read `.acumen/competitors.md` for competitive pressure and timing considerations. Sequence bets against both — internal capability gaps and external market pressure.
+Read `.acumen/features.md` for the current product landscape and known gaps. Read `.acumen/competitors.md` for competitive pressure and timing considerations. Read `.acumen/value-chain.md` for the end-to-end workflow per persona — sequence bets by which chain steps to strengthen or extend. Sequence bets against all three — value chain coverage, internal capability gaps, and external market pressure.
 
 ## Mindset
 

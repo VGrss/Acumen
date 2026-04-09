@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acumen — Product fluency for AI</title>
-  <meta name="description" content="1 skill, 14 commands, and curated anti-patterns for sharp product thinking. Stop getting AI product slop.">
+  <meta name="description" content="1 skill, 15 commands, and curated anti-patterns for sharp product thinking. Stop getting AI product slop.">
   <meta property="og:title" content="Acumen — Product fluency for AI">
-  <meta property="og:description" content="1 skill, 14 commands, and curated anti-patterns for sharp product thinking.">
+  <meta property="og:description" content="1 skill, 15 commands, and curated anti-patterns for sharp product thinking.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9650;</text></svg>">
   <style>
@@ -386,6 +386,96 @@
       margin-bottom: 0.35rem;
     }
 
+    /* CONTEXT SYSTEM */
+    .context-files {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    .context-file {
+      background: var(--surface);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .context-file-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .context-file-desc {
+      font-size: 0.85rem;
+      color: var(--fg-muted);
+      line-height: 1.5;
+    }
+
+    .context-file-maintainer {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--fg-faint);
+      margin-top: 0.5rem;
+    }
+
+    .context-highlight {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .context-highlight h3 {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .chain-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .chain-table th {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg-faint);
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .chain-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg-muted);
+      vertical-align: top;
+    }
+
+    .chain-table td:first-child {
+      font-weight: 600;
+      color: var(--fg);
+      white-space: nowrap;
+    }
+
+    .chain-role {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+    }
+
+    .chain-role.own { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+    .chain-role.assist { background: var(--surface-alt); }
+    .chain-role.none { color: var(--fg-faint); border-color: var(--border); }
+
     /* ANTI-PATTERNS */
     .slop-grid {
       display: grid;
@@ -605,7 +695,8 @@
 
       .ref-grid,
       .examples,
-      .install-methods { grid-template-columns: 1fr; }
+      .install-methods,
+      .context-files { grid-template-columns: 1fr; }
 
       .slop-grid { grid-template-columns: 1fr; }
       .slop-item { border-right: none; }
@@ -632,9 +723,10 @@
         <li><a href="#problem">01 Problem</a></li>
         <li><a href="#skill">02 Skill</a></li>
         <li><a href="#commands">03 Commands</a></li>
-        <li><a href="#slop">04 Anti-Patterns</a></li>
-        <li><a href="#install">05 Install</a></li>
-        <li><a href="#principles">06 Principles</a></li>
+        <li><a href="#context">04 Context</a></li>
+        <li><a href="#slop">05 Anti-Patterns</a></li>
+        <li><a href="#install">06 Install</a></li>
+        <li><a href="#principles">07 Principles</a></li>
       </ul>
       <a href="https://github.com/contenty/acumen" class="nav-gh" target="_blank">GitHub</a>
     </div>
@@ -644,14 +736,14 @@
   <header class="hero">
     <div class="container">
       <h1>Product fluency<br><span>for AI.</span></h1>
-      <p class="hero-sub">Every LLM learned from the same generic templates. Without guidance, you get product slop. Acumen teaches your AI real product thinking and gives you 14 commands to steer the result.</p>
+      <p class="hero-sub">Every LLM learned from the same generic templates. Without guidance, you get product slop. Acumen teaches your AI real product thinking and gives you 15 commands to steer the result.</p>
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-number">1</span>
           <span class="stat-label">Core Skill</span>
         </div>
         <div class="stat">
-          <span class="stat-number">13</span>
+          <span class="stat-number">15</span>
           <span class="stat-label">Commands</span>
         </div>
         <div class="stat">
@@ -749,38 +841,51 @@
   <section id="commands">
     <div class="container">
       <div class="section-label">03 &mdash; Commands</div>
-      <h2>14 commands. A shared vocabulary between you and your AI.</h2>
+      <h2>15 commands. A shared vocabulary between you and your AI.</h2>
       <p>Each command is a focused product operation &mdash; not a template, but a thinking posture that pushes back when the output smells generic.</p>
 
       <div class="cmd-group">
         <div class="cmd-group-label">Context Layer &mdash; build &amp; maintain product knowledge</div>
         <table class="cmd-table">
-          <tr><td>/teach-acumen</td><td>One-time setup: gather product context, save to <code>.acumen.md</code></td></tr>
-          <tr><td>/scout</td><td>Build and maintain a living competitor map</td></tr>
-          <tr><td>/profile</td><td>Build behavioral personas from real user patterns</td></tr>
+          <tr><td>/teach-acumen</td><td>One-time setup: gather product context, map value chain, save to <code>.acumen.md</code></td></tr>
+          <tr><td>/scout</td><td>Build and maintain a living competitor map (includes deep analysis mode)</td></tr>
+          <tr><td>/persona</td><td>Build behavioral personas from real user patterns</td></tr>
           <tr><td>/features</td><td>Build a lightweight feature inventory from the codebase</td></tr>
+          <tr><td>/update-acumen</td><td>Fetch latest skills from GitHub and sync locally</td></tr>
         </table>
       </div>
 
       <div class="cmd-group">
-        <div class="cmd-group-label">Thinking Mode</div>
+        <div class="cmd-group-label">Audit Layer &mdash; assess product health</div>
         <table class="cmd-table">
-          <tr><td>/simulate</td><td>Evaluate a feature or decision AS a specific persona</td></tr>
+          <tr><td>/orientation</td><td>Audit product identity: thesis coherence, persona alignment, surface coherence, positioning accuracy</td></tr>
+          <tr><td>/defensibility</td><td>Audit moats: network effects, data advantages, switching costs, where to build more</td></tr>
         </table>
       </div>
 
       <div class="cmd-group">
-        <div class="cmd-group-label">Steering Commands &mdash; create PM artifacts</div>
+        <div class="cmd-group-label">Ideate Layer &mdash; find problems and opportunities</div>
         <table class="cmd-table">
-          <tr><td>/diagnose</td><td>Root cause analysis with Five Whys and reframing lenses</td></tr>
-          <tr><td>/specify</td><td>Write specs that drive good execution, with competitive context</td></tr>
-          <tr><td>/measure</td><td>Define metrics with baselines, targets, and counter-metrics</td></tr>
-          <tr><td>/compete</td><td>Deep competitive analysis with JTBD and moat evaluation</td></tr>
-          <tr><td>/roadmap</td><td>Sequence bets into shippable increments</td></tr>
-          <tr><td>/validate</td><td>Test the riskiest assumption before building</td></tr>
-          <tr><td>/critique-product</td><td>Score PM artifacts across 9 dimensions (/36)</td></tr>
-          <tr><td>/narrate</td><td>Communicate to any audience: execs, engineers, customers</td></tr>
-          <tr><td>/increment</td><td>Scope a shippable increment end-to-end: context, implementation, wireframes</td></tr>
+          <tr><td>/diagnose</td><td>Find problems based on data, value delivery per persona, feature health</td></tr>
+          <tr><td>/measure</td><td>Check KPI health: what&rsquo;s working, what&rsquo;s not, where to dig deeper</td></tr>
+          <tr><td>/workshop</td><td>Ideation workshop: explore extension points on the value chain, competitive gaps, user feedback synthesis</td></tr>
+        </table>
+      </div>
+
+      <div class="cmd-group">
+        <div class="cmd-group-label">Craft Layer &mdash; build product artifacts</div>
+        <table class="cmd-table">
+          <tr><td>/roadmap</td><td>Plan a sequence of bets as a todo of shippable increments</td></tr>
+          <tr><td>/increment</td><td>Scope a shippable increment end-to-end: spec, implementation, wireframes</td></tr>
+          <tr><td>/critique-product</td><td>Evaluate and validate a PM artifact: score, test assumptions, verdict</td></tr>
+        </table>
+      </div>
+
+      <div class="cmd-group">
+        <div class="cmd-group-label">Communicate Layer &mdash; share with the world</div>
+        <table class="cmd-table">
+          <tr><td>/narrate</td><td>Write product communication for any audience: execs, engineers, customers, investors</td></tr>
+          <tr><td>/changelog</td><td>Write a changelog from recent PRs, grounded in feature context</td></tr>
         </table>
       </div>
 
@@ -791,9 +896,19 @@
           <code>/diagnose onboarding drop-off</code>
         </div>
         <div class="example-card">
-          <div class="cmd-name">/specify</div>
-          <code>/specify self-serve onboarding for SMB</code>
-          <code>/specify billing migration to usage-based</code>
+          <div class="cmd-name">/orientation</div>
+          <code>/orientation</code>
+          <code>/orientation after the pivot</code>
+        </div>
+        <div class="example-card">
+          <div class="cmd-name">/workshop</div>
+          <code>/workshop integration onboarding</code>
+          <code>/workshop expanding into enterprise</code>
+        </div>
+        <div class="example-card">
+          <div class="cmd-name">/increment</div>
+          <code>/increment self-serve team onboarding</code>
+          <code>/increment real-time collaboration on dashboards</code>
         </div>
         <div class="example-card">
           <div class="cmd-name">/critique-product</div>
@@ -801,18 +916,107 @@
           <code>/critique-product our Q3 roadmap</code>
         </div>
         <div class="example-card">
-          <div class="cmd-name">/simulate</div>
-          <code>/simulate power-user reacting to new pricing</code>
-          <code>/simulate ops-manager evaluating export redesign</code>
+          <div class="cmd-name">/changelog</div>
+          <code>/changelog last 7 days</code>
+          <code>/changelog since v2.1</code>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 04 ANTI-PATTERNS -->
+  <!-- 04 CONTEXT SYSTEM -->
+  <section id="context">
+    <div class="container">
+      <div class="section-label">04 &mdash; Context System</div>
+      <h2>A living knowledge layer that feeds every skill.</h2>
+      <p>Commands don't start from scratch. They read from a shared context system &mdash; persistent files that accumulate product intelligence over time. The more you use Acumen, the sharper the output gets.</p>
+
+      <div class="context-files">
+        <div class="context-file">
+          <div class="context-file-name">.acumen.md</div>
+          <div class="context-file-desc">Product context: users, strategy, positioning, constraints, north star metric.</div>
+          <div class="context-file-maintainer">Created by /teach-acumen</div>
+        </div>
+        <div class="context-file">
+          <div class="context-file-name">value-chain.md</div>
+          <div class="context-file-desc">End-to-end workflow map per persona &mdash; where the product sits, extension points, friction.</div>
+          <div class="context-file-maintainer">Created by /teach-acumen &middot; Updated by /workshop, /profile</div>
+        </div>
+        <div class="context-file">
+          <div class="context-file-name">personas.md</div>
+          <div class="context-file-desc">Behavioral personas grounded in real usage patterns, not demographics.</div>
+          <div class="context-file-maintainer">Maintained by /persona</div>
+        </div>
+        <div class="context-file">
+          <div class="context-file-name">competitors.md</div>
+          <div class="context-file-desc">Living competitor map: who they are, what they ship, where they're strong and weak.</div>
+          <div class="context-file-maintainer">Maintained by /scout</div>
+        </div>
+        <div class="context-file">
+          <div class="context-file-name">features.md</div>
+          <div class="context-file-desc">Feature inventory: what exists, what's healthy, what's decaying, what's missing.</div>
+          <div class="context-file-maintainer">Maintained by /features</div>
+        </div>
+        <div class="context-file">
+          <div class="context-file-name">sources.md</div>
+          <div class="context-file-desc">Data source config: analytics, database, backlog &mdash; how skills pull real data.</div>
+          <div class="context-file-maintainer">Created by /teach-acumen</div>
+        </div>
+      </div>
+
+      <div class="context-highlight">
+        <h3>Value Chain &mdash; the backbone</h3>
+        <p style="margin-bottom: 1.25rem;">The value chain maps each persona's full job end-to-end. It answers: where do we bring value, where is the user on their own, and where are the expansion opportunities? Eight skills read it. Three maintain it.</p>
+        <table class="chain-table">
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Our role</th>
+              <th>Skills that use it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Identify the problem</td>
+              <td><span class="chain-role none">None</span></td>
+              <td>/diagnose, /workshop</td>
+            </tr>
+            <tr>
+              <td>Choose a tool</td>
+              <td><span class="chain-role assist">Assist</span></td>
+              <td>/orientation, /scout</td>
+            </tr>
+            <tr>
+              <td>Set up &amp; configure</td>
+              <td><span class="chain-role own">Own</span></td>
+              <td>/increment, /measure</td>
+            </tr>
+            <tr>
+              <td>Do the core job</td>
+              <td><span class="chain-role own">Own</span></td>
+              <td>/increment, /defensibility</td>
+            </tr>
+            <tr>
+              <td>Evaluate results</td>
+              <td><span class="chain-role assist">Assist</span></td>
+              <td>/measure, /diagnose</td>
+            </tr>
+            <tr>
+              <td>Share &amp; collaborate</td>
+              <td><span class="chain-role none">None</span></td>
+              <td>/workshop, /roadmap</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--fg-faint); font-style: italic;">Example value chain. Yours is generated from your product's actual workflow by /teach-acumen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 ANTI-PATTERNS -->
   <section id="slop">
     <div class="container">
-      <div class="section-label">04 &mdash; Anti-Patterns</div>
+      <div class="section-label">05 &mdash; Anti-Patterns</div>
       <h2>12 named tells of AI product slop.</h2>
       <p>Acumen explicitly teaches the AI what NOT to produce. Each pattern is named, defined, and detected.</p>
       <div class="slop-grid">
@@ -907,7 +1111,7 @@
   <!-- 05 INSTALL -->
   <section id="install">
     <div class="container">
-      <div class="section-label">05 &mdash; Get Started</div>
+      <div class="section-label">06 &mdash; Get Started</div>
       <h2>Install in under a minute.</h2>
       <p>Acumen follows the <a href="https://agentskills.io/specification" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">Agent Skills spec</a>. Drop the skills into your AI tool and go.</p>
       <div class="install-methods">
@@ -921,6 +1125,7 @@ cp -r .agents your-project/</pre>
         <div class="install-method">
           <h4>Claude Code (global)</h4>
           <pre><span class="comment"># Install skills globally</span>
+mkdir -p ~/.claude/skills
 cp -r .agents/skills/* ~/.claude/skills/</pre>
           <p>Available in every project on your machine.</p>
         </div>
@@ -937,7 +1142,7 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
 
 <span class="comment"># Start using commands</span>
 /diagnose
-/specify
+/orientation
 /measure</pre>
         </div>
       </div>
@@ -947,7 +1152,7 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
   <!-- 06 PRINCIPLES -->
   <section id="principles">
     <div class="container">
-      <div class="section-label">06 &mdash; Principles</div>
+      <div class="section-label">07 &mdash; Principles</div>
       <h2>Design decisions.</h2>
       <ul class="principles-list">
         <li>
@@ -970,7 +1175,7 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
         </li>
         <li>
           <div>
-            <div class="rule">Context layer feeds steering commands</div>
+            <div class="rule">Context layer feeds all other layers</div>
             <div class="detail">Not passive storage &mdash; active inputs that shape every artifact.</div>
           </div>
         </li>

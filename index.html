@@ -245,6 +245,51 @@
 
     .btn-secondary:hover { color: var(--fg); border-color: var(--fg); }
 
+    /* WORKS WITH */
+    .works-with {
+      margin-top: 3.5rem;
+    }
+
+    .works-with-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg-faint);
+      margin-bottom: 1rem;
+    }
+
+    .works-with-icons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .works-with-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      transition: border-color 0.15s, box-shadow 0.15s;
+      text-decoration: none;
+      color: var(--fg-muted);
+    }
+
+    .works-with-icons a:hover {
+      border-color: var(--fg-faint);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .works-with-icons a img {
+      width: 22px;
+      height: 22px;
+    }
+
     /* PROBLEM */
     .problem-list {
       list-style: none;
@@ -1032,6 +1077,9 @@
       .hero h1 { font-size: 2rem; }
       .hero-stats { gap: 2rem; }
       .stat-number { font-size: 1.5rem; }
+      .works-with { margin-top: 2.5rem; }
+      .works-with-icons a { width: 36px; height: 36px; }
+      .works-with-icons a img { width: 18px; height: 18px; }
 
       .ref-grid { grid-template-columns: repeat(2, 1fr); }
       .ref-card { aspect-ratio: auto; min-height: 120px; }
@@ -1117,6 +1165,38 @@
       <div class="hero-actions">
         <a href="#install" class="btn-primary">Get started</a>
         <a href="#problem" class="btn-secondary">Why Acumen?</a>
+      </div>
+      <div class="works-with">
+        <div class="works-with-label">Works with</div>
+        <div class="works-with-icons">
+          <a href="https://claude.ai/code" target="_blank" title="Claude Code">
+            <img src="images/providers/anthropic.svg" alt="Claude Code" width="22" height="22">
+          </a>
+          <a href="https://cursor.com" target="_blank" title="Cursor">
+            <img src="images/providers/cursor.svg" alt="Cursor" width="22" height="22">
+          </a>
+          <a href="https://windsurf.com" target="_blank" title="Windsurf">
+            <img src="images/providers/windsurf.svg" alt="Windsurf" width="22" height="22">
+          </a>
+          <a href="https://github.com/google-gemini/gemini-cli" target="_blank" title="Gemini CLI">
+            <img src="images/providers/gemini.svg" alt="Gemini CLI" width="22" height="22">
+          </a>
+          <a href="https://github.com/openai/codex" target="_blank" title="Codex CLI">
+            <img src="images/providers/openai.svg" alt="Codex CLI" width="22" height="22">
+          </a>
+          <a href="https://github.com/features/copilot" target="_blank" title="GitHub Copilot">
+            <img src="images/providers/github.svg" alt="GitHub Copilot" width="22" height="22">
+          </a>
+          <a href="https://kiro.dev" target="_blank" title="Kiro">
+            <img src="images/providers/kiro.svg" alt="Kiro" width="22" height="22">
+          </a>
+          <a href="https://opencode.ai" target="_blank" title="OpenCode">
+            <img src="images/providers/opencode.svg" alt="OpenCode" width="22" height="22">
+          </a>
+          <a href="https://ampcode.com" target="_blank" title="Amp">
+            <img src="images/providers/amp.svg" alt="Amp" width="22" height="22">
+          </a>
+        </div>
       </div>
     </div>
   </header>

@@ -17,7 +17,7 @@ const BORDER = "#ddd";
 const SURFACE = "#fff";
 
 // Animated element card (Mendeleev-style)
-const ElementCard = ({ abbr, name, color, frame, fps }) => {
+const ElementCard = ({ abbr, name, color, borderColor, frame, fps }) => {
   const scale = spring({ frame, fps, from: 0.6, to: 1, durationInFrames: 20 });
   const opacity = interpolate(frame, [0, 10], [0, 1], { extrapolateRight: "clamp" });
 
@@ -26,7 +26,7 @@ const ElementCard = ({ abbr, name, color, frame, fps }) => {
       style={{
         width: 140,
         height: 140,
-        border: `2.5px solid ${color}`,
+        border: `2.5px solid ${borderColor || color}`,
         background: SURFACE,
         display: "flex",
         flexDirection: "column",
@@ -43,7 +43,7 @@ const ElementCard = ({ abbr, name, color, frame, fps }) => {
 };
 
 // Animated step item
-const StepItem = ({ text, index, frame, fps }) => {
+const StepItem = ({ text, index, frame, fps, color }) => {
   const delay = index * 8;
   const localFrame = Math.max(0, frame - delay);
   const slideX = spring({ frame: localFrame, fps, from: 30, to: 0, durationInFrames: 15 });
@@ -71,7 +71,7 @@ const StepItem = ({ text, index, frame, fps }) => {
           alignItems: "center",
           justifyContent: "center",
           fontSize: 12,
-          color: "#3da63d",
+          color: color || "#3da63d",
           opacity: checkOpacity,
           background: SURFACE,
         }}
@@ -136,7 +136,7 @@ export const SkillVideo = ({ skill }) => {
             gap: 16,
           }}
         >
-          <ElementCard abbr={skill.abbr} name={skill.name} color={skill.color} frame={frame} fps={fps} />
+          <ElementCard abbr={skill.abbr} name={skill.name} color={skill.color} borderColor={skill.borderColor} frame={frame} fps={fps} />
           <div style={{ marginTop: 16 }}>
             <TypedText text={skill.tagline} frame={Math.max(0, frame - 25)} />
           </div>
@@ -173,7 +173,7 @@ export const SkillVideo = ({ skill }) => {
                 style={{
                   width: 96,
                   height: 96,
-                  border: `2.5px solid ${skill.color}`,
+                  border: `2.5px solid ${skill.borderColor || skill.color}`,
                   background: SURFACE,
                   display: "flex",
                   flexDirection: "column",
@@ -202,6 +202,7 @@ export const SkillVideo = ({ skill }) => {
                   index={i}
                   frame={Math.max(0, frame - 90)}
                   fps={fps}
+                  color={skill.color}
                 />
               ))}
             </div>

@@ -35,41 +35,41 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 
 | Command | What it does |
 |---------|--------------|
-| `/teach-acumen` | One-time setup: gather product context, save to `.acumen.md` |
-| `/scout` | Build and maintain a living competitor map (includes deep analysis mode) |
-| `/persona` | Build behavioral personas from real user patterns |
-| `/features` | Build a lightweight feature inventory from the codebase |
-| `/update-acumen` | Fetch latest skills from GitHub and sync locally (source, .agents, .claude) |
+| `/teach-acumen` | One-time setup that gathers product context and saves it to `.acumen.md` |
+| `/scout` | Build and maintain a living competitor map. Supports quick scans and deep analysis |
+| `/persona` | Build and maintain behavioral personas grounded in real user patterns |
+| `/features` | Build and maintain a lightweight feature inventory |
+| `/update-acumen` | Fetch the latest Acumen skills from GitHub and update local copies |
 
 #### Audit Layer (assess product health)
 
 | Command | What it does |
 |---------|--------------|
-| `/orientation` | Audit product identity: thesis coherence, persona alignment, surface coherence, positioning accuracy |
-| `/defensibility` | Audit moats: network effects, data advantages, switching costs, where to build more |
+| `/orientation` | Audit product identity — what we do, for whom, whether the feature surface is coherent with the thesis |
+| `/defensibility` | Audit what's hard to copy — moats, switching costs, data advantages, network effects, and AI-era resilience |
 
 #### Ideate Layer (find problems and opportunities)
 
 | Command | What it does |
 |---------|--------------|
-| `/diagnose` | Find problems based on data, value delivery per persona, feature health. Suggests `/workshop` |
-| `/measure` | Check KPI health: what's working, what's not, where to dig deeper. Suggests `/workshop` |
-| `/workshop` | Ideation workshop: value chain analysis, competitive gaps, user feedback synthesis |
+| `/diagnose` | Find current problems based on data, value delivery for main personas, and current features. Suggests `/workshop` |
+| `/measure` | Check KPI health — what's working, what's not, where to dig deeper. Suggests `/workshop` |
+| `/workshop` | Ideation workshop to explore opportunities — value chain analysis, competitive gaps, user feedback synthesis |
 
 #### Craft Layer (build product artifacts)
 
 | Command | What it does |
 |---------|--------------|
-| `/roadmap` | Plan a sequence of bets as a todo of shippable increments |
-| `/increment` | Scope a shippable increment end-to-end: spec, implementation, wireframes. Leads to `/critique-product` |
-| `/critique-product` | Evaluate and validate a PM artifact: score, test assumptions, verdict |
+| `/roadmap` | Plan a sequence of bets, break into shippable increments, prioritize |
+| `/increment` | Scope a product increment end-to-end — context, spec, implementation, wireframes, and engineering considerations. Leads to `/critique-product` |
+| `/critique-product` | Evaluate and validate a PM artifact — score for rigor, test riskiest assumptions, and decide if it's ready to ship |
 
 #### Communicate Layer (share with the world)
 
 | Command | What it does |
 |---------|--------------|
-| `/narrate` | Write product communication for any audience: execs, engineers, customers, investors |
-| `/changelog` | Write a changelog from recent PRs, grounded in feature context. Text and video script |
+| `/narrate` | Write product communication for a specific audience, including when stakes are high and stakeholders disagree |
+| `/changelog` | Write a changelog from recent PRs and commits, grounded in feature context |
 
 #### Usage Examples
 

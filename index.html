@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acumen — Product fluency for AI</title>
-  <meta name="description" content="1 core skill, 16 commands, and 12 anti-patterns for sharp product thinking. Stop getting AI product slop.">
+  <meta name="description" content="1 core skill, 16 commands, and 7 reference docs for sharp product thinking. Stop getting AI product slop.">
   <meta property="og:title" content="Acumen — Product fluency for AI">
-  <meta property="og:description" content="1 core skill, 16 commands, and 12 anti-patterns for sharp product thinking.">
+  <meta property="og:description" content="1 core skill, 16 commands, and 7 reference docs for sharp product thinking.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9650;</text></svg>">
   <style>
@@ -257,14 +257,16 @@
       letter-spacing: 0.08em;
       color: var(--fg-faint);
       margin-bottom: 1rem;
+      text-align: left;
     }
 
     .works-with-icons {
       display: flex;
       gap: 1rem;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
+      max-width: 440px;
     }
 
     .works-with-icons a {
@@ -1173,7 +1175,7 @@
   <header class="hero">
     <div class="container">
       <h1>Product fluency<br><span>for AI.</span></h1>
-      <p class="hero-sub">Great product work requires product vocabulary. Most AI doesn't have it. Acumen teaches your AI deep product thinking and gives you 16 commands to steer the result.</p>
+      <p class="hero-sub">Great product work lives and dies on context. The codebase is the ground truth of what actually exists — pair it with an organised knowledge layer, and you give product teams the acumen they've always lacked.</p>
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-number">1</span>
@@ -1182,10 +1184,6 @@
         <div class="stat">
           <span class="stat-number">15</span>
           <span class="stat-label">Commands</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">12</span>
-          <span class="stat-label">Anti-Patterns</span>
         </div>
         <div class="stat">
           <span class="stat-number">7</span>
@@ -1281,7 +1279,7 @@
           <span class="text"><strong>Hedge documents</strong> where every recommendation is qualified into meaninglessness</span>
         </li>
       </ul>
-      <p style="margin-top: 2rem;">Acumen fights this bias at the source. Not with templates &mdash; with vocabulary.</p>
+      <p style="margin-top: 2rem;">Acumen fights this at the source &mdash; not with templates, but with an organised knowledge layer grounded in what your codebase actually ships.</p>
     </div>
   </section>
 
@@ -1289,8 +1287,8 @@
   <section id="commands">
     <div class="container">
       <div class="section-label">02 &mdash; Commands</div>
-      <h2>16 commands. A shared vocabulary between you and your AI.</h2>
-      <p>Each command is a focused product operation &mdash; not a template, but a thinking posture that pushes back when the output smells generic.</p>
+      <h2>16 commands. Each one reads your product's context before it writes a single line.</h2>
+      <p>Each command is a focused product operation &mdash; grounded in your codebase and knowledge layer, not generic prompting.</p>
 
       <!-- Periodic Table -->
       <div class="periodic-table-wrap">
@@ -1823,8 +1821,8 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
         </li>
         <li>
           <div>
-            <div class="rule">Vocabulary calibration</div>
-            <div class="detail">Replace AI slop with product-fluent language.</div>
+            <div class="rule">Context over prompting</div>
+            <div class="detail">Ground every artifact in what actually exists, not what sounds plausible.</div>
           </div>
         </li>
         <li>

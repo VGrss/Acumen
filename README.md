@@ -120,18 +120,18 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 
 The skill includes 12 explicit tells of AI product slop:
 
-1. **Template Filler** - Every section filled, none specific to this product
-2. **Demographic Persona** - "Marketing Manager, 28-35" instead of behavioral segments
-3. **Inverted Solution** - Problem statement is the solution described negatively
-4. **Vanity Metric** - Success measured by things that always go up
-5. **Feature Checklist** - Flat list with no sequencing or thesis
-6. **Generic Risk** - "Technical complexity" appears in every project
-7. **Tautology Story** - User story restates the feature
-8. **Restated Criteria** - Acceptance criteria that restate requirements
-9. **Strategy of Everything** - Lists every direction without choosing
-10. **Feature Roadmap** - Timeline of features with no connecting thesis
-11. **Hedge Document** - Every recommendation qualified into meaninglessness
-12. **Consensus Document** - Designed to be inoffensive rather than useful
+1. **Template Filler** - Every section filled, none grounded in what's actually built
+2. **Demographic Persona** - Demographics because real behavior is observed, not assumed
+3. **Inverted Solution** - Problem is the solution described negatively — the real friction was never observed
+4. **Vanity Metric** - Measures things that always go up, not what the product actually tracks
+5. **Feature Checklist** - Flat list with no awareness of what already exists or how it connects
+6. **Generic Risk** - "Technical complexity" — because the actual system was never examined
+7. **Tautology Story** - User story restates the feature because the real job-to-be-done is unknown
+8. **Phantom Feature** - Proposes what already exists — the codebase was never read
+9. **Strategy of Everything** - Lists every direction because without context, nothing can be ruled out
+10. **Feature Roadmap** - Timeline of features with no thesis about what the product is becoming
+11. **Greenfield Spec** - Scopes from scratch, ignoring existing architecture and shipped features
+12. **Consensus Document** - Inoffensive to all because without product evidence, there's nothing to argue from
 
 ## Architecture
 

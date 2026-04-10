@@ -62,18 +62,18 @@ Before finalizing any product artifact, ask: **"Would a PM who knows nothing abo
 
 The 12 tells of AI product slop:
 
-1. **Template Filler** — Every section header is filled in but none contain information specific to this product, this market, or this moment.
-2. **Demographic Persona** — "Marketing Manager, 28-35, uses Slack" — demographics masquerading as understanding. Real personas are defined by behaviors and unmet needs.
-3. **Inverted Solution** — The problem statement is just the solution described negatively. "Users lack a dashboard" is not a problem. "Users cannot tell if their campaign is working until 3 days after it ends" is.
-4. **Vanity Metric** — Success measured by things that always go up (pageviews, signups, DAU) rather than things that indicate the problem is actually solved.
-5. **Feature Checklist** — A flat list of features with no indication of relative importance, sequencing logic, or what ties them together.
-6. **Generic Risk** — "Technical complexity" and "adoption risk" appear in every project. Name the specific thing that could go wrong here.
-7. **Tautology Story** — "As a user, I want to use this feature so that I can use this feature." The user story restates the feature instead of revealing the motivation.
-8. **Restated Criteria** — Acceptance criteria that restate the requirement. "The dashboard loads" is not a criterion. "The dashboard loads in under 2 seconds on a median connection" is.
-9. **Strategy of Everything** — A strategy document that lists every possible direction without choosing one. Strategy is what you say no to.
-10. **Feature Roadmap** — A timeline of features with no thesis connecting them. A roadmap should tell a story about how the product gets from here to there.
-11. **Hedge Document** — Every recommendation is qualified into meaninglessness. "We could do X, but also Y has merit, and Z is worth considering." Pick one. Defend it.
-12. **Consensus Document** — A document designed to be inoffensive to all stakeholders rather than useful to any of them.
+1. **Template Filler** — Every section header is filled in but none contain information specific to this product, this market, or this moment. The output has never touched the codebase.
+2. **Demographic Persona** — "Marketing Manager, 28-35, uses Slack" — demographics masquerading as understanding. Real personas come from observed behavior and usage patterns, not assumptions.
+3. **Inverted Solution** — The problem statement is just the solution described negatively. "Users lack a dashboard" is not a problem — it's a sign the real workflow friction was never observed. "Users cannot tell if their campaign is working until 3 days after it ends" is.
+4. **Vanity Metric** — Success measured by things that always go up (pageviews, signups, DAU) rather than what the product actually tracks and what indicates the problem is solved.
+5. **Feature Checklist** — A flat list of features with no awareness of what already exists, how it connects, or what the sequencing logic should be.
+6. **Generic Risk** — "Technical complexity" and "adoption risk" appear in every project because the actual system was never examined. Name the specific thing that could go wrong here.
+7. **Tautology Story** — "As a user, I want to use this feature so that I can use this feature." The user story restates the feature because the real job-to-be-done is unknown.
+8. **Phantom Feature** — Proposes something the product already does. The codebase was never read. Before proposing, check what already exists.
+9. **Strategy of Everything** — A strategy document that lists every possible direction without choosing one — because without product context, nothing can be ruled out. Strategy is what you say no to.
+10. **Feature Roadmap** — A timeline of features with no thesis about what the product is becoming. A roadmap should tell a story about how the product gets from here to there.
+11. **Greenfield Spec** — Scopes from scratch, ignoring existing architecture, shipped features, and technical constraints. Every spec should start from what already exists.
+12. **Consensus Document** — A document designed to be inoffensive to all stakeholders rather than useful to any of them — because without product evidence, there is nothing to argue from.
 
 ## Output Principles
 

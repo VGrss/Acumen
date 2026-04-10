@@ -931,50 +931,6 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .changelog-toggle {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--fg-faint);
-      cursor: pointer;
-      font-size: 0.6rem;
-      line-height: 1;
-      padding: 0.15rem 0.35rem;
-      margin-left: 0.5rem;
-      border-radius: 3px;
-      vertical-align: middle;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .changelog-toggle:hover {
-      color: var(--fg);
-      border-color: var(--fg-muted);
-    }
-
-    .changelog-toggle-icon {
-      display: inline-block;
-      transition: transform 0.2s;
-    }
-
-    .changelog-toggle-icon.rotated {
-      transform: rotate(180deg);
-    }
-
-    #changelog-entries {
-      overflow: hidden;
-      max-height: 2000px;
-      transition: max-height 0.4s ease, opacity 0.3s ease;
-      opacity: 1;
-    }
-
-    #changelog-entries.collapsed {
-      max-height: 0;
-      opacity: 0;
-    }
-
-    .changelog-entry {
-      margin-bottom: 1.75rem;
-    }
-
     .changelog-date {
       font-family: var(--font-mono);
       font-size: 0.7rem;
@@ -982,6 +938,42 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin-bottom: 0.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      user-select: none;
+    }
+
+    .changelog-date:hover {
+      color: var(--fg-muted);
+    }
+
+    .changelog-date::before {
+      content: '\25B4';
+      font-size: 0.55rem;
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+
+    .changelog-date.collapsed::before {
+      transform: rotate(180deg);
+    }
+
+    .changelog-entry-content {
+      overflow: hidden;
+      max-height: 600px;
+      transition: max-height 0.3s ease, opacity 0.2s ease;
+      opacity: 1;
+    }
+
+    .changelog-entry-content.collapsed {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    .changelog-entry {
+      margin-bottom: 1.75rem;
     }
 
     .changelog-entry ul {
@@ -1612,84 +1604,84 @@
           <span class="slop-num">01</span>
           <div class="slop-content">
             <div class="slop-name">Template Filler</div>
-            <div class="slop-desc">Every section filled, none specific to this product</div>
+            <div class="slop-desc">Every section filled, none grounded in what&rsquo;s actually built</div>
           </div>
         </div>
         <div class="slop-item">
           <span class="slop-num">02</span>
           <div class="slop-content">
             <div class="slop-name">Demographic Persona</div>
-            <div class="slop-desc">"Marketing Manager, 28-35" instead of behavioral segments</div>
+            <div class="slop-desc">Demographics because real behavior is observed, not assumed</div>
           </div>
         </div>
         <div class="slop-item">
           <span class="slop-num">03</span>
           <div class="slop-content">
             <div class="slop-name">Inverted Solution</div>
-            <div class="slop-desc">Problem statement is the solution described negatively</div>
+            <div class="slop-desc">Problem is the solution described negatively &mdash; the real friction was never observed</div>
           </div>
         </div>
         <div class="slop-item">
           <span class="slop-num">04</span>
           <div class="slop-content">
             <div class="slop-name">Vanity Metric</div>
-            <div class="slop-desc">Success measured by things that always go up</div>
+            <div class="slop-desc">Measures things that always go up, not what the product actually tracks</div>
           </div>
         </div>
         <div class="slop-item">
           <span class="slop-num">05</span>
           <div class="slop-content">
             <div class="slop-name">Feature Checklist</div>
-            <div class="slop-desc">Flat list with no sequencing or thesis</div>
+            <div class="slop-desc">Flat list with no awareness of what already exists or how it connects</div>
           </div>
         </div>
         <div class="slop-item">
           <span class="slop-num">06</span>
           <div class="slop-content">
             <div class="slop-name">Generic Risk</div>
-            <div class="slop-desc">"Technical complexity" appears in every project</div>
+            <div class="slop-desc">&ldquo;Technical complexity&rdquo; &mdash; because the actual system was never examined</div>
           </div>
         </div>
         <div class="slop-item">
           <span class="slop-num">07</span>
           <div class="slop-content">
             <div class="slop-name">Tautology Story</div>
-            <div class="slop-desc">User story restates the feature</div>
+            <div class="slop-desc">User story restates the feature because the real job-to-be-done is unknown</div>
           </div>
         </div>
         <div class="slop-item">
           <span class="slop-num">08</span>
           <div class="slop-content">
-            <div class="slop-name">Restated Criteria</div>
-            <div class="slop-desc">Acceptance criteria that restate requirements</div>
+            <div class="slop-name">Phantom Feature</div>
+            <div class="slop-desc">Proposes what already exists &mdash; the codebase was never read</div>
           </div>
         </div>
         <div class="slop-item">
           <span class="slop-num">09</span>
           <div class="slop-content">
             <div class="slop-name">Strategy of Everything</div>
-            <div class="slop-desc">Lists every direction without choosing</div>
+            <div class="slop-desc">Lists every direction because without context, nothing can be ruled out</div>
           </div>
         </div>
         <div class="slop-item">
           <span class="slop-num">10</span>
           <div class="slop-content">
             <div class="slop-name">Feature Roadmap</div>
-            <div class="slop-desc">Timeline of features with no connecting thesis</div>
+            <div class="slop-desc">Timeline of features with no thesis about what the product is becoming</div>
           </div>
         </div>
         <div class="slop-item">
           <span class="slop-num">11</span>
           <div class="slop-content">
-            <div class="slop-name">Hedge Document</div>
-            <div class="slop-desc">Every recommendation qualified into meaninglessness</div>
+            <div class="slop-name">Greenfield Spec</div>
+            <div class="slop-desc">Scopes from scratch, ignoring existing architecture and shipped features</div>
           </div>
         </div>
         <div class="slop-item">
           <span class="slop-num">12</span>
           <div class="slop-content">
             <div class="slop-name">Consensus Document</div>
-            <div class="slop-desc">Designed to be inoffensive rather than useful</div>
+            <div class="slop-desc">Inoffensive to all because without product evidence, there&rsquo;s nothing to argue from</div>
           </div>
         </div>
       </div>
@@ -1799,45 +1791,33 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
 
         <!-- LEFT: What's New -->
         <div class="split-column" id="whats-new">
-          <h3>
-            What's New
-            <button class="changelog-toggle" onclick="var el=document.getElementById('changelog-entries');el.classList.toggle('collapsed');this.querySelector('.changelog-toggle-icon').classList.toggle('rotated')" aria-label="Toggle changelog">
-              <span class="changelog-toggle-icon">&#x25B4;</span>
-            </button>
-          </h3>
+          <h3>What's New</h3>
 
           <div id="changelog-entries">
             <div class="changelog-entry">
-              <div class="changelog-date">April 9, 2026 &mdash; evening</div>
-              <ul>
-                <li>Periodic-table skill cards with interactive carousel and embedded skill videos</li>
-                <li>"Works with" provider icons showing all supported AI tools</li>
-                <li>New skills: <strong>/cheatsheet</strong>, <strong>/value</strong>, <strong>/feedback</strong></li>
-                <li>Unified Skills &amp; Commands section with knowledge-layer breakdown</li>
-                <li><strong>/update-acumen</strong> moved to new Meta layer</li>
-              </ul>
+              <div class="changelog-date" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('collapsed')">April 9, 2026</div>
+              <div class="changelog-entry-content">
+                <ul>
+                  <li>Periodic-table skill cards with interactive carousel and embedded skill videos</li>
+                  <li>"Works with" provider icons showing all supported AI tools</li>
+                  <li>9 new skills: <strong>/orientation</strong>, <strong>/defensibility</strong>, <strong>/measure</strong>, <strong>/workshop</strong>, <strong>/narrate</strong>, <strong>/changelog</strong>, <strong>/cheatsheet</strong>, <strong>/value</strong>, <strong>/feedback</strong></li>
+                  <li>Existing skills rewritten with anti-slop guards, cross-skill flow, and value chain context</li>
+                  <li><strong>/increment</strong> added &mdash; scope a product increment end-to-end</li>
+                  <li>Unified Skills &amp; Commands section with knowledge-layer breakdown</li>
+                  <li>Copy-to-clipboard on all install code blocks</li>
+                </ul>
+              </div>
             </div>
 
             <div class="changelog-entry">
-              <div class="changelog-date">April 9, 2026</div>
-              <ul>
-                <li>Value chain context now feeds every skill &mdash; maps each persona's end-to-end workflow with extension points</li>
-                <li>New skills: <strong>/orientation</strong>, <strong>/defensibility</strong>, <strong>/measure</strong>, <strong>/workshop</strong>, <strong>/narrate</strong>, <strong>/changelog</strong></li>
-                <li>Existing skills rewritten with sharper anti-slop guards and cross-skill flow</li>
-                <li><strong>/scout</strong> now categorizes competitors and pulls website data</li>
-                <li><strong>/increment</strong> added &mdash; scope a product increment end-to-end with spec, wireframes, and engineering considerations</li>
-                <li>Renamed <strong>/catalog</strong> to <strong>/features</strong> for clarity</li>
-                <li>Copy-to-clipboard on all install code blocks</li>
-              </ul>
-            </div>
-
-            <div class="changelog-entry">
-              <div class="changelog-date">April 8, 2026</div>
-              <ul>
-                <li>Initial release: 1 core skill, 16 commands, 12 named anti-patterns</li>
-                <li>Product-thinking skill with 7 reference documents across problem discovery, segmentation, prioritization, metrics, spec craft, stakeholder alignment, and competitive intelligence</li>
-                <li>Landing page and full documentation</li>
-              </ul>
+              <div class="changelog-date" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('collapsed')">April 8, 2026</div>
+              <div class="changelog-entry-content">
+                <ul>
+                  <li>Initial release: 1 core skill, 16 commands, 12 named anti-patterns</li>
+                  <li>Product-thinking skill with 7 reference documents across problem discovery, segmentation, prioritization, metrics, spec craft, stakeholder alignment, and competitive intelligence</li>
+                  <li>Landing page and full documentation</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

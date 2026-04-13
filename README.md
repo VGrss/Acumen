@@ -1,6 +1,6 @@
 # Acumen
 
-Product fluency for AI. 1 skill, 16 commands, and curated anti-patterns for sharp product thinking.
+Product fluency for AI. 1 skill, 17 commands, and curated anti-patterns for sharp product thinking.
 
 ## Why Acumen?
 
@@ -29,7 +29,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | [Stakeholder Alignment](source/skills/product-thinking/reference/stakeholder-alignment.md) | DACI, disagree-and-commit, managing upward, pre-mortems |
 | [Competitive Intelligence](source/skills/product-thinking/reference/competitive-intelligence.md) | Moat analysis, win/loss, competitive response playbooks |
 
-### 15 Commands in 6 Layers
+### 16 Commands in 6 Layers
 
 #### Context Layer (build & maintain product knowledge)
 
@@ -75,6 +75,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 
 | Command | What it does |
 |---------|--------------|
+| `/catchup` | Pull latest code from main and summarize recent changes in product-friendly terms |
 | `/update-acumen` | Fetch the latest Acumen skills from GitHub and update local copies |
 | `/cheatsheet` | Print a quick-reference cheatsheet of all Acumen skills, organized by layer |
 
@@ -116,6 +117,13 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 /critique-product our Q3 roadmap
 ```
 
+**`/catchup`** - Catch up with the codebase
+```
+/catchup
+/catchup since Monday
+/catchup last 2 weeks
+```
+
 ### Anti-Patterns: AI Product Slop
 
 The skill includes 12 explicit tells of AI product slop:
@@ -146,6 +154,7 @@ source/                          # Source of truth
     profile/SKILL.md             # Context: personas
     features/SKILL.md            # Context: features
     value/SKILL.md               # Context: per-persona value & metrics
+    catchup/SKILL.md             # Meta: pull latest code & summarize
     update-acumen/SKILL.md       # Meta: sync skills from GitHub
     orientation/SKILL.md         # Audit: product identity
     defensibility/SKILL.md       # Audit: moats

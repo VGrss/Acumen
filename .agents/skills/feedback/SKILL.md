@@ -1,12 +1,12 @@
 ---
 name: feedback
-description: "Walk through structured feedback and submit it as a GitHub Discussion on the Acumen repo."
+description: "Walk through structured feedback and submit it as a GitHub Issue on the Acumen repo."
 user-invocable: true
 ---
 
 # Feedback
 
-Collect structured feedback from the user and submit it as a GitHub Discussion on the Acumen repository (`VGrss/Acumen`).
+Collect structured feedback from the user and submit it as a GitHub Issue on the Acumen repository (`VGrss/Acumen`).
 
 ## Core behavior
 
@@ -61,15 +61,20 @@ Ask the user to confirm or edit before submitting.
 
 ### Step 6 — Submit
 
-Use the GitHub CLI to create a Discussion:
+Use the GitHub CLI to create an Issue with a label matching the category:
 
 ```bash
-gh discussion create \
+gh issue create \
   --repo VGrss/Acumen \
-  --category "{matching category name}" \
+  --label "{category label}" \
   --title "{concise title derived from the problem}" \
   --body "{formatted body}"
 ```
+
+Use these labels based on category:
+- Bug report → `bug`
+- Skill idea → `enhancement`
+- General feedback → `feedback`
 
 The body should follow this template:
 
@@ -87,15 +92,7 @@ The body should follow this template:
 _Submitted via `/feedback`_
 ```
 
-Return the Discussion URL to the user.
-
-## If discussions are not configured
-
-If `gh discussion create` fails because no matching category exists, tell the user:
-
-> Discussions categories are not set up yet on the repo. Go to **Settings > Discussions** on GitHub and create categories: "Bug Report", "Skill Idea", "General Feedback". Then run `/feedback` again.
-
-Do **not** fall back to creating an Issue — discussions are the intended channel for feedback.
+Return the Issue URL to the user.
 
 ## Tone
 

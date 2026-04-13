@@ -136,7 +136,7 @@ Steps where the persona switches tools, does manual work, or loses time. These a
 If personas follow different workflows, note the divergence points and why.
 ```
 
-If the user cannot describe the workflow in detail, seed the file with what's known from the codebase and mark gaps with "Unknown — needs discovery." This file will be enriched by `/profile` and `/workshop` as understanding deepens.
+If the user cannot describe the workflow in detail, seed the file with what's known from the codebase and mark gaps with "Unknown — needs discovery." This file will be enriched by `/value` and `/workshop` as understanding deepens.
 
 ### `.acumen/sources.md` Format
 
@@ -181,6 +181,7 @@ Confirm completion and tell the user:
 > - `/scout` — map your competitive landscape
 > - `/persona` — build behavioral personas from real user patterns
 > - `/features` — inventory your feature surface
+> - `/value` — connect personas and features to the metrics that prove value delivery
 >
 > Skills like `/diagnose`, `/measure`, and `/persona` will use your configured data sources to pull real data instead of relying on narrative alone.
 >

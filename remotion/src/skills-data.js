@@ -80,6 +80,22 @@ export const skills = [
     ],
   },
   {
+    id: "catchup",
+    name: "/catchup",
+    abbr: "Cu",
+    layer: "Meta",
+    color: "#7a5a9a",
+    borderColor: "#c8b8d8",
+    hoverColor: "#a890c0",
+    tagline: "Catch up with the codebase",
+    steps: [
+      "Protects .acumen/ context files",
+      "Pulls latest from main",
+      "Summarizes changes in product language",
+      "Suggests next Acumen skills to run",
+    ],
+  },
+  {
     id: "update",
     name: "/update",
     abbr: "Up",
@@ -265,7 +281,7 @@ export const skills = [
     hoverColor: "#a890c0",
     tagline: "Quick-reference skill card",
     steps: [
-      "Lists all 17 commands",
+      "Lists all 19 commands",
       "Organized by layer",
       "One-line descriptions",
       "Scannable box format",

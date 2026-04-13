@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acumen — Product management moved to the codebase</title>
-  <meta name="description" content="1 core skill, 16 skills, and 7 reference docs for sharp product thinking. Stop getting AI product slop.">
+  <meta name="description" content="1 core skill, 19 skills, and 7 reference docs for sharp product thinking. Stop getting AI product slop.">
   <meta property="og:title" content="Acumen — Product management moved to the codebase">
-  <meta property="og:description" content="1 core skill, 16 skills, and 7 reference docs for sharp product thinking.">
+  <meta property="og:description" content="1 core skill, 19 skills, and 7 reference docs for sharp product thinking.">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9650;</text></svg>">
   <style>
@@ -771,44 +771,6 @@
     .chain-role.none { color: var(--fg-faint); border-color: var(--border); }
 
     /* ANTI-PATTERNS */
-    .slop-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 0;
-      margin-top: 2rem;
-      border: 1px solid var(--border);
-    }
-
-    .slop-item {
-      padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      display: flex;
-      gap: 1rem;
-      align-items: baseline;
-    }
-
-    .slop-num {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--fg-faint);
-      flex-shrink: 0;
-    }
-
-    .slop-content {}
-
-    .slop-name {
-      font-weight: 700;
-      font-size: 0.9rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .slop-desc {
-      font-size: 0.8rem;
-      color: var(--fg-muted);
-      line-height: 1.5;
-    }
-
     /* INSTALL */
     .install-methods {
       display: grid;
@@ -874,43 +836,6 @@
       font-size: 0.85rem;
       color: var(--fg-muted);
       margin-top: 0.75rem;
-    }
-
-    /* PRINCIPLES */
-    .principles-list {
-      list-style: none;
-      margin-top: 2rem;
-      counter-reset: principle;
-    }
-
-    .principles-list li {
-      counter-increment: principle;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      gap: 1.5rem;
-      align-items: baseline;
-    }
-
-    .principles-list li:first-child { border-top: 1px solid var(--border); }
-
-    .principles-list li::before {
-      content: counter(principle, decimal-leading-zero);
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--fg-faint);
-      flex-shrink: 0;
-    }
-
-    .principles-list .rule {
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .principles-list .detail {
-      font-size: 0.85rem;
-      color: var(--fg-muted);
-      margin-top: 0.25rem;
     }
 
     /* SPLIT: WHAT'S NEW + FAQ */
@@ -1127,8 +1052,6 @@
       .install-methods,
       .context-files { grid-template-columns: 1fr; }
 
-      .slop-grid { grid-template-columns: 1fr; }
-      .slop-item { border-right: none; }
 
       .periodic-table { gap: 1.5rem; }
       .element { width: 60px; height: 60px; }
@@ -1154,10 +1077,8 @@
         <li><a href="#problem">01 Problem</a></li>
         <li><a href="#skills">02 Skills</a></li>
         <li><a href="#context">03 Context</a></li>
-        <li><a href="#slop">04 Anti-Patterns</a></li>
-        <li><a href="#install">05 Install</a></li>
-        <li><a href="#principles">06 Principles</a></li>
-        <li><a href="#faq">07 New &amp; FAQ</a></li>
+        <li><a href="#install">04 Install</a></li>
+        <li><a href="#faq">05 New &amp; FAQ</a></li>
       </ul>
       <a href="https://github.com/VGrss/Acumen" class="nav-gh" target="_blank">GitHub</a>
     </div>
@@ -1174,7 +1095,7 @@
           <span class="stat-label">Core Skill</span>
         </div>
         <div class="stat">
-          <span class="stat-number">15</span>
+          <span class="stat-number">19</span>
           <span class="stat-label">Skills</span>
         </div>
         <div class="stat">
@@ -1267,7 +1188,7 @@
   <section id="skills">
     <div class="container">
       <div class="section-label">02 &mdash; Skills</div>
-      <h2>16 skills. Each one reads your product's context before it writes a single line.</h2>
+      <h2>19 skills. Each one reads your product's context before it writes a single line.</h2>
       <p>Each skill is a focused product operation &mdash; grounded in your codebase and knowledge layer, not generic prompting.</p>
 
       <!-- Periodic Table -->
@@ -1295,6 +1216,11 @@
                 <div class="element-abbr">Fe</div>
                 <div class="element-name">features</div>
                 <div class="element-tooltip">Build and maintain a lightweight feature inventory</div>
+              </div>
+              <div class="element element--context" data-skill="value">
+                <div class="element-abbr">Va</div>
+                <div class="element-name">value</div>
+                <div class="element-tooltip">Map per-persona value delivery to the usage and north star metrics that prove it</div>
               </div>
             </div>
           </div>
@@ -1391,6 +1317,11 @@
                 <div class="element-name">feedback</div>
                 <div class="element-tooltip">Submit structured feedback as a GitHub Discussion</div>
               </div>
+              <div class="element element--meta" data-skill="catchup">
+                <div class="element-abbr">Cu</div>
+                <div class="element-name">catchup</div>
+                <div class="element-tooltip">Pull latest code and summarize recent changes in product-friendly terms</div>
+              </div>
             </div>
           </div>
         </div>
@@ -1412,6 +1343,9 @@
             </div>
             <div class="skill-carousel-nav-item" data-skill="features">
               <span class="nav-abbr" style="color:#c4636c">Fe</span> features
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="value">
+              <span class="nav-abbr" style="color:#c4636c">Va</span> value
             </div>
           </div>
           <div class="skill-carousel-nav-group">
@@ -1466,6 +1400,9 @@
             </div>
             <div class="skill-carousel-nav-item" data-skill="feedback">
               <span class="nav-abbr" style="color:#7a5a9a">Fb</span> feedback
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="catchup">
+              <span class="nav-abbr" style="color:#7a5a9a">Cu</span> catchup
             </div>
           </div>
         </div>
@@ -1593,105 +1530,10 @@
     </div>
   </section>
 
-  <!-- 05 ANTI-PATTERNS -->
-  <section id="slop">
-    <div class="container">
-      <div class="section-label">04 &mdash; Anti-Patterns</div>
-      <h2>What distance produces: 12 named tells of AI product slop.</h2>
-      <p>Without codebase context, AI defaults to these patterns. Acumen names each one, teaches the AI to detect them, and refuses to produce them.</p>
-      <div class="slop-grid">
-        <div class="slop-item">
-          <span class="slop-num">01</span>
-          <div class="slop-content">
-            <div class="slop-name">Template Filler</div>
-            <div class="slop-desc">Every section filled, none grounded in what&rsquo;s actually built</div>
-          </div>
-        </div>
-        <div class="slop-item">
-          <span class="slop-num">02</span>
-          <div class="slop-content">
-            <div class="slop-name">Demographic Persona</div>
-            <div class="slop-desc">Demographics because real behavior is observed, not assumed</div>
-          </div>
-        </div>
-        <div class="slop-item">
-          <span class="slop-num">03</span>
-          <div class="slop-content">
-            <div class="slop-name">Inverted Solution</div>
-            <div class="slop-desc">Problem is the solution described negatively &mdash; the real friction was never observed</div>
-          </div>
-        </div>
-        <div class="slop-item">
-          <span class="slop-num">04</span>
-          <div class="slop-content">
-            <div class="slop-name">Vanity Metric</div>
-            <div class="slop-desc">Measures things that always go up, not what the product actually tracks</div>
-          </div>
-        </div>
-        <div class="slop-item">
-          <span class="slop-num">05</span>
-          <div class="slop-content">
-            <div class="slop-name">Feature Checklist</div>
-            <div class="slop-desc">Flat list with no awareness of what already exists or how it connects</div>
-          </div>
-        </div>
-        <div class="slop-item">
-          <span class="slop-num">06</span>
-          <div class="slop-content">
-            <div class="slop-name">Generic Risk</div>
-            <div class="slop-desc">&ldquo;Technical complexity&rdquo; &mdash; because the actual system was never examined</div>
-          </div>
-        </div>
-        <div class="slop-item">
-          <span class="slop-num">07</span>
-          <div class="slop-content">
-            <div class="slop-name">Tautology Story</div>
-            <div class="slop-desc">User story restates the feature because the real job-to-be-done is unknown</div>
-          </div>
-        </div>
-        <div class="slop-item">
-          <span class="slop-num">08</span>
-          <div class="slop-content">
-            <div class="slop-name">Phantom Feature</div>
-            <div class="slop-desc">Proposes what already exists &mdash; the codebase was never read</div>
-          </div>
-        </div>
-        <div class="slop-item">
-          <span class="slop-num">09</span>
-          <div class="slop-content">
-            <div class="slop-name">Strategy of Everything</div>
-            <div class="slop-desc">Lists every direction because without context, nothing can be ruled out</div>
-          </div>
-        </div>
-        <div class="slop-item">
-          <span class="slop-num">10</span>
-          <div class="slop-content">
-            <div class="slop-name">Feature Roadmap</div>
-            <div class="slop-desc">Timeline of features with no thesis about what the product is becoming</div>
-          </div>
-        </div>
-        <div class="slop-item">
-          <span class="slop-num">11</span>
-          <div class="slop-content">
-            <div class="slop-name">Greenfield Spec</div>
-            <div class="slop-desc">Scopes from scratch, ignoring existing architecture and shipped features</div>
-          </div>
-        </div>
-        <div class="slop-item">
-          <span class="slop-num">12</span>
-          <div class="slop-content">
-            <div class="slop-name">Consensus Document</div>
-            <div class="slop-desc">Inoffensive to all because without product evidence, there&rsquo;s nothing to argue from</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 06 INSTALL -->
+  <!-- 04 INSTALL -->
   <section id="install">
     <div class="container">
-      <div class="section-label">05 &mdash; Get Started</div>
+      <div class="section-label">04 &mdash; Get Started</div>
       <h2>Install in under a minute.</h2>
       <p>Acumen follows the <a href="https://agentskills.io/specification" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">Agent Skills spec</a>. Drop the skills into your AI tool and go.</p>
       <div class="install-methods">
@@ -1737,56 +1579,10 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
     </div>
   </section>
 
-  <!-- 07 PRINCIPLES -->
-  <section id="principles">
-    <div class="container">
-      <div class="section-label">06 &mdash; Principles</div>
-      <h2>Why the codebase comes first.</h2>
-      <ul class="principles-list">
-        <li>
-          <div>
-            <div class="rule">Read before write</div>
-            <div class="detail">Every skill reads the codebase and context layer before producing a single line.</div>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="rule">Opinion > comprehensiveness</div>
-            <div class="detail">"RICE doesn't ship products, judgment does."</div>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="rule">Brevity > coverage</div>
-            <div class="detail">50-100 lines per skill. Depth lives in reference docs.</div>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="rule">Context layer feeds all other layers</div>
-            <div class="detail">Not passive storage &mdash; active inputs that shape every artifact.</div>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="rule">Context over prompting</div>
-            <div class="detail">Ground every artifact in what actually exists, not what sounds plausible.</div>
-          </div>
-        </li>
-        <li>
-          <div>
-            <div class="rule">Natural flow between skills</div>
-            <div class="detail">Skills suggest the next skill: /diagnose &rarr; /workshop &rarr; /increment &rarr; /critique-product.</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 08 WHAT'S NEW + FAQ -->
+  <!-- 05 WHAT'S NEW + FAQ -->
   <section id="faq">
     <div class="container">
-      <div class="section-label">07 &mdash; What's New &amp; FAQ</div>
+      <div class="section-label">05 &mdash; What's New &amp; FAQ</div>
       <div class="split-section">
 
         <!-- LEFT: What's New -->
@@ -1863,7 +1659,6 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
         <div class="footer-left">Acumen &mdash; Apache 2.0. Inspired by <a href="https://impeccable.style" target="_blank" style="color: var(--fg-faint); text-decoration: underline;">Impeccable</a>.</div>
         <ul class="footer-links">
           <li><a href="#skills">Skills</a></li>
-          <li><a href="#slop">Anti-Patterns</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="https://github.com/VGrss/Acumen" target="_blank">GitHub</a></li>
           <li><a href="https://agentskills.io" target="_blank">Agent Skills</a></li>
@@ -1905,6 +1700,7 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
       scout: { name: '/scout', layer: 'Context', desc: 'Build and maintain a living competitor map. Supports quick scans and deep competitive analysis. Maps competitors using job-to-be-done thinking, categorizing them as direct, indirect, or adjacent. Includes deep analysis mode with moat evaluation and positioning.', examples: ['/scout quick', '/scout deep on Notion'] },
       persona: { name: '/persona', layer: 'Context', desc: 'Build and maintain behavioral personas grounded in real user patterns. Builds personas from behavior outward\u2014not demographics\u2014capturing the job they hire the product to do, context of use, pain points, success criteria, and feedback signals.', examples: ['/persona', '/persona power users only'] },
       features: { name: '/features', layer: 'Context', desc: 'Build and maintain a lightweight feature inventory. Scans the codebase for feature surfaces, maps each feature to personas, tracks status and metrics, groups into coherent areas, and identifies gaps, decay, and unmeasured features.', examples: ['/features', '/features map to personas'] },
+      value: { name: '/value', layer: 'Context', desc: 'Map per-persona value delivery to the usage and north star metrics that prove it. Links each persona to the value they get, the metrics that prove delivery, and a confidence matrix of proven vs. assumed value.', examples: ['/value', '/value for power users'] },
       orientation: { name: '/orientation', layer: 'Audit', desc: 'Audit product identity \u2014 what we do, for whom, whether the feature surface is coherent with the thesis. Examines thesis coherence, persona alignment, surface coherence through breadth vs. depth, and tests the positioning statement.', examples: ['/orientation', '/orientation after the pivot'] },
       defensibility: { name: '/defensibility', layer: 'Audit', desc: 'Audit what\u2019s hard to copy \u2014 moats, switching costs, data advantages, network effects, and AI-era resilience. Evaluates 7 AI-era moat dimensions, classical moats, vulnerability scenarios, and value chain control.', examples: ['/defensibility', '/defensibility vs open-source alternatives'] },
       diagnose: { name: '/diagnose', layer: 'Ideate', desc: 'Find current problems based on data, value delivery, and feature health. Uses a value delivery audit, five whys protocol with evidence categorization, feature health checks, and reframing lenses before recommending action.', examples: ['/diagnose why churn spiked in Q1', '/diagnose onboarding drop-off'] },
@@ -1917,7 +1713,8 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
       changelog: { name: '/changelog', layer: 'Communicate', desc: 'Write a changelog from recent PRs and commits, grounded in feature context. Gathers commit history, grounds changes in feature context, categorizes into new/improved/fixed/changed, and generates benefit-first, jargon-free copy.', examples: ['/changelog last 7 days', '/changelog since v2.1'] },
       update: { name: '/update', layer: 'Meta', desc: 'Fetch the latest Acumen skills from GitHub and update local copies. Syncs content into source/skills/, distributes to .agents/skills/, and creates symlinks in .claude/skills/. Reports what\u2019s new, removed, and unchanged.', examples: ['/update-acumen', '/update-acumen --force'] },
       cheatsheet: { name: '/cheatsheet', layer: 'Meta', desc: 'Print a quick-reference cheatsheet of all Acumen skills, organized by layer. Shows every skill with a one-line description in a compact, scannable box format.', examples: ['/cheatsheet'] },
-      feedback: { name: '/feedback', layer: 'Meta', desc: 'Walk through structured feedback and submit it as a GitHub Discussion. Guides you through problem, impact, and optional solution, then formats and submits to the Acumen repo.', examples: ['/feedback', '/feedback I have a skill idea'] }
+      feedback: { name: '/feedback', layer: 'Meta', desc: 'Walk through structured feedback and submit it as a GitHub Discussion. Guides you through problem, impact, and optional solution, then formats and submits to the Acumen repo.', examples: ['/feedback', '/feedback I have a skill idea'] },
+      catchup: { name: '/catchup', layer: 'Meta', desc: 'Pull latest code from main and summarize recent changes in product-friendly terms. Protects your .acumen/ context files, then translates commits and PRs into what shipped, improved, and was fixed \u2014 plus suggested next Acumen skills to run.', examples: ['/catchup', '/catchup since Monday'] }
     };
 
     // Helper: activate a skill in the carousel

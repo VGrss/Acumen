@@ -5,7 +5,7 @@ Product fluency framework for AI. Skills live in `source/skills/` (source of tru
 ## Structure
 
 - `source/skills/{name}/SKILL.md` — source of truth for each skill
-- `.agents/skills/` — distributable copies (Agent Skills spec)
+- `.agents/skills/` — distributable copies (agents.md spec)
 - `.claude/skills/` — symlinks to `.agents/skills/` for Claude Code
 
 ## Adding a new skill
@@ -17,7 +17,7 @@ Product fluency framework for AI. Skills live in `source/skills/` (source of tru
 
 ## Skill format
 
-All skills use the [Agent Skills spec](https://agentskills.io/specification):
+All skills use the [agents.md spec](https://agents.md):
 
 ```yaml
 ---

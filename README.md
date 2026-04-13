@@ -169,7 +169,7 @@ source/                          # Source of truth
     narrate/SKILL.md             # Communicate: write for audience
     changelog/SKILL.md           # Communicate: write changelog
 
-.agents/skills/                  # Agent Skills spec (generic)
+.agents/skills/                  # agents.md spec (generic)
 .claude/skills/                  # Claude Code (symlinks to .agents/)
 ```
 
@@ -202,7 +202,7 @@ cp -r .agents/skills/* ~/.claude/skills/
 
 ### Other AI Tools
 
-Copy the `.agents/skills/` directory into your tool's skill location. Skills follow the [Agent Skills spec](https://agentskills.io/specification).
+Copy the `.agents/skills/` directory into your tool's skill location. Skills follow the [agents.md spec](https://agents.md).
 
 ## Usage
 

@@ -923,6 +923,56 @@
       border-color: #4ade80;
     }
 
+    /* FOR WHO */
+    .for-who-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .for-who-card {
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      padding: 1.5rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .for-who-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .for-who-card--value { border-left: 3px solid #c4636c; }
+    .for-who-card--experience { border-left: 3px solid #5a8abf; }
+    .for-who-card--reliability { border-left: 3px solid #5a9a5a; }
+
+    .for-who-keyword {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .for-who-card--value .for-who-keyword { color: #c4636c; }
+    .for-who-card--experience .for-who-keyword { color: #5a8abf; }
+    .for-who-card--reliability .for-who-keyword { color: #5a9a5a; }
+
+    .for-who-role {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fg-faint);
+      margin-bottom: 0.5rem;
+    }
+
+    .for-who-desc {
+      font-size: 0.9rem;
+      color: var(--fg-muted);
+      line-height: 1.5;
+    }
+
     /* SPLIT: WHAT'S NEW + FAQ */
     .split-section {
       display: grid;
@@ -1037,6 +1087,7 @@
 
     @media (max-width: 768px) {
       .split-section { grid-template-columns: 1fr; gap: 3rem; }
+      .for-who-grid { grid-template-columns: 1fr; }
     }
 
     /* FOOTER */
@@ -1712,24 +1763,27 @@ npx skills add VGrss/acumen</pre>
   <section id="for-who">
     <div class="container">
       <div class="section-label">05 &mdash; For Who</div>
-      <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 2rem; max-width: 640px;">The stack is collapsing. Product &laquo;&raquo; Design &laquo;&raquo; Developer: all become <strong>Builders</strong> with a speciality.</p>
+      <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 2.5rem; max-width: 640px;">The stack is collapsing. Product &laquo;&raquo; Design &laquo;&raquo; Developer: all become <strong>Builders</strong> with a speciality.</p>
 
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 2rem;">
-        <div>
-          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Product Managers</h3>
-          <p style="color: var(--fg-faint); line-height: 1.6;">Builder + <strong>&ldquo;value&rdquo;</strong> speciality</p>
+      <div class="for-who-grid">
+        <div class="for-who-card for-who-card--value">
+          <div class="for-who-role">Product Managers</div>
+          <div class="for-who-keyword">Value</div>
+          <div class="for-who-desc">Builder with a value speciality &mdash; shaping what to build, for whom, and why it matters.</div>
         </div>
-        <div>
-          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Designers</h3>
-          <p style="color: var(--fg-faint); line-height: 1.6;">Builder + <strong>&ldquo;experience&rdquo;</strong> speciality</p>
+        <div class="for-who-card for-who-card--experience">
+          <div class="for-who-role">Designers</div>
+          <div class="for-who-keyword">Experience</div>
+          <div class="for-who-desc">Builder with an experience speciality &mdash; crafting how the product feels and flows.</div>
         </div>
-        <div>
-          <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Developers</h3>
-          <p style="color: var(--fg-faint); line-height: 1.6;">Builder + <strong>&ldquo;reliability&rdquo;</strong> speciality</p>
+        <div class="for-who-card for-who-card--reliability">
+          <div class="for-who-role">Developers</div>
+          <div class="for-who-keyword">Reliability</div>
+          <div class="for-who-desc">Builder with a reliability speciality &mdash; making it work, scale, and ship.</div>
         </div>
       </div>
 
-      <p style="font-size: 1rem; color: var(--fg-faint); line-height: 1.6;">Every profile benefits from reinforcing their <strong>Product Acumen</strong>.</p>
+      <p style="font-size: 1rem; color: var(--fg-muted); line-height: 1.6;">Every profile benefits from reinforcing their <strong>Product Acumen</strong>.</p>
     </div>
   </section>
 

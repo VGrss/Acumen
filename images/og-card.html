@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200">
+  <title>OG Card — Acumen</title>
+  <style>
+    /* Render at exactly 1200×630 for OG image */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #fafafa;
+      color: #111;
+    }
+
+    .card {
+      width: 1200px;
+      height: 630px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 48px 64px;
+      position: relative;
+    }
+
+    /* Subtle border frame */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 16px;
+      border: 1.5px solid #ddd;
+    }
+
+    .title {
+      font-family: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #111;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 40px;
+    }
+
+    /* Periodic table */
+    .periodic-table {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .element-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .element-group-label {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #999;
+      margin-bottom: 2px;
+    }
+
+    .element-group-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .element {
+      width: 64px;
+      height: 64px;
+      border: 1.5px solid #ddd;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .element-abbr {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .element-name {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 8px;
+      color: #999;
+      margin-top: 4px;
+    }
+
+    /* Colors */
+    .el-context { border-color: #e8b4b8; }
+    .el-context .element-abbr { color: #c4636c; }
+    .el-audit { border-color: #b8d4b8; }
+    .el-audit .element-abbr { color: #5a9a5a; }
+    .el-ideate { border-color: #b4c8e8; }
+    .el-ideate .element-abbr { color: #5a8abf; }
+    .el-craft { border-color: #b8e0b8; }
+    .el-craft .element-abbr { color: #3da63d; }
+    .el-communicate { border-color: #e8d4a8; }
+    .el-communicate .element-abbr { color: #b89430; }
+    .el-meta { border-color: #c8b8d8; }
+    .el-meta .element-abbr { color: #7a5a9a; }
+
+    .url {
+      position: absolute;
+      bottom: 32px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="title">&#9650; acumen</div>
+    <h1>Skills for modern product management</h1>
+
+    <div class="periodic-table">
+      <div class="element-group">
+        <div class="element-group-label">Context</div>
+        <div class="element-group-items">
+          <div class="element el-context"><div class="element-abbr">Te</div><div class="element-name">teach</div></div>
+          <div class="element el-context"><div class="element-abbr">Sc</div><div class="element-name">scout</div></div>
+          <div class="element el-context"><div class="element-abbr">Pe</div><div class="element-name">persona</div></div>
+          <div class="element el-context"><div class="element-abbr">Fe</div><div class="element-name">features</div></div>
+          <div class="element el-context"><div class="element-abbr">Va</div><div class="element-name">value</div></div>
+        </div>
+      </div>
+
+      <div class="element-group">
+        <div class="element-group-label">Audit</div>
+        <div class="element-group-items">
+          <div class="element el-audit"><div class="element-abbr">Or</div><div class="element-name">orientation</div></div>
+          <div class="element el-audit"><div class="element-abbr">De</div><div class="element-name">defensibility</div></div>
+        </div>
+      </div>
+
+      <div class="element-group">
+        <div class="element-group-label">Ideate</div>
+        <div class="element-group-items">
+          <div class="element el-ideate"><div class="element-abbr">Di</div><div class="element-name">diagnose</div></div>
+          <div class="element el-ideate"><div class="element-abbr">Me</div><div class="element-name">measure</div></div>
+          <div class="element el-ideate"><div class="element-abbr">Wo</div><div class="element-name">workshop</div></div>
+        </div>
+      </div>
+
+      <div class="element-group">
+        <div class="element-group-label">Craft</div>
+        <div class="element-group-items">
+          <div class="element el-craft"><div class="element-abbr">Ro</div><div class="element-name">roadmap</div></div>
+          <div class="element el-craft"><div class="element-abbr">In</div><div class="element-name">increment</div></div>
+          <div class="element el-craft"><div class="element-abbr">Cr</div><div class="element-name">critique</div></div>
+        </div>
+      </div>
+
+      <div class="element-group">
+        <div class="element-group-label">Communicate</div>
+        <div class="element-group-items">
+          <div class="element el-communicate"><div class="element-abbr">Na</div><div class="element-name">narrate</div></div>
+          <div class="element el-communicate"><div class="element-abbr">Ch</div><div class="element-name">changelog</div></div>
+        </div>
+      </div>
+
+      <div class="element-group">
+        <div class="element-group-label">Meta</div>
+        <div class="element-group-items">
+          <div class="element el-meta"><div class="element-abbr">Up</div><div class="element-name">update</div></div>
+          <div class="element el-meta"><div class="element-abbr">Cs</div><div class="element-name">cheatsheet</div></div>
+          <div class="element el-meta"><div class="element-abbr">Fb</div><div class="element-name">feedback</div></div>
+          <div class="element el-meta"><div class="element-abbr">Cu</div><div class="element-name">catchup</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="url">acumen.tools</div>
+  </div>
+</body>
+</html>

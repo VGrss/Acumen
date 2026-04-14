@@ -779,28 +779,37 @@
 
     /* ANTI-PATTERNS */
     /* INSTALL */
-    .install-methods {
+    .install-steps {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
       margin-top: 2rem;
     }
 
-    .install-method {
+    .install-step {
       background: var(--surface);
-      padding: 1.5rem;
+      padding: 2rem;
     }
 
-    .install-method h4 {
+    .install-step-number {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 700;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg-faint);
       margin-bottom: 0.75rem;
     }
 
-    .install-method pre {
+    .install-step h4 {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .install-step pre {
       background: var(--fg);
       color: #e0e0e0;
       font-family: var(--font-mono);
@@ -809,6 +818,40 @@
       overflow-x: auto;
       line-height: 1.6;
       position: relative;
+    }
+
+    .install-step pre .comment {
+      color: #666;
+    }
+
+    .install-step p {
+      font-size: 0.85rem;
+      color: var(--fg-muted);
+      margin-top: 0.75rem;
+    }
+
+    .install-step-icons {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .install-step-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      transition: border-color 0.15s;
+      text-decoration: none;
+    }
+
+    .install-step-icons a:hover {
+      border-color: var(--fg-faint);
     }
 
     .copy-btn {
@@ -833,16 +876,6 @@
     .copy-btn.copied {
       color: #4ade80;
       border-color: #4ade80;
-    }
-
-    .install-method pre .comment {
-      color: #666;
-    }
-
-    .install-method p {
-      font-size: 0.85rem;
-      color: var(--fg-muted);
-      margin-top: 0.75rem;
     }
 
     /* SPLIT: WHAT'S NEW + FAQ */
@@ -1056,7 +1089,7 @@
       .periodic-table-wrap { padding: 1rem; }
 
       .knowledge-files,
-      .install-methods,
+      .install-steps,
       .context-files { grid-template-columns: 1fr; }
 
 
@@ -1546,46 +1579,51 @@
       <div class="section-label">04 &mdash; Get Started</div>
       <h2>Install in under a minute.</h2>
       <p>Acumen follows the <a href="https://agents.md" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">agents.md</a> spec. Drop the skills into your AI tool and go.</p>
-      <div class="install-methods">
-        <div class="install-method">
-          <h4>Recommended</h4>
-          <pre><span class="comment"># Auto-detect your tool and install</span>
+      <div class="install-steps">
+        <div class="install-step">
+          <div class="install-step-number">Step 1</div>
+          <h4>Open your codebase</h4>
+          <p>Use any coding agent that supports the <a href="https://agents.md" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">agents.md</a> spec. It works with read-only access rights.</p>
+          <div class="install-step-icons">
+            <a href="https://claude.ai/code" target="_blank" title="Claude Code"><img src="images/providers/anthropic.svg" alt="Claude Code" width="20" height="20"></a>
+            <a href="https://cursor.com" target="_blank" title="Cursor"><img src="images/providers/cursor.svg" alt="Cursor" width="20" height="20"></a>
+            <a href="https://windsurf.com" target="_blank" title="Windsurf"><img src="images/providers/windsurf.svg" alt="Windsurf" width="20" height="20"></a>
+            <a href="https://github.com/google-gemini/gemini-cli" target="_blank" title="Gemini CLI"><img src="images/providers/gemini.svg" alt="Gemini CLI" width="20" height="20"></a>
+            <a href="https://github.com/openai/codex" target="_blank" title="Codex CLI"><img src="images/providers/openai.svg" alt="Codex CLI" width="20" height="20"></a>
+            <a href="https://github.com/features/copilot" target="_blank" title="GitHub Copilot"><img src="images/providers/github.svg" alt="GitHub Copilot" width="20" height="20"></a>
+            <a href="https://kiro.dev" target="_blank" title="Kiro"><img src="images/providers/kiro.svg" alt="Kiro" width="20" height="20"></a>
+            <a href="https://opencode.ai" target="_blank" title="OpenCode"><img src="images/providers/opencode.svg" alt="OpenCode" width="20" height="20"></a>
+            <a href="https://ampcode.com" target="_blank" title="Amp"><img src="images/providers/amp.svg" alt="Amp" width="20" height="20"></a>
+            <a href="https://cline.bot" target="_blank" title="Cline"><img src="images/providers/cline.svg" alt="Cline" width="20" height="20"></a>
+            <a href="https://aider.chat" target="_blank" title="Aider"><img src="images/providers/aider.svg" alt="Aider" width="20" height="20"></a>
+            <a href="https://roocode.com" target="_blank" title="Roo Code"><img src="images/providers/roocode.svg" alt="Roo Code" width="20" height="20"></a>
+            <a href="https://continue.dev" target="_blank" title="Continue"><img src="images/providers/continue.svg" alt="Continue" width="20" height="20"></a>
+            <a href="https://zed.dev" target="_blank" title="Zed"><img src="images/providers/zed.svg" alt="Zed" width="20" height="20"></a>
+            <a href="https://trae.ai" target="_blank" title="Trae"><img src="images/providers/trae.svg" alt="Trae" width="20" height="20"></a>
+            <a href="https://conductor.build" target="_blank" title="Conductor"><img src="images/providers/conductor.svg" alt="Conductor" width="20" height="20"></a>
+          </div>
+        </div>
+
+        <div class="install-step">
+          <div class="install-step-number">Step 2</div>
+          <h4>Install Acumen</h4>
+          <pre><span class="comment"># One command, auto-detects your tool</span>
 npx skills add VGrss/acumen</pre>
-          <p>Works with any tool that supports the agents.md spec.</p>
         </div>
-        <div class="install-method">
-          <h4>Claude Code (project)</h4>
-          <pre><span class="comment"># Copy skills into your project</span>
-cp -r .claude your-project/
-cp -r .agents your-project/</pre>
-          <p>Skills load automatically via Claude Code's skill system.</p>
-        </div>
-        <div class="install-method">
-          <h4>Claude Code (global)</h4>
-          <pre><span class="comment"># Install skills globally</span>
-mkdir -p ~/.claude/skills
-cp -r .agents/skills/* ~/.claude/skills/</pre>
-          <p>Available in every project on your machine.</p>
-        </div>
-        <div class="install-method">
-          <h4>Other AI Tools</h4>
-          <pre><span class="comment"># Copy the agents.md directory</span>
-cp -r .agents/skills/ ~/your-tool/skills/</pre>
-          <p>Any tool supporting the agents.md spec.</p>
-        </div>
-        <div class="install-method">
-          <h4>Then run setup</h4>
+
+        <div class="install-step">
+          <div class="install-step-number">Step 3</div>
+          <h4>Teach &amp; go</h4>
           <pre><span class="comment"># One-time product context</span>
 /teach-acumen
 
-<span class="comment"># Start using skills</span>
+<span class="comment"># Then let the skills guide you</span>
 /diagnose
 /orientation
-/measure</pre>
+/workshop</pre>
+          <p>Each skill suggests the next one. Just follow the flow.</p>
         </div>
       </div>
-
-      <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--fg-faint);">Works with: Claude Code &middot; Cursor &middot; Windsurf &middot; Gemini CLI &middot; Codex CLI &middot; GitHub Copilot &middot; Kiro &middot; OpenCode &middot; Amp &middot; Cline &middot; Aider &middot; Roo Code &middot; Continue &middot; Zed &middot; Trae &middot; and any tool supporting the <a href="https://agents.md" target="_blank" style="color: var(--fg-faint); border-bottom: 1px solid var(--border);">agents.md</a> spec.</p>
     </div>
   </section>
 
@@ -1796,7 +1834,7 @@ cp -r .agents/skills/ ~/your-tool/skills/</pre>
   </script>
 
   <script>
-    document.querySelectorAll('.install-method pre').forEach(pre => {
+    document.querySelectorAll('.install-step pre').forEach(pre => {
       const btn = document.createElement('button');
       btn.className = 'copy-btn';
       btn.textContent = 'Copy';

@@ -702,11 +702,56 @@
       padding: 1.25rem 1.5rem;
     }
 
+    .context-file-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .context-file-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: var(--fg-faint);
+    }
+
+    .context-file-icon svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
     .context-file-name {
       font-family: var(--font-mono);
       font-size: 0.8rem;
       font-weight: 700;
-      margin-bottom: 0.35rem;
+    }
+
+    .context-source-logos {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .context-source-logos img {
+      width: 16px;
+      height: 16px;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .context-source-logos img:hover {
+      opacity: 1;
+    }
+
+    .context-source-logos span {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--fg-faint);
+      letter-spacing: 0.03em;
     }
 
     .context-file-desc {
@@ -1484,42 +1529,77 @@
 
       <div class="context-files">
         <div class="context-file">
-          <div class="context-file-name">.acumen.md</div>
+          <div class="context-file-header">
+            <div class="context-file-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l2.5 2.5"/><circle cx="9" cy="9" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+            <div class="context-file-name">.acumen.md</div>
+          </div>
           <div class="context-file-desc">Product context: users, strategy, positioning, constraints, north star metric.</div>
           <div class="context-file-maintainer">Created by /teach-acumen</div>
         </div>
         <div class="context-file">
-          <div class="context-file-name">.acumen/value-chain.md</div>
+          <div class="context-file-header">
+            <div class="context-file-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9h3l2-5 2 10 2-7 2 4h3"/></svg></div>
+            <div class="context-file-name">.acumen/value-chain.md</div>
+          </div>
           <div class="context-file-desc">End-to-end workflow map per persona &mdash; extension points, friction, expansion opportunities.</div>
           <div class="context-file-maintainer">Created by /teach-acumen &middot; Updated by /workshop</div>
         </div>
         <div class="context-file">
-          <div class="context-file-name">.acumen/personas.md</div>
+          <div class="context-file-header">
+            <div class="context-file-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="3.5"/><circle cx="11" cy="7" r="3.5"/><path d="M5 14c0-2.2 1.8-4 4-4s4 1.8 4 4"/></svg></div>
+            <div class="context-file-name">.acumen/personas.md</div>
+          </div>
           <div class="context-file-desc">Behavioral personas grounded in real usage patterns, not demographics.</div>
           <div class="context-file-maintainer">Maintained by /persona</div>
         </div>
         <div class="context-file">
-          <div class="context-file-name">.acumen/competitors.md</div>
+          <div class="context-file-header">
+            <div class="context-file-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="7"/><circle cx="9" cy="9" r="3.5"/><circle cx="9" cy="9" r="0.75" fill="currentColor" stroke="none"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="9" y1="14" x2="9" y2="16"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="14" y1="9" x2="16" y2="9"/></svg></div>
+            <div class="context-file-name">.acumen/competitors.md</div>
+          </div>
           <div class="context-file-desc">Living competitor map: who they are, what they ship, where they're strong and weak.</div>
           <div class="context-file-maintainer">Maintained by /scout</div>
         </div>
         <div class="context-file">
-          <div class="context-file-name">.acumen/features.md</div>
+          <div class="context-file-header">
+            <div class="context-file-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="5" rx="0.75"/><rect x="10" y="3" width="5" height="5" rx="0.75"/><rect x="3" y="10" width="5" height="5" rx="0.75"/><rect x="10" y="10" width="5" height="5" rx="0.75"/></svg></div>
+            <div class="context-file-name">.acumen/features.md</div>
+          </div>
           <div class="context-file-desc">Feature inventory: what exists, what's healthy, what's decaying, what's missing.</div>
           <div class="context-file-maintainer">Maintained by /features</div>
         </div>
         <div class="context-file">
-          <div class="context-file-name">.acumen/value.md</div>
+          <div class="context-file-header">
+            <div class="context-file-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14V8l3-2 3 3 3-4 3 2v7"/><line x1="3" y1="14" x2="15" y2="14"/></svg></div>
+            <div class="context-file-name">.acumen/value.md</div>
+          </div>
           <div class="context-file-desc">Per-persona value delivery mapped to usage and north star metrics.</div>
           <div class="context-file-maintainer">Maintained by /value</div>
         </div>
         <div class="context-file">
-          <div class="context-file-name">.acumen/sources.md</div>
+          <div class="context-file-header">
+            <div class="context-file-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h10M4 9h10M4 13h6"/><circle cx="14" cy="13" r="2.5"/><path d="M14 11.5v1.5h1.5"/></svg></div>
+            <div class="context-file-name">.acumen/sources.md</div>
+          </div>
           <div class="context-file-desc">Data source config: analytics, database, backlog &mdash; how skills pull real data.</div>
+          <div class="context-source-logos">
+            <span>Connects to</span>
+            <img src="images/sources/posthog.svg" alt="PostHog" title="PostHog">
+            <img src="images/sources/mixpanel.svg" alt="Mixpanel" title="Mixpanel">
+            <img src="images/sources/amplitude.svg" alt="Amplitude" title="Amplitude">
+            <img src="images/sources/supabase.svg" alt="Supabase" title="Supabase">
+            <img src="images/sources/postgres.svg" alt="PostgreSQL" title="PostgreSQL">
+            <img src="images/sources/linear.svg" alt="Linear" title="Linear">
+            <img src="images/sources/jira.svg" alt="Jira" title="Jira">
+            <img src="images/sources/github.svg" alt="GitHub" title="GitHub">
+          </div>
           <div class="context-file-maintainer">Created by /teach-acumen</div>
         </div>
         <div class="context-file">
-          <div class="context-file-name">.acumen/reports/</div>
+          <div class="context-file-header">
+            <div class="context-file-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h7l4 4v10H4V2z"/><path d="M11 2v4h4"/><line x1="7" y1="9" x2="12" y2="9"/><line x1="7" y1="12" x2="10" y2="12"/></svg></div>
+            <div class="context-file-name">.acumen/reports/</div>
+          </div>
           <div class="context-file-desc">Point-in-time outputs from diagnostic and ideation skills.</div>
           <div class="context-file-maintainer">Generated by /diagnose, /measure, /workshop</div>
         </div>

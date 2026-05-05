@@ -38,7 +38,8 @@ Before writing, load the intelligence you already have:
 3. **Competitors.** Read `.acumen/competitors.md`. What is the competitive landscape for this capability? Where are we behind, ahead, or deliberately different?
 4. **Feature inventory.** Read `.acumen/features.md`. What exists today that this increment touches or extends?
 5. **Value chain.** Read `.acumen/value-chain.md`. Where does this increment sit in the persona's workflow? Does it strengthen an existing step, fill a gap, or extend the chain into new territory?
-6. **User signal.** Check configured feedback sources for evidence that this problem exists and matters. How many users mentioned it? What exact words did they use? What workarounds do they have? If there is no signal, flag it.
+6. **Design contract.** If this increment touches UI, read `./DESIGN.md` (root). Reference its tokens by name in Wireframes and Product Parts (`{colors.primary}`, `button-primary`, `body-md`) instead of inventing values. If `DESIGN.md` does not exist and the increment is UI-heavy, suggest the user run `/brand` first.
+7. **User signal.** Check configured feedback sources for evidence that this problem exists and matters. How many users mentioned it? What exact words did they use? What workarounds do they have? If there is no signal, flag it.
 
 If any context file is missing, note it and proceed with what you have. Do not fabricate context.
 
@@ -190,6 +191,8 @@ Generate ASCII wireframes of the key screens. Focus on layout and information hi
 ```
 
 Annotate each wireframe: What is the user's eye drawn to first? Primary action? Shown vs. hidden?
+
+Where surfaces or controls map to existing components, name the `DESIGN.md` token (`button-primary`, `card-elevated`) rather than describing styles in prose. New UI surfaces should compose from existing tokens — flag any net-new token the increment would require.
 
 ## Engineering
 

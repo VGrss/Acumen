@@ -16,6 +16,7 @@ Then read ALL context files:
 - `.acumen/competitors.md` — competitive landscape
 - `.acumen/personas.md` — user segments and behaviors
 - `.acumen/features.md` — current feature catalog
+- `./DESIGN.md` — visual identity contract (only when critiquing UI-touching artifacts; if missing, flag it)
 
 A critique without context is just opinion. You need to know what the product is, who it serves, and what it's competing against before you can evaluate whether an artifact is good.
 
@@ -98,7 +99,9 @@ For each issue found, assign severity and suggest the Acumen command that would 
 - **P2** — Weakness. Makes the artifact less effective but doesn't block.
 - **P3** — Polish. Would make it better but not urgent.
 
-Available fix commands: `/diagnose`, `/measure`, `/scout`, `/persona`, `/features`, `/narrate`, `/workshop`, `/increment`, `/roadmap`, `/orientation`, `/defensibility`
+Available fix commands: `/diagnose`, `/measure`, `/scout`, `/persona`, `/features`, `/brand`, `/narrate`, `/workshop`, `/increment`, `/roadmap`, `/orientation`, `/defensibility`
+
+For UI-touching artifacts: check that referenced design tokens (`{colors.x}`, `button-primary`) actually resolve in `DESIGN.md`. Flag prose styling ("a blue button") as a P2 — it should name a token instead.
 
 ## Output Format
 

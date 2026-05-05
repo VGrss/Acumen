@@ -80,6 +80,22 @@ export const skills = [
     ],
   },
   {
+    id: "brand",
+    name: "/brand",
+    abbr: "Br",
+    layer: "Context",
+    color: "#c4636c",
+    borderColor: "#e8b4b8",
+    hoverColor: "#d4868d",
+    tagline: "DESIGN.md visual identity contract",
+    steps: [
+      "Scans Tailwind & CSS tokens",
+      "Generates DESIGN.md at root",
+      "Tokens + rationale, not just hex",
+      "Lints with @google/design.md",
+    ],
+  },
+  {
     id: "catchup",
     name: "/catchup",
     abbr: "Cu",
@@ -281,7 +297,7 @@ export const skills = [
     hoverColor: "#a890c0",
     tagline: "Quick-reference skill card",
     steps: [
-      "Lists all 19 commands",
+      "Lists all 20 commands",
       "Organized by layer",
       "One-line descriptions",
       "Scannable box format",

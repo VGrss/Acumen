@@ -1353,7 +1353,7 @@
   <section id="skills">
     <div class="container">
       <div class="section-label">02 &mdash; Skills</div>
-      <h2>19 skills. Each one reads your product's context before it writes a single line.</h2>
+      <h2>21 skills. Each one reads your product's context before it writes a single line.</h2>
       <p>Each skill is a focused product operation &mdash; grounded in your codebase and knowledge layer, not generic prompting.</p>
 
       <!-- Periodic Table -->
@@ -1386,6 +1386,11 @@
                 <div class="element-abbr">Va</div>
                 <div class="element-name">value</div>
                 <div class="element-tooltip">Map per-persona value delivery to the usage and north star metrics that prove it</div>
+              </div>
+              <div class="element element--context" data-skill="brand">
+                <div class="element-abbr">Br</div>
+                <div class="element-name">brand</div>
+                <div class="element-tooltip">Build and maintain DESIGN.md &mdash; a structured visual identity contract for coding agents</div>
               </div>
             </div>
           </div>
@@ -1511,6 +1516,9 @@
             </div>
             <div class="skill-carousel-nav-item" data-skill="value">
               <span class="nav-abbr" style="color:#c4636c">Va</span> value
+            </div>
+            <div class="skill-carousel-nav-item" data-skill="brand">
+              <span class="nav-abbr" style="color:#c4636c">Br</span> brand
             </div>
           </div>
           <div class="skill-carousel-nav-group">
@@ -1826,8 +1834,20 @@ npx skills add VGrss/acumen</pre>
 
           <div id="changelog-entries">
             <div class="changelog-entry">
-              <div class="changelog-date" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('collapsed')">April 13, 2026</div>
+              <div class="changelog-date" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('collapsed')">May 5, 2026</div>
               <div class="changelog-entry-content">
+                <ul>
+                  <li><strong>/brand</strong> &mdash; build and maintain <code>DESIGN.md</code>, a structured visual identity contract for coding agents. Follows the <a href="https://github.com/google-labs-code/design.md" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">Google DESIGN.md spec</a>: machine-readable tokens (colors, typography, spacing, components) plus the prose rationale behind them.</li>
+                  <li><strong>/increment</strong> now reads <code>DESIGN.md</code> for UI-touching specs and references tokens by name in wireframes instead of inventing values.</li>
+                  <li><strong>/critique-product</strong> checks that token references resolve and flags prose styling ("a blue button") as a P2 issue on UI artifacts.</li>
+                  <li>Total skill count: 21</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="changelog-entry">
+              <div class="changelog-date collapsed" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('collapsed')">April 13, 2026</div>
+              <div class="changelog-entry-content collapsed">
                 <ul>
                   <li><strong>/catchup</strong> &mdash; pull latest code from main and get a product-friendly summary of what changed, without losing .acumen/ context</li>
                   <li>Total skill count: 20</li>
@@ -1946,6 +1966,7 @@ npx skills add VGrss/acumen</pre>
       persona: { name: '/persona', layer: 'Context', desc: 'Build and maintain behavioral personas grounded in real user patterns. Builds personas from behavior outward\u2014not demographics\u2014capturing the job they hire the product to do, context of use, pain points, success criteria, and feedback signals.', examples: ['/persona', '/persona power users only'] },
       features: { name: '/features', layer: 'Context', desc: 'Build and maintain a lightweight feature inventory. Scans the codebase for feature surfaces, maps each feature to personas, tracks status and metrics, groups into coherent areas, and identifies gaps, decay, and unmeasured features.', examples: ['/features', '/features map to personas'] },
       value: { name: '/value', layer: 'Context', desc: 'Map per-persona value delivery to the usage and north star metrics that prove it. Links each persona to the value they get, the metrics that prove delivery, and a confidence matrix of proven vs. assumed value.', examples: ['/value', '/value for power users'] },
+      brand: { name: '/brand', layer: 'Context', desc: 'Build and maintain DESIGN.md — a structured visual identity contract for coding agents. Scans Tailwind config, CSS tokens, and component primitives, then writes machine-readable tokens plus the rationale behind them. Follows the Google DESIGN.md spec so /increment and /critique-product can reference tokens by name.', examples: ['/brand', '/brand colors'] },
       orientation: { name: '/orientation', layer: 'Audit', desc: 'Audit product identity \u2014 what we do, for whom, whether the feature surface is coherent with the thesis. Examines thesis coherence, persona alignment, surface coherence through breadth vs. depth, and tests the positioning statement.', examples: ['/orientation', '/orientation after the pivot'] },
       defensibility: { name: '/defensibility', layer: 'Audit', desc: 'Audit what\u2019s hard to copy \u2014 moats, switching costs, data advantages, network effects, and AI-era resilience. Evaluates 7 AI-era moat dimensions, classical moats, vulnerability scenarios, and value chain control.', examples: ['/defensibility', '/defensibility vs open-source alternatives'] },
       diagnose: { name: '/diagnose', layer: 'Ideate', desc: 'Find current problems based on data, value delivery, and feature health. Uses a value delivery audit, five whys protocol with evidence categorization, feature health checks, and reframing lenses before recommending action.', examples: ['/diagnose why churn spiked in Q1', '/diagnose onboarding drop-off'] },

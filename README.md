@@ -1,6 +1,6 @@
 # Acumen
 
-Product fluency for AI. 1 skill, 17 commands, and curated anti-patterns for sharp product thinking.
+Product fluency for AI. 1 skill, 18 commands, and curated anti-patterns for sharp product thinking.
 
 ## Why Acumen?
 
@@ -10,7 +10,7 @@ Every LLM learned from the same generic templates. Without guidance, you get the
 
 Acumen fights that bias with:
 - **A core skill** with 7 domain-specific reference documents ([view source](source/skills/product-thinking/))
-- **16 commands** organized in 5 layers — from context gathering to shipping changelogs
+- **17 commands** organized in 6 layers — from context gathering to shipping changelogs
 - **12 named anti-patterns** ("AI Product Slop") that explicitly tell the AI what NOT to produce
 
 ## What's Included
@@ -29,7 +29,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | [Stakeholder Alignment](source/skills/product-thinking/reference/stakeholder-alignment.md) | DACI, disagree-and-commit, managing upward, pre-mortems |
 | [Competitive Intelligence](source/skills/product-thinking/reference/competitive-intelligence.md) | Moat analysis, win/loss, competitive response playbooks |
 
-### 16 Commands in 6 Layers
+### 17 Commands in 6 Layers
 
 #### Context Layer (build & maintain product knowledge)
 
@@ -40,6 +40,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | `/persona` | Build and maintain behavioral personas grounded in real user patterns |
 | `/features` | Build and maintain a lightweight feature inventory |
 | `/value` | Map per-persona value delivery to the usage and north star metrics that prove it |
+| `/brand` | Build and maintain `DESIGN.md` — a structured visual identity contract for coding agents |
 
 #### Audit Layer (assess product health)
 
@@ -154,6 +155,7 @@ source/                          # Source of truth
     profile/SKILL.md             # Context: personas
     features/SKILL.md            # Context: features
     value/SKILL.md               # Context: per-persona value & metrics
+    brand/SKILL.md               # Context: DESIGN.md visual identity
     catchup/SKILL.md             # Meta: pull latest code & summarize
     update-acumen/SKILL.md       # Meta: sync skills from GitHub
     orientation/SKILL.md         # Audit: product identity
@@ -186,6 +188,12 @@ source/                          # Source of truth
 | `.acumen/sources.md` | `/teach-acumen` | Data source configuration |
 | `.acumen/reports/` | `/diagnose`, `/measure`, `/workshop` | Point-in-time analysis reports |
 
+### Checked-in artifacts
+
+| File | Maintained by | Purpose |
+|------|--------------|---------|
+| `DESIGN.md` (root) | `/brand` | Visual identity contract for coding agents — follows the [Google DESIGN.md spec](https://github.com/google-labs-code/design.md). Checked in, not gitignored — it's a contract `/increment` and `/critique-product` consume. |
+
 ## Installation
 
 ### Claude Code
@@ -213,6 +221,7 @@ Once installed, start with setup:
 /scout                     # Build competitor map
 /persona                   # Build personas
 /features                  # Inventory features
+/brand                     # Build DESIGN.md visual identity contract
 ```
 
 Then audit to understand where you are:

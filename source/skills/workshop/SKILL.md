@@ -92,12 +92,44 @@ This replaces generic "users would..." with grounded persona-specific reactions.
    - **Thesis fit**: does it reinforce or extend the product thesis?
    - **Moat contribution**: does it build defensibility?
 
-4. **Converge.** Rank opportunities by a simple 2x2: evidence strength (how confident are we this matters?) vs. thesis fit (how well does this align with where we're going?). Top-right quadrant is where to focus.
+4. **Converge on opportunities.** Rank by a simple 2x2: evidence strength (how confident are we this matters?) vs. thesis fit (how well does this align with where we're going?). Top-right quadrant is where to focus.
 
-5. **Suggest next steps.** For the top 2-3 opportunities, recommend:
+5. **Diverge on solutions.** For the top 1-2 opportunities, run the Solution Divergence phase below. Do NOT jump straight to `/increment`.
+
+6. **Suggest next steps.** Based on the chosen solution orientation(s), recommend:
    - `/increment` to scope it
    - `/roadmap` to sequence it with other work
    - `/measure` to define how we'd know it worked
+
+## Solution Divergence
+
+A single opportunity can be solved in radically different ways. Before handing off to `/increment`, surface 3-5 high-level product options so the choice of *shape* is deliberate, not the first plausible idea. Keep this light — scoping, cost, and risk are `/increment`'s job.
+
+### Generate 3-5 Product Options
+
+For the chosen opportunity, sketch options that are *genuinely* different. If two would feel like the same product to a user, collapse them. Span the range across two axes:
+
+**Scope** — go from smallest to boldest, don't cluster:
+- **Band-aid** — config, copy, default flip
+- **Tweak** — repurpose an existing capability
+- **Feature** — new capability inside an existing surface
+- **Surface** — new view, page, or workflow
+- **Platform** — changes the product's shape across personas/features
+- **Category** — redefines what the product is
+
+**Nature** — give each option a clear character:
+UX · automation · AI · integration · content · pricing · ecosystem
+
+### For each option
+
+- **Shape**: one sentence — what the user would see
+- **Scope**: band-aid / tweak / feature / surface / platform / category
+- **Nature**: pick one
+- **Why this shape**: one line — what makes this orientation worth considering
+
+### Pick a direction
+
+Recommend one option (or a sequence like "band-aid now, surface later") and hand off. `/increment` will scope it properly.
 
 ## Output Format
 
@@ -125,7 +157,15 @@ For each top 2-3:
 - **Current workaround**: [what users do today]
 - **Thesis fit**: [how it connects to product strategy]
 - **Risks**: [what could go wrong or why this might be wrong]
-- **Next step**: `/increment`, `/roadmap`, or `/measure`
+
+##### Product Options
+
+| # | Shape | Scope | Nature | Why this shape |
+|---|-------|-------|--------|----------------|
+| 1 | | band-aid / tweak / feature / surface / platform / category | UX / automation / AI / integration / content / pricing / ecosystem | |
+
+**Recommendation:** [which option(s), in what sequence]
+**Next step:** `/increment` on [chosen option], `/roadmap`, or `/measure`
 
 ### Parked Ideas
 Ideas that surfaced but don't meet the bar right now. Keep them so they don't get lost.

@@ -1834,8 +1834,17 @@ npx skills add VGrss/acumen</pre>
 
           <div id="changelog-entries">
             <div class="changelog-entry">
-              <div class="changelog-date" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('collapsed')">May 5, 2026</div>
+              <div class="changelog-date" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('collapsed')">May 20, 2026</div>
               <div class="changelog-entry-content">
+                <ul>
+                  <li><strong>/workshop</strong> now includes a Solution Divergence phase: before handing off to <strong>/increment</strong>, it surfaces 3-5 high-level product options spanning scope (band-aid &rarr; category) and nature (UX, automation, AI, integration, content, pricing, ecosystem) so the choice of solution shape is deliberate, not the first plausible idea.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="changelog-entry">
+              <div class="changelog-date collapsed" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('collapsed')">May 5, 2026</div>
+              <div class="changelog-entry-content collapsed">
                 <ul>
                   <li><strong>/brand</strong> &mdash; build and maintain <code>DESIGN.md</code>, a structured visual identity contract for coding agents. Follows the <a href="https://github.com/google-labs-code/design.md" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">Google DESIGN.md spec</a>: machine-readable tokens (colors, typography, spacing, components) plus the prose rationale behind them.</li>
                   <li><strong>/increment</strong> now reads <code>DESIGN.md</code> for UI-touching specs and references tokens by name in wireframes instead of inventing values.</li>

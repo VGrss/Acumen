@@ -1,6 +1,6 @@
 ---
 name: orientation
-description: Audit product identity — what we do, for whom, whether the feature surface is coherent with the thesis. Use when the product feels unfocused, after a pivot, or before strategic planning.
+description: Audit product identity — what we do, for whom, whether the feature surface is coherent with the thesis, and whether context files agree with each other. Use when the product feels unfocused, after a pivot, before strategic planning, or when something in the product story feels off.
 user-invocable: true
 argument-hint: "[area or question]"
 ---
@@ -69,6 +69,21 @@ Take the positioning statement from `.acumen.md`. Test it:
 - **Feature test** — Could someone use the product for a week and confirm the positioning? Or is it aspirational?
 - **Persona test** — Would the primary persona use these words to describe the product to a colleague?
 
+### 5. Context Coherence
+
+Context files are written by separate skills at different times, so they drift. Before trusting the audit above, cross-check that the files agree with each other. This is a fact-check, not a rewrite — surface disagreements, do not edit any file.
+
+Run these checks; skip any whose inputs are missing:
+
+- **Persona references** — every persona named in `personas.md` should be referenced in `features.md`, `value.md`, and `value-chain.md`. Flag **orphan personas** (defined but never referenced), **phantom personas** (referenced but not defined), and **name drift** (same persona under slightly different names across files).
+- **Feature references** — every feature in `features.md` should serve a persona that exists in `personas.md`. Flag **personaless features** and **featureless personas**.
+- **Metric references** — every metric named in `value.md` ("how we know it's delivered") should have a source in `sources.md` that could produce it. Flag **unsourced metrics** and **metric drift** (same concept, different names).
+- **Value vs. features** — features listed in `value.md` as delivering value should actually appear in `features.md`. Flag **value claims without features** and **unvalued shipped features**.
+- **Strategy vs. features** — areas called out in `.acumen.md` strategy should have corresponding features; major feature areas should be reflected in strategy. Flag **strategy gaps** and **silent feature areas**.
+- **Competitor positioning** — flag obvious disagreements between `.acumen.md` positioning and "we beat them on X" claims in `competitors.md`.
+
+Order findings by severity: **contradictions** first (real disagreement), then **phantoms** (broken refs), then **orphans**, then **name drift**, then **coverage gaps**. Cap each kind at 10 — if more, append "(+N more, run individual context skills to address)". Empty sections are fine and expected on a healthy project — do not manufacture findings to fill space.
+
 ## Output Format
 
 ### Product Thesis
@@ -82,6 +97,19 @@ One sentence. Pulled from `.acumen.md` or synthesized from context.
 | Persona alignment | Focused / Scattered / Missing personas | Which personas are well-served vs. underserved |
 | Surface coherence | Composable / Fragmented / Cluttered | Whether features reinforce or dilute |
 | Positioning accuracy | Accurate / Aspirational / Outdated | Whether the product matches its claim |
+| Context coherence | Consistent / Minor drift / Contradictory | Findings from the Context Coherence check |
+
+### Context Coherence Findings
+
+Group by kind. Omit any kind with zero findings.
+
+- **Contradictions** — `[type]` <one-liner>. Files: `<file:section> ↔ <file:section>`. Resolve with `/<skill>`.
+- **Phantoms** — `<entity>` "<name>" referenced in `<file>` but not defined in `<source file>`. Action: define via `/<skill>` or remove the reference.
+- **Orphans** — `<entity>` "<name>" defined in `<file>` but referenced nowhere. Action: link it or remove it.
+- **Name drift** — "<name A>" in `<file>` appears to be the same entity as "<name B>" in `<file>`. Pick one canonical name.
+- **Coverage gaps** — `<Persona|Strategy area>` has no `<features|metrics|value mapping>`. Run `/<skill>`.
+
+If everything checks out, replace this block with a single line: "Context files are consistent across personas, features, value, sources, and strategy."
 
 ### Feature Map
 

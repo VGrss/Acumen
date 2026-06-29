@@ -1,6 +1,6 @@
 ---
 name: catchup
-description: "Pull latest code from main and summarize recent changes in product-friendly terms. Preserves all .acumen/ context files."
+description: "Pull latest code from main, summarize recent changes in product-friendly terms, and report .acumen/ context health (what exists, what's fresh, what's stale, what's missing). Preserves all .acumen/ context files."
 user-invocable: true
 argument-hint: "[since]"
 ---
@@ -64,14 +64,44 @@ Rules:
 - If `.acumen/features.md` exists, reference which feature areas were touched
 - Flag anything that might affect product context files (new features that need `/features` update, changes that affect personas, etc.)
 
-## Step 4: Suggest next actions
+## Step 4: Snapshot product-context health
 
-Based on what changed, suggest relevant Acumen commands:
+Before suggesting next actions, take a quick read-only inventory of `.acumen/` so the user knows whether the context they're working from is fresh, stale, or missing. Don't open files to summarize their contents — this is a dashboard, not a recap.
 
-- New feature shipped? → "Consider running `/features` to update the inventory"
-- Metrics-related changes? → "Consider running `/measure` to check KPI health"
-- Major release? → "Consider running `/changelog` to write release notes"
-- Competitive-relevant change? → "Consider running `/scout` to update positioning"
+For each known file, capture:
+- Whether it exists (skip empty files)
+- Last modified date — prefer `git log -1 --format=%cI -- <path>` if tracked, otherwise filesystem mtime
+- The `_Last updated:_` line inside the file when present — if it disagrees with mtime by more than a week, flag as **header drift**
+
+Files to check:
+- `.acumen.md` (root product context)
+- `.acumen/personas.md`, `features.md`, `competitors.md`, `value.md`, `value-chain.md`, `sources.md`
+- `.acumen/reports/` (count entries, note most recent)
+- `DESIGN.md` (root, checked in)
+
+Classify each:
+- **Fresh** — updated in the last 30 days
+- **Aging** — 30–90 days
+- **Stale** — older than 90 days
+- **Missing** — file not present
+
+Counts (`N personas`, `N features`, `N competitors`) come from a best-effort count of `##` headings or table rows in those files.
+
+## Step 5: Suggest next actions
+
+Combine code changes and context health. Suggest at most 3, only when there's a real signal:
+
+From code changes:
+- New feature shipped → `/features` to update the inventory
+- Metrics-related changes → `/measure` to check KPI health
+- Major release → `/changelog` to write release notes
+- Competitive-relevant change → `/scout` to update positioning
+
+From context health:
+- No `.acumen.md` → `/teach-acumen` to set up
+- Missing core file (personas/features/value) → the corresponding skill
+- No `sources.md` → "Data-dependent skills (`/measure`, `/diagnose`) need this"
+- Most files stale → "Refresh the affected context skills before relying on them"
 
 ## Output format
 
@@ -96,8 +126,23 @@ Based on what changed, suggest relevant Acumen commands:
 ### Under the hood
 - ...
 
+## Context health
+
+  .acumen.md ............. <fresh|aging|stale|missing>   <relative date>
+  personas.md ............ <state>   <relative date>   <N personas>
+  features.md ............ <state>   <relative date>   <N features>
+  competitors.md ......... <state>   <relative date>   <N competitors>
+  value.md ............... <state>   <relative date>
+  value-chain.md ......... <state>   <relative date>
+  sources.md ............. <state>   <relative date>
+  DESIGN.md (root) ....... <state>   <relative date>
+  reports/ ............... <N> entries, most recent <date> (<skill>)
+
+Sources wired: <names>   (or: none configured)
+Flags: <only include if real — header drift, missing critical file, all stale, etc.>
+
 ## Suggested next steps
 - ...
 ```
 
-Keep the whole summary concise — aim for something a PM can scan in 30 seconds.
+If `.acumen/` doesn't exist at all, collapse the Context health block to a single line: "No Acumen context yet — run `/teach-acumen` to set up." Use relative dates ("3 days ago"), not ISO. Align the dots so columns are scannable. Keep the whole summary concise — aim for something a PM can scan in 30 seconds.

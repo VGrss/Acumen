@@ -76,7 +76,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 
 | Command | What it does |
 |---------|--------------|
-| `/catchup` | Pull latest code from main and summarize recent changes in product-friendly terms |
+| `/catchup` | Pull latest code from main and summarize recent changes in product-friendly terms. Also prints a `.acumen/` health snapshot (which files exist, freshness, what's missing) |
 | `/update-acumen` | Fetch the latest Acumen skills from GitHub and update local copies |
 | `/cheatsheet` | Print a quick-reference cheatsheet of all Acumen skills, organized by layer |
 
@@ -156,7 +156,7 @@ source/                          # Source of truth
     features/SKILL.md            # Context: features
     value/SKILL.md               # Context: per-persona value & metrics
     brand/SKILL.md               # Context: DESIGN.md visual identity
-    catchup/SKILL.md             # Meta: pull latest code & summarize
+    catchup/SKILL.md             # Meta: pull latest code, summarize, & context-health snapshot
     update-acumen/SKILL.md       # Meta: sync skills from GitHub
     orientation/SKILL.md         # Audit: product identity
     defensibility/SKILL.md       # Audit: moats

@@ -126,6 +126,15 @@ UX · automation · AI · integration · content · pricing · ecosystem
 - **Scope**: band-aid / tweak / feature / surface / platform / category
 - **Nature**: pick one
 - **Why this shape**: one line — what makes this orientation worth considering
+- **ASCII sketch**: materialize the option as a rough ASCII drawing so the *shape* is visible, not just described. Sketch the key screen, flow, or interaction the user would encounter. Boldness is the point — the wilder the option (surface / platform / category), the more the sketch earns its place, because prose alone hides what makes it different. Keep it loose: layout and the one thing that makes this option distinct, not pixel fidelity.
+
+```
++------------------------------------------+
+|  [What the user sees for this option]    |
+|                                          |
+|  [The one element that makes it distinct]|
++------------------------------------------+
+```
 
 ### Pick a direction
 
@@ -163,6 +172,17 @@ For each top 2-3:
 | # | Shape | Scope | Nature | Why this shape |
 |---|-------|-------|--------|----------------|
 | 1 | | band-aid / tweak / feature / surface / platform / category | UX / automation / AI / integration / content / pricing / ecosystem | |
+
+For each option, include its ASCII sketch beneath the table:
+
+**Option [#] — [Shape]**
+```
++------------------------------------------+
+|  [What the user sees for this option]    |
+|                                          |
+|  [The one element that makes it distinct]|
++------------------------------------------+
+```
 
 **Recommendation:** [which option(s), in what sequence]
 **Next step:** `/increment` on [chosen option], `/roadmap`, or `/measure`

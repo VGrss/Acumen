@@ -1,6 +1,6 @@
 ---
 name: increment
-description: Scope a product increment end-to-end — context, spec, implementation, wireframes, and engineering considerations. Use when a feature or bet needs a shippable document before building. Leads to /critique-product.
+description: Scope a single product increment end-to-end — context, spec, implementation, wireframes, and engineering considerations. Use when a feature or bet needs a shippable document before building — typically the option chosen out of /workshop's divergence. Leads to /critique-product.
 user-invocable: true
 argument-hint: "[feature or bet]"
 ---
@@ -14,6 +14,8 @@ Invoke /product-thinking — it contains the Context Gathering Protocol and the 
 ## Mindset
 
 An increment is a commitment to ship a complete user outcome. Not a feature request. Not a brainstorm. Not a backlog item with aspirations. It is the document that says: "This is what we are building, why, for whom, and how we know it worked." If you cannot fill every section with specific, grounded information, the increment is not ready to build.
+
+This skill scopes **one** option. If you arrived here from `/workshop`, you're committing to the single shape that won its divergence — the other options were deliberately set aside. If you're second-guessing which shape to build, go back to `/workshop`; don't scope two increments in parallel.
 
 A spec is a thinking tool, not a documentation exercise. The competitive context should shape the scope. The persona reactions should challenge the solution. The user signal should validate the problem. If these inputs don't change what you write, you are not using them.
 

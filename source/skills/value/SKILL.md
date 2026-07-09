@@ -96,8 +96,7 @@ _Last updated: [date]_
 [Specific metrics to instrument, with the persona and value they'd track. Be concrete — "track time-to-first-report for the Analyst persona" not "add more analytics."]
 
 ### Suggested Next Steps
-- `/measure` — if metrics exist but haven't been reviewed recently
-- `/diagnose [persona]` — if value is underdelivered for a specific persona
+- `/diagnose [persona]` — if metrics haven't been reviewed recently, or value is underdelivered for a specific persona
 - `/features` — if the feature-to-persona mapping is unclear
 - `/persona` — if personas are stale or missing value definitions
 ```
@@ -108,7 +107,7 @@ When refreshing the value map:
 - Update metric values from data sources — stale numbers are worse than no numbers
 - Check if new features have shifted value delivery for any persona
 - Flag value claims that have degraded from Proven to Assumed (metric removed, data source changed)
-- Cross-reference with `/measure` output if a recent report exists in `.acumen/reports/`
+- Cross-reference with `/diagnose` output if a recent report exists in `.acumen/reports/`
 
 **NEVER**:
 - Claim value is delivered without metric evidence — if you can't measure it, classify it as Assumed

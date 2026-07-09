@@ -10,7 +10,7 @@ Every LLM learned from the same generic templates. Without guidance, you get the
 
 Acumen fights that bias with:
 - **A core skill** with 7 domain-specific reference documents ([view source](source/skills/product-thinking/))
-- **17 commands** organized in 6 layers — from context gathering to shipping changelogs
+- **18 commands** organized in 6 layers — from context gathering to shipping changelogs
 - **12 named anti-patterns** ("AI Product Slop") that explicitly tell the AI what NOT to produce
 
 ## What's Included
@@ -29,7 +29,7 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 | [Stakeholder Alignment](source/skills/product-thinking/reference/stakeholder-alignment.md) | DACI, disagree-and-commit, managing upward, pre-mortems |
 | [Competitive Intelligence](source/skills/product-thinking/reference/competitive-intelligence.md) | Moat analysis, win/loss, competitive response playbooks |
 
-### 17 Commands in 6 Layers
+### 18 Commands in 6 Layers
 
 #### Context Layer (build & maintain product knowledge)
 
@@ -48,21 +48,20 @@ A comprehensive product skill with 7 deep-dive references ([view skill](source/s
 |---------|--------------|
 | `/orientation` | Audit product identity — what we do, for whom, whether the feature surface is coherent with the thesis |
 | `/defensibility` | Audit what's hard to copy — moats, switching costs, data advantages, network effects, and AI-era resilience |
+| `/diagnose` | Find what's broken and what's underexploited — problems **and** opportunities — grounded in data, value delivery, and features. Hands findings to `/workshop` |
 
-#### Ideate Layer (find problems and opportunities)
+#### Ideate Layer (diverge on solutions)
 
 | Command | What it does |
 |---------|--------------|
-| `/diagnose` | Find current problems based on data, value delivery for main personas, and current features. Suggests `/workshop` |
-| `/measure` | Check KPI health — what's working, what's not, where to dig deeper. Suggests `/workshop` |
-| `/workshop` | Ideation workshop to explore opportunities — value chain analysis, competitive gaps, user feedback synthesis |
+| `/workshop` | Diverge on one problem or opportunity — generate many genuinely different solution shapes before committing. Hands the chosen shape to `/increment` |
 
 #### Craft Layer (build product artifacts)
 
 | Command | What it does |
 |---------|--------------|
 | `/roadmap` | Plan a sequence of bets, break into shippable increments, prioritize |
-| `/increment` | Scope a product increment end-to-end — context, spec, implementation, wireframes, and engineering considerations. Leads to `/critique-product` |
+| `/increment` | Scope a single product increment end-to-end — context, spec, implementation, wireframes, and engineering. Typically the option chosen out of `/workshop`. Leads to `/critique-product` |
 | `/critique-product` | Evaluate and validate a PM artifact — score for rigor, test riskiest assumptions, and decide if it's ready to ship |
 
 #### Communicate Layer (share with the world)
@@ -160,9 +159,8 @@ source/                          # Source of truth
     update-acumen/SKILL.md       # Meta: sync skills from GitHub
     orientation/SKILL.md         # Audit: product identity
     defensibility/SKILL.md       # Audit: moats
-    diagnose/SKILL.md            # Ideate: find problems
-    measure/SKILL.md             # Ideate: KPI health check
-    workshop/SKILL.md            # Ideate: opportunity exploration
+    diagnose/SKILL.md            # Audit: find problems & opportunities (data-grounded)
+    workshop/SKILL.md            # Ideate: diverge on solutions for one problem/opportunity
     roadmap/SKILL.md             # Craft: sequence bets
     increment/SKILL.md           # Craft: scope increment
     critique-product/            # Craft: evaluate & validate
@@ -184,9 +182,9 @@ source/                          # Source of truth
 | `.acumen/personas.md` | `/persona` | Behavioral personas |
 | `.acumen/features.md` | `/features` | Feature inventory |
 | `.acumen/value.md` | `/value` | Per-persona value map with proof metrics |
-| `.acumen/value-chain.md` | `/teach-acumen`, `/profile`, `/workshop` | Value chain map per persona |
+| `.acumen/value-chain.md` | `/teach-acumen`, `/profile`, `/diagnose`, `/workshop` | Value chain map per persona, with opportunities against extension points |
 | `.acumen/sources.md` | `/teach-acumen` | Data source configuration |
-| `.acumen/reports/` | `/diagnose`, `/measure`, `/workshop` | Point-in-time analysis reports |
+| `.acumen/reports/` | `/diagnose`, `/workshop` | Point-in-time analysis reports |
 
 ### Checked-in artifacts
 
@@ -229,16 +227,15 @@ Then audit to understand where you are:
 ```
 /orientation               # Is the product coherent?
 /defensibility             # What's hard to copy?
+/diagnose                  # Find problems & opportunities (data-grounded)
 ```
 
 Then ideate and build:
 
 ```
-/diagnose                  # Find the real problem
-/measure                   # Check KPI health
-/workshop                  # Explore opportunities
+/workshop                  # Diverge — many solution shapes for one problem
 /roadmap                   # Sequence the work
-/increment                 # Scope an increment
+/increment                 # Scope the chosen shape
 /critique-product          # Score and validate before shipping
 ```
 

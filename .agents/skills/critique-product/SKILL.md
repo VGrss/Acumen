@@ -99,7 +99,7 @@ For each issue found, assign severity and suggest the Acumen command that would 
 - **P2** — Weakness. Makes the artifact less effective but doesn't block.
 - **P3** — Polish. Would make it better but not urgent.
 
-Available fix commands: `/diagnose`, `/measure`, `/scout`, `/persona`, `/features`, `/brand`, `/narrate`, `/workshop`, `/increment`, `/roadmap`, `/orientation`, `/defensibility`
+Available fix commands: `/diagnose`, `/scout`, `/persona`, `/features`, `/brand`, `/narrate`, `/workshop`, `/increment`, `/roadmap`, `/orientation`, `/defensibility`
 
 For UI-touching artifacts: check that referenced design tokens (`{colors.x}`, `button-primary`) actually resolve in `DESIGN.md`. Flag prose styling ("a blue button") as a P2 — it should name a token instead.
 

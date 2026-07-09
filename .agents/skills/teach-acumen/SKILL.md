@@ -183,7 +183,7 @@ Confirm completion and tell the user:
 > - `/features` — inventory your feature surface
 > - `/value` — connect personas and features to the metrics that prove value delivery
 >
-> Skills like `/diagnose`, `/measure`, and `/persona` will use your configured data sources to pull real data instead of relying on narrative alone.
+> Skills like `/diagnose` and `/persona` will use your configured data sources to pull real data instead of relying on narrative alone.
 >
 > Run any of these now, or come back to them as needed. They stay current by being re-run.
 

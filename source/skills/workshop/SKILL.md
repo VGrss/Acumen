@@ -1,8 +1,8 @@
 ---
 name: workshop
-description: Ideation workshop to explore opportunities — value chain analysis, competitive gaps, user feedback synthesis. Use when looking for what to build next, after a /diagnose or /measure, or when exploring a new direction.
+description: Diverge on a problem or opportunity — generate many genuinely different solution shapes before committing to one. Use after /diagnose surfaces a problem or opportunity, or when you have a problem and want to see the full range of ways to solve it before scoping.
 user-invocable: true
-argument-hint: "[topic or opportunity area]"
+argument-hint: "[problem or opportunity]"
 ---
 
 ## MANDATORY PREPARATION
@@ -13,103 +13,45 @@ Invoke /product-thinking — it contains the Context Gathering Protocol and the 
 
 ## Mindset
 
-A workshop is not brainstorming. Brainstorming produces 40 ideas and zero decisions. A workshop starts from grounded inputs — what users actually do, what competitors actually ship, where value actually flows — and converges on opportunities worth pursuing.
+A workshop is divergence. Its one job: take a single problem or opportunity and expose the full range of *shapes* a solution could take — so the choice of shape is deliberate, not the first plausible idea.
 
-This is a conversation, not a monologue. Push back. Ask "why would someone care?" Challenge assumptions. The best workshops produce two or three sharp ideas, not twenty vague ones.
+The two failure modes:
+
+- **First-idea lock-in.** The team names a problem, pictures one solution, and scopes it. The workshop's job is to prove there were nine other shapes worth seeing first.
+- **Ten variations of one idea.** Producing "10 options" that all feel like the same product to a user is not divergence — it's padding. If two options would feel identical in the user's hands, they count as one.
+
+This is not brainstorming. Brainstorming produces 40 ideas and zero decisions. A workshop produces genuinely different options *and* a recommended direction. Push back on weak options. Kill duplicates. The output is a clear map of the solution space plus a pointer to where to go next.
+
+## Input
+
+A workshop needs **one** problem or opportunity to diverge on. It comes from:
+
+- **`/diagnose`** — a problem or opportunity it surfaced (the common path). Read the referenced report in `.acumen/reports/`.
+- **`.acumen/value-chain.md`** — an opportunity listed against an extension point in the value chain.
+- **Directly stated** — the user hands you a problem in the argument.
+
+If the input is vague ("engagement is low"), sharpen it to a one-line problem statement before diverging — a fuzzy problem produces fuzzy options. If you cannot sharpen it from context, run `/diagnose` first and say so.
 
 ## Context Pull
 
-Load all available intelligence:
+Load context as **fuel for divergence**, not to discover the problem (that was `/diagnose`'s job):
 
-1. **Product context.** Read `.acumen.md` — strategy, positioning, stage, constraints.
-2. **Personas.** Read `.acumen/personas.md` — who we serve, their behaviors, workarounds, pain points.
-3. **Features.** Read `.acumen/features.md` — what exists today, gaps, decay.
-4. **Value chain.** Read `.acumen/value-chain.md` — the end-to-end workflow, where the product sits, extension points per persona. This is the foundation for Lens A.
-5. **Competitors.** Read `.acumen/competitors.md` — what the market offers, feature parity traps, moats.
-6. **Data sources.** Check `.acumen/sources.md` — pull real usage data, feedback, support patterns if available.
-6. **Prior reports.** Check `.acumen/reports/` for recent `/diagnose` or `/measure` outputs that triggered this workshop.
+1. **Product context.** Read `.acumen.md` — thesis, positioning, stage, constraints. Options that dilute the thesis still belong on the board; flag them, don't hide them.
+2. **Personas.** Read `.acumen/personas.md` — whose problem this is, their workarounds, their daily workflow.
+3. **Features.** Read `.acumen/features.md` — what exists today that an option could repurpose, extend, or replace.
+4. **Value chain.** Read `.acumen/value-chain.md` — where in the workflow the problem sits and which adjacent steps an option could reach into.
+5. **Competitors.** Read `.acumen/competitors.md` — how others solve this shape of problem, and where the white space is.
 
-## Workshop Modes
+If a context file is missing, note it and diverge from what you have. Do not fabricate context.
 
-The workshop has three input lenses. Use all three by default, or focus on one if the user specifies a direction.
+## The Divergence Engine
 
-### Lens A: Value Chain Analysis
+Generate **10 genuinely different solution options** for the one problem. Difference is the whole point — steer with two axes and a set of generators, then prune duplicates.
 
-Start from `.acumen/value-chain.md` — the persisted workflow map. Do not rebuild from scratch.
+### Axis 1 — Scope (how big a move)
 
-1. **Review the value chain.** Load the existing map. Verify it still reflects reality for the workshop topic. If steps are missing or stale, update the map as part of the workshop.
-2. **Focus on extension points.** The value chain already identifies where personas switch tools, do manual work, or lose time. Zoom in on the ones relevant to this workshop's topic.
-3. **Evaluate each extension:**
-   - Does it reinforce the core thesis or dilute it?
-   - Would users expect your product to do this?
-   - What's the effort-to-value ratio?
-   - Does it deepen a moat (data, switching costs, workflow ownership)?
+Span the ladder from smallest to boldest. Aim for coverage across bands, not a cluster in the middle. If you skip a band, say why.
 
-### Lens B: Competitive Feature Scan
-
-Pull from `.acumen/competitors.md`:
-
-1. **What do competitors offer that we don't?** List features, not marketing claims.
-2. **For each: is it a real gap or a parity trap?**
-   - Does our primary persona actually need this?
-   - Would building it serve our thesis or chase theirs?
-   - What would we stop doing to build this?
-3. **What do we offer that competitors don't?** These are differentiation opportunities to double down on.
-4. **What is nobody building?** White space in the market. Jobs that are underserved across all players.
-
-### Lens C: User Signal Synthesis
-
-Pull from configured feedback sources (support, NPS, interviews, analytics):
-
-1. **What are users asking for?** Group requests by theme, not by individual ticket.
-2. **What are users complaining about?** Distinguish usability complaints (the feature is hard to use) from value complaints (the feature doesn't solve my problem).
-3. **What are users working around?** Workarounds reveal unmet needs. A user who exports data to Excel to do analysis is telling you something.
-4. **What are users NOT doing?** Features with low adoption. Flows with high drop-off. Silence is signal.
-
-If no feedback sources are configured, say so explicitly and work from the other two lenses.
-
-### Persona Mode
-
-When exploring opportunities, think AS specific personas from `.acumen/personas.md`. For each relevant persona:
-
-- Walk through the opportunity from their perspective
-- What would excite them? What would they ignore?
-- Would they switch from their current workaround?
-- How does this fit into their daily workflow — or does it create a new one they need to adopt?
-
-This replaces generic "users would..." with grounded persona-specific reactions.
-
-## Workshop Flow
-
-1. **Frame the space.** State the opportunity area and why we're exploring it. Reference the trigger — a `/diagnose` finding, a `/measure` insight, a competitive move, or a user request pattern.
-
-2. **Run the lenses.** Apply all three (or the user's chosen focus). Surface findings, not just data.
-
-3. **Generate opportunities.** Each opportunity must have:
-   - **The bet**: what we believe will be true
-   - **Who it serves**: specific persona(s)
-   - **Evidence**: which lens surfaced it and what supports it
-   - **Thesis fit**: does it reinforce or extend the product thesis?
-   - **Moat contribution**: does it build defensibility?
-
-4. **Converge on opportunities.** Rank by a simple 2x2: evidence strength (how confident are we this matters?) vs. thesis fit (how well does this align with where we're going?). Top-right quadrant is where to focus.
-
-5. **Diverge on solutions.** For the top 1-2 opportunities, run the Solution Divergence phase below. Do NOT jump straight to `/increment`.
-
-6. **Suggest next steps.** Based on the chosen solution orientation(s), recommend:
-   - `/increment` to scope it
-   - `/roadmap` to sequence it with other work
-   - `/measure` to define how we'd know it worked
-
-## Solution Divergence
-
-A single opportunity can be solved in radically different ways. Before handing off to `/increment`, surface 3-5 high-level product options so the choice of *shape* is deliberate, not the first plausible idea. Keep this light — scoping, cost, and risk are `/increment`'s job.
-
-### Generate 3-5 Product Options
-
-For the chosen opportunity, sketch options that are *genuinely* different. If two would feel like the same product to a user, collapse them. Span the range across two axes:
-
-**Scope** — go from smallest to boldest, don't cluster:
 - **Band-aid** — config, copy, default flip
 - **Tweak** — repurpose an existing capability
 - **Feature** — new capability inside an existing surface
@@ -117,16 +59,33 @@ For the chosen opportunity, sketch options that are *genuinely* different. If tw
 - **Platform** — changes the product's shape across personas/features
 - **Category** — redefines what the product is
 
-**Nature** — give each option a clear character:
-UX · automation · AI · integration · content · pricing · ecosystem
+### Axis 2 — Nature (what character it has)
+
+Give each option a distinct character. Don't repeat a Nature without a reason.
+
+UX · automation · AI · integration · content · pricing · ecosystem · service
+
+### Divergence generators
+
+When options start converging, force new shapes with these prompts (borrowed from `/diagnose`'s reframing lenses):
+
+- **Inversion** — what if we did the opposite? Removed the step instead of improving it?
+- **Substitution** — what if this were a service instead of a feature? A template? A default? A one-time setup instead of an ongoing tool?
+- **Audience shift** — what if this were only for power users? Only for brand-new users? Built for the admin, not the end user?
+- **Constraint removal** — unlimited eng time: what's the boldest shape? Zero eng time: what could ship this week? The two extremes are rarely the same option.
+- **Steal from adjacent** — how would a product in a completely different category solve this shape of problem? Borrow their move.
+
+### Collapse test
+
+Before finalizing, apply it to every pair: *would these feel like the same product in the user's hands?* If yes, merge them and generate a replacement from an untouched Scope band or Nature. Ten real options beats twelve with two duplicates.
 
 ### For each option
 
-- **Shape**: one sentence — what the user would see
-- **Scope**: band-aid / tweak / feature / surface / platform / category
-- **Nature**: pick one
-- **Why this shape**: one line — what makes this orientation worth considering
-- **ASCII sketch**: materialize the option as a rough ASCII drawing so the *shape* is visible, not just described. Sketch the key screen, flow, or interaction the user would encounter. Boldness is the point — the wilder the option (surface / platform / category), the more the sketch earns its place, because prose alone hides what makes it different. Keep it loose: layout and the one thing that makes this option distinct, not pixel fidelity.
+- **Shape** — one sentence: what the user would see or do
+- **Scope** — band-aid / tweak / feature / surface / platform / category
+- **Nature** — pick one
+- **Why this shape** — one line: what makes this orientation worth considering
+- **ASCII sketch** — materialize the option as a rough drawing so the *shape* is visible, not just described. Sketch the key screen, flow, or interaction. The bolder the option (surface / platform / category), the more the sketch earns its place — prose alone hides what makes it different. Keep it loose: layout and the one distinct element, not pixel fidelity.
 
 ```
 +------------------------------------------+
@@ -136,46 +95,42 @@ UX · automation · AI · integration · content · pricing · ecosystem
 +------------------------------------------+
 ```
 
-### Pick a direction
+## Converge
 
-Recommend one option (or a sequence like "band-aid now, surface later") and hand off. `/increment` will scope it properly.
+Ten options is a map, not a decision. Narrow it:
+
+1. **Rank on a 2x2** — impact on the problem (how much would this actually move it?) vs. thesis fit (how well does it align with where the product is going?). Top-right is where to focus.
+2. **Recommend a direction** — one option, or a sequence ("band-aid now to stop the bleeding, surface later to own the workflow"). Say why the shape wins, not just the idea.
+3. **Name what you're deliberately ignoring** — the options you're setting aside and why. This stops the same shapes from resurfacing without new evidence.
+
+## Handoff
+
+Point to the next skill explicitly:
+
+- **`/increment`** — scope the chosen option into a shippable spec. This is the default next step.
+- **`/roadmap`** — if the recommendation is a sequence of options over time.
+- **`/diagnose`** — if you need to baseline the metric the chosen shape should move, so you'll know whether it worked.
 
 ## Output Format
 
-### Workshop: [Topic]
+### Workshop: [Problem or Opportunity]
 
-**Trigger:** What prompted this workshop (diagnosis, metric check, competitive move, intuition)
+**Diverging on:** One-line problem/opportunity statement.
+**Source:** `/diagnose` report, value-chain opportunity, or stated directly.
 
-### Value Chain Map
-Visual or table showing the persona's workflow and where the product sits today.
-
-### Opportunity Board
-
-| # | Opportunity | Persona | Evidence | Thesis Fit | Moat Impact | Source Lens |
-|---|------------|---------|----------|------------|-------------|-------------|
-| 1 | | | Strong/Medium/Weak | Direct/Extends/Neutral | Builds/Neutral/None | A/B/C |
-
-### Top Opportunities (detail)
-
-For each top 2-3:
-
-#### [Opportunity Name]
-- **The bet**: [one sentence]
-- **Who it serves**: [persona name and why]
-- **Evidence**: [specific data, feedback, or competitive signal]
-- **Current workaround**: [what users do today]
-- **Thesis fit**: [how it connects to product strategy]
-- **Risks**: [what could go wrong or why this might be wrong]
-
-##### Product Options
+### Options Board
 
 | # | Shape | Scope | Nature | Why this shape |
 |---|-------|-------|--------|----------------|
-| 1 | | band-aid / tweak / feature / surface / platform / category | UX / automation / AI / integration / content / pricing / ecosystem | |
+| 1 | | band-aid / tweak / feature / surface / platform / category | UX / automation / AI / integration / content / pricing / ecosystem / service | |
 
-For each option, include its ASCII sketch beneath the table:
+*(10 rows. Coverage across the Scope ladder — note any band deliberately skipped.)*
 
-**Option [#] — [Shape]**
+### Option Sketches
+
+For each option, the ASCII sketch beneath its number and shape:
+
+**Option [#] — [Shape]** · *[Scope] · [Nature]*
 ```
 +------------------------------------------+
 |  [What the user sees for this option]    |
@@ -184,17 +139,22 @@ For each option, include its ASCII sketch beneath the table:
 +------------------------------------------+
 ```
 
-**Recommendation:** [which option(s), in what sequence]
-**Next step:** `/increment` on [chosen option], `/roadmap`, or `/measure`
+### Convergence (2x2)
 
-### Parked Ideas
-Ideas that surfaced but don't meet the bar right now. Keep them so they don't get lost.
+Place the options on impact × thesis-fit. Call out the top-right quadrant.
 
-### What We Deliberately Ignored
-Opportunities we considered and rejected, with reasoning. This prevents the same ideas from resurfacing without new evidence.
+### Recommendation
+
+Which option (or sequence), and why the *shape* wins.
+
+**Next step:** `/increment` on [chosen option], `/roadmap`, or `/diagnose` to baseline the metric.
+
+### Deliberately Ignored
+
+Options considered and set aside, with reasoning. Prevents them resurfacing without new evidence.
 
 ---
 
 Save workshop output to `.acumen/reports/workshop-[topic]-[date].md`.
 
-If the workshop revealed new workflow steps, extension points, or persona paths not in `.acumen/value-chain.md`, update the value chain map.
+If divergence revealed a new extension point or opportunity not in `.acumen/value-chain.md`, add it there so `/diagnose` and future workshops can pick it up.

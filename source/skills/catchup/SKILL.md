@@ -93,14 +93,14 @@ Combine code changes and context health. Suggest at most 3, only when there's a 
 
 From code changes:
 - New feature shipped → `/features` to update the inventory
-- Metrics-related changes → `/measure` to check KPI health
+- Metrics-related changes → `/diagnose` to check KPI health and surface problems/opportunities
 - Major release → `/changelog` to write release notes
 - Competitive-relevant change → `/scout` to update positioning
 
 From context health:
 - No `.acumen.md` → `/teach-acumen` to set up
 - Missing core file (personas/features/value) → the corresponding skill
-- No `sources.md` → "Data-dependent skills (`/measure`, `/diagnose`) need this"
+- No `sources.md` → "Data-dependent skills (`/diagnose`) need this"
 - Most files stale → "Refresh the affected context skills before relying on them"
 
 ## Output format

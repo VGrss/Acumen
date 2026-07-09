@@ -29,11 +29,10 @@ Print the cheatsheet in exactly this format. Do not add commentary before or aft
 │  AUDIT (assess product health)                              │
 │    /orientation ..... Product identity & coherence audit     │
 │    /defensibility ... Moats, switching costs, resilience     │
+│    /diagnose ........ Find problems & opportunities (data)    │
 │                                                             │
-│  IDEATE (find problems & opportunities)                     │
-│    /diagnose ........ Find current product problems          │
-│    /measure ......... KPI health check                      │
-│    /workshop ........ Ideation & opportunity exploration     │
+│  IDEATE (diverge on solutions)                              │
+│    /workshop ........ Many solution shapes for one problem   │
 │                                                             │
 │  CRAFT (build product artifacts)                            │
 │    /roadmap ......... Sequence bets into increments          │
@@ -51,6 +50,6 @@ Print the cheatsheet in exactly this format. Do not add commentary before or aft
 │                                                             │
 ├─────────────────────────────────────────────────────────────┤
 │  Tip: Run /teach-acumen first to set up product context.    │
-│  Then explore with /diagnose, /measure, or /workshop.       │
+│  Then audit with /diagnose, then diverge with /workshop.    │
 └─────────────────────────────────────────────────────────────┘
 ```

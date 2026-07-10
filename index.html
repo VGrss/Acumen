@@ -1826,8 +1826,17 @@ npx skills add VGrss/acumen</pre>
 
           <div id="changelog-entries">
             <div class="changelog-entry">
-              <div class="changelog-date" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('collapsed')">July 9, 2026</div>
+              <div class="changelog-date" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('collapsed')">July 10, 2026</div>
               <div class="changelog-entry-content">
+                <ul>
+                  <li><strong>/increment</strong> wireframes now require <strong>several screens</strong> laid out as a clear <strong>BEFORE / AFTER flow</strong>, with the <strong>job to be done</strong> stated on each screen &mdash; so a reader can follow the increment end-to-end instead of reading a single hero screen.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="changelog-entry">
+              <div class="changelog-date collapsed" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('collapsed')">July 9, 2026</div>
+              <div class="changelog-entry-content collapsed">
                 <ul>
                   <li><strong>/workshop</strong> is now pure solution divergence: give it one problem or opportunity and it generates <strong>10 genuinely different</strong> solution shapes (up from 3-5), spanning the full scope ladder (band-aid &rarr; category) and nature axis, with divergence generators and a collapse test to kill look-alikes &mdash; then converges and hands the chosen shape to <strong>/increment</strong>.</li>
                   <li><strong>/diagnose</strong> now surfaces <strong>problems AND opportunities</strong>, grounded in data. It absorbs KPI health (metric scan, bright spots to amplify) and moves to the <strong>Audit</strong> layer as the entry point to ideation.</li>
@@ -1985,7 +1994,7 @@ npx skills add VGrss/acumen</pre>
       diagnose: { name: '/diagnose', layer: 'Audit', desc: 'Find what\u2019s broken and what\u2019s underexploited \u2014 problems AND opportunities \u2014 grounded in data, value delivery per persona, and feature health. Runs a metric health scan, value delivery audit, five whys, feature health check, and reframing lenses, then hands sharp findings to /workshop.', examples: ['/diagnose why churn spiked in Q1', '/diagnose onboarding drop-off'] },
       workshop: { name: '/workshop', layer: 'Ideate', desc: 'Diverge on one problem or opportunity \u2014 generate 10 genuinely different solution shapes before committing. Spans the scope ladder (band-aid \u2192 category) and nature axis (UX, automation, AI, integration, and more), uses divergence generators and a collapse test, then converges and hands the chosen shape to /increment.', examples: ['/workshop integration onboarding', '/workshop expanding into enterprise'] },
       roadmap: { name: '/roadmap', layer: 'Craft', desc: 'Plan a sequence of bets, break into shippable increments, prioritize. Organizes by strategic themes, sequences by dependencies and compounding value, breaks into vertical slices, and includes triage mode for backlog prioritization.', examples: ['/roadmap Q3', '/roadmap triage the backlog'] },
-      increment: { name: '/increment', layer: 'Craft', desc: 'Scope a product increment end-to-end \u2014 context, spec, implementation, wireframes, and engineering considerations. Produces a comprehensive spec including the bet, opportunity, personas, success metrics, scope tiers, and wireframes.', examples: ['/increment self-serve team onboarding', '/increment real-time collaboration'] },
+      increment: { name: '/increment', layer: 'Craft', desc: 'Scope a product increment end-to-end \u2014 context, spec, implementation, wireframes, and engineering considerations. Produces a comprehensive spec including the bet, opportunity, personas, success metrics, scope tiers, and BEFORE/AFTER wireframes of the key screens with the job to be done on each.', examples: ['/increment self-serve team onboarding', '/increment real-time collaboration'] },
       critique: { name: '/critique', layer: 'Craft', desc: 'Evaluate and validate a PM artifact \u2014 score for rigor, test riskiest assumptions. Runs the AI Slop Test (12 tells), scores across 9 dimensions, identifies riskiest assumptions with validation methods, and provides a ship/tighten/rethink verdict.', examples: ['/critique-product the PRD I just wrote', '/critique-product our Q3 roadmap'] },
       narrate: { name: '/narrate', layer: 'Communicate', desc: 'Write product communication for any audience, even when stakes are high. Adapts across five formats: executive summary, engineering brief, customer communication, investor update, and tradeoff negotiation.', examples: ['/narrate board update Q2', '/narrate eng brief for search rewrite'] },
       changelog: { name: '/changelog', layer: 'Communicate', desc: 'Write a changelog from recent PRs and commits, grounded in feature context. Gathers commit history, grounds changes in feature context, categorizes into new/improved/fixed/changed, and generates benefit-first, jargon-free copy.', examples: ['/changelog last 7 days', '/changelog since v2.1'] },

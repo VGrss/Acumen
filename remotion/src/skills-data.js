@@ -219,7 +219,7 @@ export const skills = [
     steps: [
       "Context & opportunity",
       "Success metrics & scope tiers",
-      "Wireframes & implementation",
+      "BEFORE/AFTER wireframes + JTBD",
       "Engineering considerations",
     ],
   },

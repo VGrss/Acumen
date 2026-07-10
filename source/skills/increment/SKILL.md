@@ -181,9 +181,27 @@ For each product part:
 
 *(Skip for Small increments)*
 
-Generate ASCII wireframes of the key screens. Focus on layout and information hierarchy.
+Generate ASCII wireframes of the **several key screens** in the flow — enough that a reader can follow the increment end-to-end, not a single hero screen. Focus on layout and information hierarchy.
+
+Structure the wireframes as a clear **BEFORE / AFTER flow**:
+
+- **BEFORE** — the screen(s) as they exist today (or the absence of them), so the gap this increment closes is visible.
+- **AFTER** — the screen(s) once the increment ships, walked through in the order the persona encounters them.
+
+For **each screen** (before and after), state the **job to be done** — what the persona is trying to accomplish on that specific screen, in their words. The wireframe shows the layout; the JTBD line explains why the screen exists.
 
 ```
+BEFORE — [Screen Name]
+JTBD: [What the persona is trying to get done here]
++------------------------------------------+
+|  [Screen Name]                           |
+|                                          |
+|  [Layout elements with labels]           |
+|                                          |
++------------------------------------------+
+
+AFTER — [Screen Name]  (step 1 of N)
+JTBD: [What the persona is trying to get done here]
 +------------------------------------------+
 |  [Screen Name]                           |
 |                                          |
@@ -192,7 +210,7 @@ Generate ASCII wireframes of the key screens. Focus on layout and information hi
 +------------------------------------------+
 ```
 
-Annotate each wireframe: What is the user's eye drawn to first? Primary action? Shown vs. hidden?
+Annotate each wireframe: What is the user's eye drawn to first? Primary action? Shown vs. hidden? Make the transition between screens explicit — what action moves the persona from one screen to the next.
 
 Where surfaces or controls map to existing components, name the `DESIGN.md` token (`button-primary`, `card-elevated`) rather than describing styles in prose. New UI surfaces should compose from existing tokens — flag any net-new token the increment would require.
 

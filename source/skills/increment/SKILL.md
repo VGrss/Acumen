@@ -7,7 +7,8 @@ argument-hint: "[feature or bet]"
 
 ## MANDATORY PREPARATION
 
-Invoke /product-thinking — it contains the Context Gathering Protocol and the AI Slop Test. Follow the protocol before proceeding.
+1. **Invoke /product-thinking** — it contains the Context Gathering Protocol and the AI Slop Test. Follow the protocol before proceeding.
+2. **Diverge first — always.** An increment never scopes a path that hasn't been diverged. If a `/workshop` report already exists for this problem and a path was chosen, read it and proceed. If not, **run `/workshop` now**, produce the report, and converge on a single path *before writing a line of the increment*. The explored options live in the workshop report; the increment scopes only the chosen path and does not re-litigate the alternatives. Scale the divergence to the size — a Small fix gets a quick fork exploration, not a full workshop — but it happens.
 
 ---
 
@@ -15,11 +16,25 @@ Invoke /product-thinking — it contains the Context Gathering Protocol and the 
 
 An increment is a commitment to ship a complete user outcome. Not a feature request. Not a brainstorm. Not a backlog item with aspirations. It is the document that says: "This is what we are building, why, for whom, and how we know it worked." If you cannot fill every section with specific, grounded information, the increment is not ready to build.
 
-This skill scopes **one** option. If you arrived here from `/workshop`, you're committing to the single shape that won its divergence — the other options were deliberately set aside. If you're second-guessing which shape to build, go back to `/workshop`; don't scope two increments in parallel.
+This skill scopes **one** path — the shape that won its `/workshop` divergence. The alternatives were explored in the workshop report and deliberately set aside; the increment commits to a single shape and doesn't re-open the fork. If the path isn't chosen yet, you're not ready to scope — go diverge first. Don't scope two increments in parallel.
 
 A spec is a thinking tool, not a documentation exercise. The competitive context should shape the scope. The persona reactions should challenge the solution. The user signal should validate the problem. If these inputs don't change what you write, you are not using them.
 
 Scope by outcome, not by time. "What can we build in two weeks?" produces mediocre features. "What is the minimum that changes user behavior?" produces focused ones. Cut features, not corners.
+
+## Length discipline
+
+A reader should absorb the whole increment in a few minutes. Terseness is a feature, not a compromise.
+
+- **Prefer tables and bullets to prose.** Prose is for the Bet and the Opportunity paragraph only.
+- **One idea per line.** If a sentence has a subordinate clause explaining the obvious, cut the clause.
+- **Never restate the template's guidance.** The instructions below tell *you* what to write; they are not headings to paraphrase back.
+- **No empty sections.** If you have nothing specific to say, delete the section rather than filling it with hedges. A short increment that says only true things beats a complete-looking one padded with "we assume."
+- **Hard caps:** Bet = 1 sentence. Opportunity ≤ 1 paragraph. Every other prose block ≤ 3 lines. Tables carry the detail.
+
+## First draft is lean — surface only what needs a decision
+
+The first pass is sharp, not exhaustive. It's lean not because sections are stubbed, but because you write down only what the reader must react to: a trade-off, a flag, a decision. Do the real thinking across *every* section — including Engineering and Edge Cases, push those forward — but surface only the items that carry a fork. For each fork, show the implication visually with the options (Option A vs B, ASCII sketch), so the reader can decide, not just acknowledge. Anything with an obvious answer stays out. A page where every line demands a decision beats a complete draft they wade through.
 
 ## Sizing
 
@@ -62,70 +77,58 @@ If any context file is missing, note it and proceed with what you have. Do not f
 # Spec
 
 ## The Bet
-One to two sentences. What we believe, what we are building, and what changes if we are right. This is the increment's thesis. Everything below either supports it or challenges it.
+One sentence: what we're building and what changes if we're right. The increment's thesis — everything below supports or challenges it.
 
 > **Customer Tweet**
 > *Write the tweet a happy customer would post after using this feature. 280 characters. If you cannot write a compelling tweet, the value proposition is not clear enough.*
 
 ## Opportunity
 
-State the user problem in one paragraph. Not "users need X" — that is the solution wearing a problem costume. Instead: what happens today that is painful, slow, or broken? Why now? What changed that makes this worth prioritizing?
+One paragraph: what happens today that is painful, slow, or broken, and why now? Not "users need X" — that is the solution wearing a problem costume.
 
-Ground this in evidence from feedback sources. If there is no evidence, say so.
+Then a compact evidence block (one line each, skip a line if you have nothing):
+- **Observed** — from feedback/analytics/interviews: [specific finding, with the user's words]
+- **Inferred** — from behavior patterns: [what the data suggests]
+- **Unknown** — what we are assuming: [the gap]
 
 ## Target Audience
 
-Name the specific persona(s) from `.acumen/personas.md`. For each:
-- What behavior pattern makes them the right audience?
-- What is their current workaround?
-- Why would they switch to this?
-- Would they notice this? Would they care? Would it change their behavior?
+Name the specific persona(s) from `.acumen/personas.md`. Behaviors, not demographics. One row each:
 
-Do not describe demographics. Describe behaviors.
-
-## Customer Insights
-
-What do we actually know about how users experience this problem today?
-
-- **Observed** (from feedback, analytics, interviews): [specific findings]
-- **Inferred** (from behavior patterns): [what the data suggests]
-- **Unknown** (gaps in understanding): [what we are assuming]
-
-Label confidence levels honestly. "We assume" is more useful than fake certainty.
+| Persona | Behavior that makes them the fit | Current workaround | Why they'd switch |
+|---------|----------------------------------|--------------------|-------------------|
+| | | | |
 
 ## Competitive Context
 
 *(Skip for Small increments)*
 
-Pull from `.acumen/competitors.md`. What competitors do here. Where we have an advantage, where we are behind, and where the parity trap is. One paragraph, not a feature matrix.
-
-For the 2-3 most relevant competitors:
+From `.acumen/competitors.md`, the 2-3 most relevant competitors:
 
 | Competitor | What they do here | Their strength | Their weakness | Our angle |
 |------------|------------------|----------------|----------------|-----------|
 | | | | | |
 
-One paragraph on the strategic implication: Are we following, leading, or deliberately diverging?
+## Success Metric
 
-## Success Metrics
-
-One metric that goes up if we succeed. One that tells us we broke something. Connect each to revenue impact.
+Exactly one success metric — the single number that goes up if we're right. Resist a second; if two feel essential, you haven't decided what winning means. Add one guardrail to catch what we might break.
 
 | Metric | Type | Baseline | Target | Revenue connection |
 |--------|------|----------|--------|--------------------|
-| [primary] | Success | [current] | [target] | [how it drives $$$] |
+| [the one metric] | Success | [current] | [target] | [how it drives $$$] |
 | [guardrail] | Counter | [current] | [do not exceed] | [what breaks if this moves] |
 
-## Scope
+## Trade-offs
 
-| Tier | What | Why |
-|------|------|-----|
-| **Minimum** | The smallest version that tests the bet | Ships the core value, nothing else |
-| **Recommended** | Minimum + quality-of-life additions | What you would actually want to ship |
-| **Ambitious** | Recommended + stretch items | Only if execution is ahead of plan |
-| **Cut** | What you are explicitly not building | And why — this is the most important row |
+Don't scope by size. With AI, building more or less costs roughly the same — effort tiers (minimum / recommended / ambitious) no longer decide anything. What decides the shape is the **trade-offs**: for each real fork, the functional and technical tension that makes one option better than another.
 
-The Cut row is mandatory. If nothing is cut, the scope is not real.
+For each meaningful decision, lay out the fork and make the call:
+
+| Decision | Option A | Option B | Functional trade-off | Technical trade-off | Call |
+|----------|----------|----------|----------------------|---------------------|------|
+| | | | [UX / behavior cost of each] | [architecture / data / risk cost of each] | [what we pick + why] |
+
+**Deliberately not building:** [what we're leaving out] — and why (focus and coherence, not effort saved). This line is mandatory; if nothing is cut, the scope isn't real.
 
 ---
 
@@ -133,45 +136,46 @@ The Cut row is mandatory. If nothing is cut, the scope is not real.
 
 ## Existing Context
 
-What already exists in the product that this increment touches? Reference specific features from `.acumen/features.md`. What can we reuse? What needs to change?
+Specific features from `.acumen/features.md` this touches — what to reuse, what to change. Bullets.
 
-## Pending Questions
+## Questions
 
-Decisions that must be made before building. Each question has an owner and a deadline.
+Decisions that block building (with owner + deadline). Park the rest in a line below the table.
 
 | Question | Owner | Decide by | Impact if delayed |
 |----------|-------|-----------|-------------------|
 | | | | |
 
-## Parked Questions
-
-Questions that matter but not for this increment.
-
-- [Question] — revisit when [trigger]
+*Parked:* [Question] — revisit when [trigger]
 
 ## Orientation
 
-Answer from the user's perspective:
+From the user's perspective, one line each:
 
-1. **How did I get here?** Entry point, discovery, onboarding moment.
-2. **What do I do?** Primary action, step by step. "User clicks X" not "user interacts with the feature."
-3. **Where will I be next?** What happens after. The natural next step.
+1. **How did I get here?** Entry point.
+2. **What do I do?** Primary action ("User clicks X", not "interacts with the feature").
+3. **Where will I be next?** The natural next step.
 
 ## Product Parts
 
-The functional requirements. Be specific and default-oriented. Cut 50% of what you initially think belongs here.
+The functional requirements — each part is a UX decision. Be specific and default-oriented. Cut 50% of what you initially think belongs here.
 
-For each product part:
+For each product part, pair the decision with a small ASCII sketch showing what it induces on screen — so the reader *sees* the choice, not just reads it:
 
 ### [Part Name]
 
 **What it does:** One sentence.
 **Default behavior:** How it works out of the box.
-**Key interactions:**
-- [Specific interaction 1]
-- [Specific interaction 2]
 
-**Out of scope for this increment:** [What this part explicitly does NOT do yet]
+```
++------------------------------------------+
+|  [the sketch of what this part induces]  |
+|  [the control, state, or layout it adds] |
++------------------------------------------+
+```
+
+**Key interactions:** [interaction 1] · [interaction 2]
+**Out of scope:** [what this part explicitly does NOT do yet]
 
 ---
 
@@ -218,17 +222,17 @@ Where surfaces or controls map to existing components, name the `DESIGN.md` toke
 
 *(Skip for Small increments)*
 
-Not a technical spec — surface the trade-offs:
+Not a technical spec and not a checklist. Do the technical thinking (architecture, data/migration, integration, feature-specific risk), then surface **only the forks that need a decision** — skip anything with an obvious answer.
 
-- **Architecture considerations:** Fits current systems or requires new patterns?
-- **Data implications:** New models? Migration? Privacy?
-- **Integration points:** What existing systems does this touch?
-- **Known trade-offs:** Speed vs. flexibility? Build vs. buy?
-- **Technical risks:** What could go wrong specific to this feature?
+| Technical decision | Option A | Option B | Implication of each | Recommendation |
+|--------------------|----------|----------|---------------------|----------------|
+| | | | | |
+
+Where a fork changes what the user sees or does, sketch it (ASCII) so the implication is visual, not just described.
 
 ## Edge Cases
 
-Specific scenarios that will break this feature or confuse users. Not generic ("what if the network is slow") — specific ones tied to this feature's logic, data model, or persona workflow.
+Only the scenarios that force a decision — specific ones tied to this feature's logic, data model, or persona workflow, not generic ("network is slow"). For each, state the implication and the handling options, so it reads as something to decide, not a list to acknowledge. If an edge case has one obvious handling, it isn't worth a line.
 
 ---
 

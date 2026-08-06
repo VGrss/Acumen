@@ -89,3 +89,4 @@ Before finalizing, pressure-test the sequence:
 - Could a stakeholder explain the sequencing logic without you in the room?
 - If you had to cut the roadmap in half, which half ships? Does it still make strategic sense?
 - Are you front-loading learning or front-loading comfort?
+- For each increment: is there a smaller slice that delivers the same outcome? Apply *Default to less* from `/product-thinking` — the smaller slice ships sooner and teaches you the same thing.

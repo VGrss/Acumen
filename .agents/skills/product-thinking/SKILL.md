@@ -30,6 +30,17 @@ Before suggesting, scoping, or prioritizing any work, run these six checks:
 - **Is there a local fix?** Can we solve this with a config change, a copy edit, a support doc, or a conversation — before writing code?
 - **Is there a cleaner abstraction?** The request might be for feature X, but the actual need might dissolve if you reframe the problem.
 
+## Default to less
+
+Every addition must earn its place. The reflex to add is a failure mode, not thoroughness. Applies to screens, sections, options, and documents alike.
+
+- **Subtract before adding.** Can this be solved by removing a step, a field, or a screen? Try that before designing anything new.
+- **Reuse before creating.** Extend an existing surface before inventing one. A new screen is a cost, not a deliverable.
+- **One job per screen.** If a screen serves two jobs, it serves neither. Split it or cut one.
+- **A choice you make is a choice the user doesn't.** Settings and toggles are decisions you failed to make.
+- **The boring version first.** If the obvious solution works, ship it. Novelty is a cost you must justify, not a sign of ambition.
+- **Cut test.** Before finalizing, name the 3 things you'd remove if forced to. If removing them wouldn't hurt, they're already gone — delete them.
+
 ## PM Quality Heuristics
 
 ### Problem Definition
@@ -60,7 +71,7 @@ Before suggesting, scoping, or prioritizing any work, run these six checks:
 
 Before finalizing any product artifact, ask: **"Would a PM who knows nothing about this product be able to generate the same document?"** If yes, it is slop. Rewrite it.
 
-The 12 tells of AI product slop:
+The 15 tells of AI product slop:
 
 1. **Template Filler** — Every section header is filled in but none contain information specific to this product, this market, or this moment. The output has never touched the codebase.
 2. **Demographic Persona** — "Marketing Manager, 28-35, uses Slack" — demographics masquerading as understanding. Real personas come from observed behavior and usage patterns, not assumptions.
@@ -74,6 +85,9 @@ The 12 tells of AI product slop:
 10. **Feature Roadmap** — A timeline of features with no thesis about what the product is becoming. A roadmap should tell a story about how the product gets from here to there.
 11. **Greenfield Spec** — Scopes from scratch, ignoring existing architecture, shipped features, and technical constraints. Every spec should start from what already exists.
 12. **Consensus Document** — A document designed to be inoffensive to all stakeholders rather than useful to any of them — because without product evidence, there is nothing to argue from.
+13. **Kitchen-Sink Screen** — The screen shows everything that could be relevant instead of the one thing the job requires. Filters, stats, tips, and secondary actions crowd the primary one. Density is not richness; it's a failure to decide what matters.
+14. **Net-New Surface** — A new page, tab, modal, or dashboard where an existing surface would have done. The product grows a new room instead of fixing the one people are already in.
+15. **Configurability Escape Hatch** — A setting, toggle, or "customizable" behavior shipped in place of a decision. Every option handed to the user is a judgment call you declined to make.
 
 ## Output Principles
 

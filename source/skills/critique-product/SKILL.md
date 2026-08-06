@@ -36,7 +36,7 @@ If any of them would struggle, the artifact needs work.
 
 ### Step 1: AI Product Slop Test
 
-Run the slop check first. Scan for these 12 tells — each one weakens the document:
+Run the slop check first. Scan for these 15 tells — each one weakens the document:
 
 1. **"Users want..."** without evidence (who said this? how many? when?)
 2. **Missing baselines** (targets without current numbers are wishes)
@@ -50,12 +50,15 @@ Run the slop check first. Scan for these 12 tells — each one weakens the docum
 10. **No tradeoff acknowledgment** (everything is upside, nothing is cost)
 11. **Jargon without definition** (acronyms and internal terms that assume shared context)
 12. **Missing timeline or sequencing** (what ships first? what depends on what?)
+13. **Unjustified new surface** (a new screen, page, or tab where an existing one would have carried the job — and no line explaining why it couldn't)
+14. **Everything on screen** (no cut list, no hidden state, no hierarchy — the artifact never says what it deliberately left out)
+15. **Options instead of decisions** (settings, toggles, and "configurable" behavior standing in for a choice the author should have made)
 
-Count the tells. More than 4 is a problem. More than 7 means the artifact needs a rewrite, not a revision.
+Count the tells. More than 5 is a problem. More than 8 means the artifact needs a rewrite, not a revision.
 
-### Step 2: Score Across 9 Dimensions
+### Step 2: Score Across 10 Dimensions
 
-Score each dimension 0-4. Be honest. A 4 means genuinely excellent. Most artifacts score 18-28 out of 36.
+Score each dimension 0-4. Be honest. A 4 means genuinely excellent. Most artifacts score 20-31 out of 40.
 
 | # | Dimension | What you're evaluating | 0 | 2 | 4 |
 |---|-----------|----------------------|---|---|---|
@@ -66,8 +69,9 @@ Score each dimension 0-4. Be honest. A 4 means genuinely excellent. Most artifac
 | 5 | **Strategic coherence** | Does this connect to a larger thesis? | No strategic connection | Mentions strategy but link is hand-wavy | Clear causal chain from strategy to this initiative |
 | 6 | **Edge case coverage** | What breaks? | No edge cases considered | Some edge cases but major gaps | Comprehensive edge cases with mitigation or deferral rationale |
 | 7 | **Communication quality** | Can all three audiences act on this? | Confusing or audience-unclear | One audience served well, others neglected | Engineer, exec, and designer can each extract what they need |
-| 8 | **Slop score** | How many of the 12 AI tells are present? | 7+ tells | 3-6 tells | 0-2 tells |
+| 8 | **Slop score** | How many of the 15 AI tells are present? | 8+ tells | 3-7 tells | 0-2 tells |
 | 9 | **Context grounding** | References competitors, personas, feedback? | Operating in a vacuum | Some references but shallow | Deeply grounded in competitive reality, persona data, and user signal |
+| 10 | **Simplicity** | Is this the smallest thing that solves the problem? | Bloated — new surfaces, stacked features, toggles standing in for decisions | Reasonable but carries parts nobody would miss | Every part earns its place; cheaper alternatives named and rejected with a reason |
 
 Reference [pm-heuristics](reference/pm-heuristics.md) for the full scoring rubric and calibration examples.
 
@@ -90,7 +94,16 @@ After scoring, identify the riskiest assumptions in the artifact — the ones th
 
 If all key assumptions already have strong signal, say so — validation is not always needed. If the artifact is based on assumptions with no evidence, flag that as the primary issue.
 
-### Step 5: Priority Issues
+### Step 5: Subtraction Pass
+
+Scoring finds what's missing. This pass finds what shouldn't be there. Name **the 3 things you'd cut** from the artifact, ranked by how little would be lost — for each, one line on what it costs to keep and what breaks if it goes. If nothing breaks, it should go.
+
+Then ask the two questions the artifact usually skips:
+
+- **Is there a smaller version that gets most of the outcome?** Describe it in one sentence. If it exists and the artifact never considered it, that's a P1.
+- **Could this reuse an existing surface instead of adding one?** Check `.acumen/features.md`. A new screen with no justification for why the existing one couldn't carry the job is a P1.
+
+### Step 6: Priority Issues
 
 For each issue found, assign severity and suggest the Acumen command that would fix it:
 
@@ -126,10 +139,21 @@ How well does this artifact reference the product's actual competitive landscape
 | Communication quality | | |
 | Slop score | | |
 | Context grounding | | |
-| **Total** | **/36** | |
+| Simplicity | | |
+| **Total** | **/40** | |
 
 ### What's Working
 Two to three specific strengths. Quote the artifact where it's strong.
+
+### Cut List
+
+The 3 things to remove, and the smaller version worth considering.
+
+| Cut | Cost of keeping it | What breaks if it goes |
+|-----|--------------------|------------------------|
+| | | |
+
+**Smaller version:** one sentence — or "none; this is already the smallest shape that solves the problem."
 
 ### Riskiest Assumptions
 

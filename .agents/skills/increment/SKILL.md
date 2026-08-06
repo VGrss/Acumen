@@ -194,6 +194,14 @@ Structure the wireframes as a clear **BEFORE / AFTER flow**:
 
 For **each screen** (before and after), state the **job to be done** — what the persona is trying to accomplish on that specific screen, in their words. The wireframe shows the layout; the JTBD line explains why the screen exists.
 
+**Every element earns its place.** The JTBD is the test: if an element doesn't serve it, it doesn't go on the screen. A wireframe that shows everything the screen *could* hold is a failure to decide.
+
+- **Modify before you add.** Changing an existing screen beats introducing a new one. If you're drawing a net-new surface, justify in one line why the existing one couldn't carry the job.
+- **Hard cap: 7 interactive elements per screen** (fields, buttons, filters, tabs, menus). Over the cap means the screen holds more than one job — split it or cut.
+- **One primary action per screen.** Everything else is secondary and should look it.
+- **No settings as a fallback.** If two behaviors are both plausible, pick one and say why. A toggle is a deferred decision, not a feature.
+- **Cut list.** Under the AFTER wireframes, name what you deliberately kept off the screen and why. The absence is a design decision — show it.
+
 ```
 BEFORE — [Screen Name]
 JTBD: [What the persona is trying to get done here]
@@ -238,8 +246,9 @@ Only the scenarios that force a decision — specific ones tied to this feature'
 
 ## After Writing
 
-1. **AI Slop Test.** Run against the 12 tells from /product-thinking. Every section must contain information specific to this product, this market, this moment.
-2. **Standalone test.** If the next increment never ships, does this one still deliver value? If not, rescope.
-3. **Tweet test.** Re-read the Customer Tweet. Does it still hold?
-4. **Update `.acumen/features.md`** with any new or modified feature entries.
-5. **Run `/critique-product`** on this increment to score it before sharing with the team.
+1. **AI Slop Test.** Run against the 15 tells from /product-thinking. Every section must contain information specific to this product, this market, this moment.
+2. **Cut test.** Name the 3 things you'd remove from this increment if forced to. If removing them wouldn't hurt the bet, remove them now.
+3. **Standalone test.** If the next increment never ships, does this one still deliver value? If not, rescope.
+4. **Tweet test.** Re-read the Customer Tweet. Does it still hold?
+5. **Update `.acumen/features.md`** with any new or modified feature entries.
+6. **Run `/critique-product`** on this increment to score it before sharing with the team.

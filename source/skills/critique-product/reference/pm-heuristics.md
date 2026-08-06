@@ -1,6 +1,6 @@
 # Product Artifact Scoring Rubric
 
-Scoring framework for evaluating product artifacts across 9 dimensions. Each dimension is scored 0-4. Total possible score: 36.
+Scoring framework for evaluating product artifacts across 10 dimensions. Each dimension is scored 0-4. Total possible score: 40.
 
 Two reviewers using this rubric on the same artifact should arrive within 3 points of each other. When in doubt, score lower and explain why.
 
@@ -94,9 +94,9 @@ Evaluates whether the artifact is structured so that three different audiences (
 
 ### 8. Slop score
 
-Evaluates how many of the 12 AI product slop tells are present. This dimension is scored inversely: fewer tells equals a higher score.
+Evaluates how many of the 15 AI product slop tells are present. This dimension is scored inversely: fewer tells equals a higher score.
 
-The 12 tells: (1) vague value props, (2) strategy-free prioritization, (3) metrics without baselines, (4) persona labels without behaviors, (5) false precision on estimates, (6) hedging language everywhere, (7) no trade-off reasoning, (8) copied framework structure with no adaptation, (9) filler sections with no new information, (10) generic competitive analysis, (11) aspirational timelines with no dependencies, (12) buzzword density above plain-language threshold.
+The 15 tells: (1) vague value props, (2) strategy-free prioritization, (3) metrics without baselines, (4) persona labels without behaviors, (5) false precision on estimates, (6) hedging language everywhere, (7) no trade-off reasoning, (8) copied framework structure with no adaptation, (9) filler sections with no new information, (10) generic competitive analysis, (11) aspirational timelines with no dependencies, (12) buzzword density above plain-language threshold, (13) unjustified new surface, (14) everything on screen with no cut list, (15) options instead of decisions.
 
 | Score | Description |
 |-------|-------------|
@@ -118,13 +118,25 @@ Evaluates whether the artifact references real competitive landscape, persona re
 | 3 | Competitive analysis identifies specific capability gaps and user switching triggers. User feedback is triangulated across multiple sources (interviews, analytics, support). Persona context is current. |
 | 4 | Context includes market timing rationale, regulatory or ecosystem shifts, and direct observation of user behavior (not just reported preferences). Competitive moves are analyzed for second-order effects on the product's position. |
 
+### 10. Simplicity
+
+Evaluates whether the artifact proposes the smallest thing that solves the problem. Scope discipline (dimension 4) asks whether the boundaries are stated; this asks whether they are drawn tightly enough.
+
+| Score | Description |
+|-------|-------------|
+| 0 | Bloated. New surfaces where existing ones would do, features stacked without a stated reason, settings and toggles standing in for decisions the author declined to make. |
+| 1 | Solves the problem but carries obvious weight — sections, screens, or options nobody would miss. No cheaper alternative was considered. |
+| 2 | Reasonable size. Some parts are there out of completeness rather than necessity. A smaller version is imaginable but not discussed. |
+| 3 | Tight. Each part traces to the problem. A smaller version was considered and rejected with a reason. Reuses existing surfaces where possible. |
+| 4 | Nothing left to remove. The cut list is explicit, the cheaper alternatives are named and beaten on the merits, and every screen serves one job. |
+
 ---
 
 ## Rating bands
 
 | Range | Label | Interpretation |
 |-------|-------|----------------|
-| 0-12 | Rethink | Fundamental issues across multiple dimensions. Not ready for review. Go back to discovery or rewrite from scratch. |
-| 13-20 | Tighten | Core structure exists but critical gaps undermine confidence. Address the lowest-scoring dimensions before circulating. |
-| 21-28 | Solid | Ready for review with targeted fixes. Identify the 2-3 dimensions below a 3 and strengthen those specifically. |
-| 29-36 | Ship | Exceptional quality. Minor polish only. Focus review on strategic alignment and edge cases rather than structural issues. |
+| 0-13 | Rethink | Fundamental issues across multiple dimensions. Not ready for review. Go back to discovery or rewrite from scratch. |
+| 14-22 | Tighten | Core structure exists but critical gaps undermine confidence. Address the lowest-scoring dimensions before circulating. |
+| 23-31 | Solid | Ready for review with targeted fixes. Identify the 2-3 dimensions below a 3 and strengthen those specifically. |
+| 32-40 | Ship | Exceptional quality. Minor polish only. Focus review on strategic alignment and edge cases rather than structural issues. |

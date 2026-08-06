@@ -52,6 +52,8 @@ Generate **10 genuinely different solution options** for the one problem. Differ
 
 Span the ladder from smallest to boldest. Aim for coverage across bands, not a cluster in the middle. If you skip a band, say why.
 
+**The Band-aid band is never skipped.** At least one option must ship without engineering — a config change, a default flip, a copy edit, a support doc, a manual service. It is there to be beaten, not to be polite: if the cheapest option would move the problem almost as much as the boldest, that is the finding.
+
 - **Band-aid** — config, copy, default flip
 - **Tweak** — repurpose an existing capability
 - **Feature** — new capability inside an existing surface
@@ -74,6 +76,14 @@ When options start converging, force new shapes with these prompts (borrowed fro
 - **Audience shift** — what if this were only for power users? Only for brand-new users? Built for the admin, not the end user?
 - **Constraint removal** — unlimited eng time: what's the boldest shape? Zero eng time: what could ship this week? The two extremes are rarely the same option.
 - **Steal from adjacent** — how would a product in a completely different category solve this shape of problem? Borrow their move.
+
+### Plausibility test
+
+Bold is not the same as elaborate. Apply to every option:
+
+- **One sentence, user's words.** If you can't say what the user sees or does in one sentence, the option isn't a shape — it's a fantasy. Cut it or sharpen it.
+- **Name the mechanism.** An option that only works if several unproven things are true at once is a stack of bets, not an option. Say which single bet it rests on.
+- **Bold ≠ many parts.** A category-level move can still be one move. If an option needs three new surfaces to make sense, it's a roadmap masquerading as an option — split it or drop it.
 
 ### Collapse test
 
@@ -100,7 +110,7 @@ Before finalizing, apply it to every pair: *would these feel like the same produ
 Ten options is a map, not a decision. Narrow it:
 
 1. **Rank on a 2x2** — impact on the problem (how much would this actually move it?) vs. thesis fit (how well does it align with where the product is going?). Top-right is where to focus.
-2. **Recommend a direction** — one option, or a sequence ("band-aid now to stop the bleeding, surface later to own the workflow"). Say why the shape wins, not just the idea.
+2. **Recommend a direction** — one option, or a sequence ("band-aid now to stop the bleeding, surface later to own the workflow"). Say why the shape wins, not just the idea. **When two options land close on the 2x2, the smaller one wins** — and if you recommend a bigger shape over a smaller one, state what the extra size buys.
 3. **Name what you're deliberately ignoring** — the options you're setting aside and why. This stops the same shapes from resurfacing without new evidence.
 
 ## Handoff

@@ -3,25 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Skills for AI Harness</title>
-  <meta name="description" content="Product Skills for AI Harness.">
-  <meta property="og:title" content="Product Skills for AI Harness">
-  <meta property="og:description" content="Product Skills for AI Harness.">
+  <title>Acumen: product skills for your coding agent</title>
+  <meta name="description" content="19 open source skills that let product managers diagnose, scope and ship from the codebase in Claude Code, Cursor, Codex and 13 more AI tools. Free, read only, installs in one command.">
+  <meta property="og:title" content="Acumen: product skills for your coding agent">
+  <meta property="og:description" content="Diagnose, scope and ship product work from the codebase. 19 open source skills for Claude Code, Cursor, Codex and more.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://acumen.tools/">
   <meta property="og:image" content="https://acumen.tools/images/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Product Skills for AI Harness">
-  <meta name="twitter:description" content="Product Skills for AI Harness.">
+  <meta name="twitter:title" content="Acumen: product skills for your coding agent">
+  <meta name="twitter:description" content="Diagnose, scope and ship product work from the codebase. 19 open source skills for Claude Code, Cursor, Codex and more.">
   <meta name="twitter:image" content="https://acumen.tools/images/og-card.png">
+  <link rel="canonical" href="https://acumen.tools/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9650;</text></svg>">
   <style>
     :root {
       --bg: #fafafa;
       --fg: #111;
-      --fg-muted: #555;
-      --fg-faint: #999;
+      --fg-muted: #4a4a4a;
+      --fg-faint: #6b6b6b;
       --accent: #111;
       --border: #ddd;
       --border-strong: #111;
@@ -29,8 +34,10 @@
       --surface-alt: #f5f5f5;
       --code-bg: #f0f0f0;
       --red: #c00;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+      --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'Geist Mono', 'SF Mono', ui-monospace, monospace;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --focus: #2f5bd3;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -90,13 +97,13 @@
 
     .nav-links a {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--fg-muted);
       text-decoration: none;
       padding: 0.4rem 0.65rem;
-      transition: color 0.15s;
+      transition: color 0.3s var(--ease);
     }
 
     .nav-links a:hover { color: var(--fg); }
@@ -108,7 +115,7 @@
       text-decoration: none;
       border: 1px solid var(--border);
       padding: 0.35rem 0.75rem;
-      transition: border-color 0.15s;
+      transition: border-color 0.3s var(--ease);
     }
 
     .nav-gh:hover { border-color: var(--fg); }
@@ -129,7 +136,7 @@
 
     .section-label {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--fg-faint);
@@ -172,7 +179,7 @@
 
     .hero h1 {
       font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: -0.04em;
       line-height: 1.05;
       margin-bottom: 1.5rem;
@@ -204,14 +211,14 @@
     .stat-number {
       font-family: var(--font-mono);
       font-size: 2rem;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1;
     }
 
     .stat-label {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--fg-faint);
@@ -234,7 +241,7 @@
       padding: 0.7rem 1.5rem;
       cursor: pointer;
       text-decoration: none;
-      transition: opacity 0.15s;
+      transition: opacity 0.3s var(--ease);
     }
 
     .btn-primary:hover { opacity: 0.8; }
@@ -247,7 +254,7 @@
       text-decoration: none;
       padding: 0.7rem 0;
       border-bottom: 1px solid var(--border);
-      transition: color 0.15s, border-color 0.15s;
+      transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
     }
 
     .btn-secondary:hover { color: var(--fg); border-color: var(--fg); }
@@ -259,7 +266,7 @@
 
     .works-with-label {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--fg-faint);
@@ -285,7 +292,7 @@
       border-radius: 10px;
       background: var(--surface);
       border: 1px solid var(--border);
-      transition: border-color 0.15s, box-shadow 0.15s;
+      transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
       text-decoration: none;
       color: var(--fg-muted);
     }
@@ -320,7 +327,7 @@
 
     .problem-list .bullet {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: var(--fg-faint);
       flex-shrink: 0;
       width: 1rem;
@@ -372,7 +379,7 @@
 
     .skill-carousel-nav-label {
       font-family: var(--font-mono);
-      font-size: 0.6rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--fg-faint);
@@ -388,7 +395,7 @@
       font-family: var(--font-mono);
       font-size: 0.8rem;
       color: var(--fg-muted);
-      transition: background 0.1s, color 0.1s;
+      transition: background 0.3s var(--ease), color 0.3s var(--ease);
       border-left: 3px solid transparent;
     }
 
@@ -405,7 +412,7 @@
     }
 
     .skill-carousel-nav-item .nav-abbr {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       font-weight: 600;
       width: 24px;
       text-align: center;
@@ -468,7 +475,7 @@
 
     .skill-carousel-detail-header .skill-layer {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--fg-faint);
@@ -491,7 +498,7 @@
 
     .skill-carousel-detail-examples-label {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--fg-faint);
@@ -549,7 +556,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+      transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
     }
 
     .element:hover {
@@ -567,7 +574,7 @@
 
     .element-name {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       color: var(--fg-faint);
       margin-top: 0.35rem;
       text-align: center;
@@ -682,7 +689,7 @@
 
     .knowledge-file-maintainer {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       color: var(--fg-faint);
       margin-top: 0.35rem;
     }
@@ -740,7 +747,7 @@
       width: 16px;
       height: 16px;
       opacity: 0.7;
-      transition: opacity 0.15s;
+      transition: opacity 0.3s var(--ease);
     }
 
     .context-source-logos img:hover {
@@ -749,7 +756,7 @@
 
     .context-source-logos span {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       color: var(--fg-faint);
       letter-spacing: 0.03em;
     }
@@ -762,7 +769,7 @@
 
     .context-file-maintainer {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: var(--fg-faint);
       margin-top: 0.5rem;
     }
@@ -795,7 +802,7 @@
 
     .chain-table th {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--fg-faint);
@@ -847,7 +854,7 @@
 
     .install-step-number {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--fg-faint);
@@ -898,7 +905,7 @@
       border-radius: 8px;
       background: var(--bg);
       border: 1px solid var(--border);
-      transition: border-color 0.15s;
+      transition: border-color 0.3s var(--ease);
       text-decoration: none;
     }
 
@@ -914,10 +921,10 @@
       border: 1px solid #444;
       color: #888;
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       padding: 0.25rem 0.5rem;
       cursor: pointer;
-      transition: color 0.2s, border-color 0.2s;
+      transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
     }
 
     .copy-btn:hover {
@@ -942,16 +949,16 @@
       border: 1.5px solid var(--border);
       background: var(--surface);
       padding: 1.5rem;
-      transition: border-color 0.15s, box-shadow 0.15s;
+      transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
     }
 
     .for-who-card:hover {
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
-    .for-who-card--value { border-left: 3px solid #c4636c; }
-    .for-who-card--experience { border-left: 3px solid #5a8abf; }
-    .for-who-card--reliability { border-left: 3px solid #5a9a5a; }
+    .for-who-card--value { border-color: #c4636c; }
+    .for-who-card--experience { border-color: #5a8abf; }
+    .for-who-card--reliability { border-color: #5a9a5a; }
 
     .for-who-keyword {
       font-family: var(--font-mono);
@@ -967,7 +974,7 @@
 
     .for-who-role {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--fg-faint);
@@ -989,7 +996,7 @@
 
     .split-column h3 {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--fg-faint);
@@ -1000,7 +1007,7 @@
 
     .changelog-date {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: var(--fg-faint);
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -1018,9 +1025,9 @@
 
     .changelog-date::before {
       content: '\25B4';
-      font-size: 0.55rem;
+      font-size: 0.75rem;
       display: inline-block;
-      transition: transform 0.2s;
+      transition: transform 0.3s var(--ease);
     }
 
     .changelog-date.collapsed::before {
@@ -1029,14 +1036,12 @@
 
     .changelog-entry-content {
       overflow: hidden;
-      max-height: 600px;
-      transition: max-height 0.3s ease, opacity 0.2s ease;
+      transition: opacity 0.3s var(--ease);
       opacity: 1;
     }
 
     .changelog-entry-content.collapsed {
-      max-height: 0;
-      opacity: 0;
+      display: none;
     }
 
     .changelog-entry {
@@ -1126,10 +1131,231 @@
       font-size: 0.75rem;
       color: var(--fg-faint);
       text-decoration: none;
-      transition: color 0.15s;
+      transition: color 0.3s var(--ease);
     }
 
     .footer-links a:hover { color: var(--fg); }
+
+    /* ACCESSIBILITY */
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -64px;
+      z-index: 200;
+      background: var(--fg);
+      color: var(--bg);
+      padding: 8px 12px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s var(--ease);
+    }
+    .skip-link:focus { transform: translateY(80px); }
+
+    a:focus-visible,
+    button:focus-visible,
+    [role="button"]:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+
+    h1, h2, h3 { text-wrap: balance; }
+    p, li { text-wrap: pretty; }
+
+    /* HERO v2 */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      max-width: 680px;
+      font-size: 3rem;
+      line-height: 1;
+      background: linear-gradient(90deg, #000000, #666666);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub { max-width: 680px; }
+
+    .hero-install {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--fg);
+      color: #e8e8e8;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      padding: 8px 8px 8px 16px;
+      border-radius: 8px;
+      max-width: 480px;
+    }
+
+    .hero-install code { flex: 1; min-width: 0; white-space: nowrap; overflow-x: auto; }
+    .hero-install code::before { content: '$ '; color: #8a8a8a; }
+
+    .hero-install .copy-cmd {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: var(--bg);
+      color: var(--fg);
+      border: none;
+      border-radius: 4px;
+      padding: 8px 12px;
+      min-height: 40px;
+      cursor: pointer;
+      transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+    }
+    .hero-install .copy-cmd:hover { opacity: 0.85; }
+    .hero-install .copy-cmd:active { transform: scale(0.98); }
+
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 16px;
+      font-size: 0.875rem;
+      color: var(--fg-muted);
+      list-style: none;
+    }
+    .hero-proof li::before { content: '\2713'; margin-right: 6px; color: var(--fg); }
+
+    .hero-video {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      padding: 8px;
+      box-shadow: 0 12px 32px rgba(17, 17, 17, 0.06);
+    }
+    .hero-video video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 4px;
+      background: var(--surface-alt);
+    }
+    .hero-video figcaption {
+      font-size: 0.75rem;
+      color: var(--fg-faint);
+      font-family: var(--font-mono);
+      padding: 8px 4px 0;
+    }
+
+    .works-with-icons span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .works-with-icons span img { width: 22px; height: 22px; }
+    .works-with-more {
+      font-size: 0.875rem;
+      color: var(--fg-muted);
+    }
+
+    /* HOW IT WORKS */
+    .steps {
+      list-style: none;
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 16px;
+    }
+    .step {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .step-number {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--fg-faint);
+    }
+    .step h3 { margin: 0; font-size: 1.125rem; }
+    .step p { font-size: 0.875rem; }
+    .step pre {
+      margin-top: auto;
+      background: var(--fg);
+      color: #e8e8e8;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      padding: 12px 16px;
+      border-radius: 4px;
+      overflow-x: auto;
+      position: relative;
+    }
+    .step pre .comment { color: #8a8a8a; }
+    .step pre .copy-btn {
+      background: transparent;
+      border: 1px solid #555;
+      color: #bbb;
+    }
+
+    /* TAGLINE REVEAL */
+    .tagline {
+      padding: 96px 0;
+    }
+    .tagline p {
+      max-width: 880px;
+      font-size: 3rem;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--fg);
+      text-wrap: balance;
+    }
+    .tagline .w {
+      opacity: 0.3;
+      transition: opacity 0.6s var(--ease);
+    }
+    .tagline .w.on { opacity: 1; }
+
+    /* FINAL CTA */
+    .final-cta { text-align: left; }
+    .final-cta .hero-install { margin-top: 24px; }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { transform: none; transition: opacity 0.3s linear; }
+      .tagline .w { opacity: 1; }
+      * { transition-duration: 0.01ms !important; }
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: minmax(0, 1fr); }
+      .steps { grid-template-columns: minmax(0, 1fr); }
+      .tagline { padding: 64px 0; }
+      .tagline p { font-size: 2.25rem; line-height: 2.5rem; }
+      .hero h1 { font-size: 2.25rem; line-height: 2.5rem; }
+    }
 
     /* MOBILE NAV */
     .nav-toggle {
@@ -1146,7 +1372,7 @@
       height: 1.5px;
       background: var(--fg);
       margin: 4px 0;
-      transition: transform 0.2s;
+      transition: transform 0.3s var(--ease);
     }
 
     /* RESPONSIVE */
@@ -1192,7 +1418,7 @@
       .periodic-table { gap: 1.5rem; }
       .element { width: 64px; height: 64px; }
       .element-abbr { font-size: 1rem; }
-      .element-name { font-size: 0.55rem; }
+      .element-name { font-size: 0.75rem; }
       /* Tooltips don't really work on touch — keep hidden on mobile. */
       .element:hover .element-tooltip { display: none; }
 
@@ -1227,134 +1453,124 @@
 </head>
 <body>
 
+  <a href="#main" class="skip-link">Skip to content</a>
+
   <!-- NAV -->
-  <nav id="nav">
+  <nav id="nav" aria-label="Main">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">/Acumen</a>
-      <button class="nav-toggle" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+      <a href="#top" class="nav-logo">/Acumen</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
-        <li><a href="#problem">01 Problem</a></li>
-        <li><a href="#skills">02 Skills</a></li>
-        <li><a href="#context">03 Context</a></li>
-        <li><a href="#install">04 Install</a></li>
-        <li><a href="#for-who">05 For Who</a></li>
-        <li><a href="#faq">06 New &amp; FAQ</a></li>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#context">Context</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
-      <a href="https://github.com/VGrss/Acumen" class="nav-gh" target="_blank">GitHub</a>
+      <a href="https://github.com/VGrss/Acumen" class="nav-gh" target="_blank" rel="noopener">GitHub<span class="gh-stars" hidden></span></a>
     </div>
   </nav>
 
+  <main id="main">
   <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <h1>Product Skills for<br><span>AI Harness.</span></h1>
-      <p class="hero-sub">Your PRDs, decks, and strategy docs are too far from the codebase. Acumen defines a set of skills &amp; context building for product people to craft &amp; thrive with AI harness right from the codebase.</p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-number">1</span>
-          <span class="stat-label">Core Skill</span>
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <h1>Product thinking,<br>inside your coding agent</h1>
+        <p class="hero-sub">Your PRDs and strategy decks live too far from the code. Acumen gives Claude Code, Cursor and Codex 19 product skills that read your codebase, analytics and users before they write a single line.</p>
+        <div class="hero-install" data-cmd="npx skills add VGrss/acumen">
+          <code>npx skills add VGrss/acumen</code>
+          <button type="button" class="copy-cmd" data-location="hero" aria-label="Copy install command">Copy</button>
         </div>
-        <div class="stat">
-          <span class="stat-number">19</span>
-          <span class="stat-label">Skills</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">7</span>
-          <span class="stat-label">Reference Docs</span>
-        </div>
-      </div>
-      <div class="hero-actions">
-        <a href="#install" class="btn-primary">Get started</a>
-        <a href="#problem" class="btn-secondary">Why Acumen?</a>
-      </div>
-      <div class="works-with">
-        <div class="works-with-label">Works with</div>
-        <div class="works-with-icons">
-          <a href="https://claude.ai/code" target="_blank" title="Claude Code">
-            <img src="images/providers/anthropic.svg" alt="Claude Code" width="22" height="22">
-          </a>
-          <a href="https://cursor.com" target="_blank" title="Cursor">
-            <img src="images/providers/cursor.svg" alt="Cursor" width="22" height="22">
-          </a>
-          <a href="https://windsurf.com" target="_blank" title="Windsurf">
-            <img src="images/providers/windsurf.svg" alt="Windsurf" width="22" height="22">
-          </a>
-          <a href="https://github.com/google-gemini/gemini-cli" target="_blank" title="Gemini CLI">
-            <img src="images/providers/gemini.svg" alt="Gemini CLI" width="22" height="22">
-          </a>
-          <a href="https://github.com/openai/codex" target="_blank" title="Codex CLI">
-            <img src="images/providers/openai.svg" alt="Codex CLI" width="22" height="22">
-          </a>
-          <a href="https://github.com/features/copilot" target="_blank" title="GitHub Copilot">
-            <img src="images/providers/github.svg" alt="GitHub Copilot" width="22" height="22">
-          </a>
-          <a href="https://kiro.dev" target="_blank" title="Kiro">
-            <img src="images/providers/kiro.svg" alt="Kiro" width="22" height="22">
-          </a>
-          <a href="https://opencode.ai" target="_blank" title="OpenCode">
-            <img src="images/providers/opencode.svg" alt="OpenCode" width="22" height="22">
-          </a>
-          <a href="https://ampcode.com" target="_blank" title="Amp">
-            <img src="images/providers/amp.svg" alt="Amp" width="22" height="22">
-          </a>
-          <a href="https://cline.bot" target="_blank" title="Cline">
-            <img src="images/providers/cline.svg" alt="Cline" width="22" height="22">
-          </a>
-          <a href="https://aider.chat" target="_blank" title="Aider">
-            <img src="images/providers/aider.svg" alt="Aider" width="22" height="22">
-          </a>
-          <a href="https://roocode.com" target="_blank" title="Roo Code">
-            <img src="images/providers/roocode.svg" alt="Roo Code" width="22" height="22">
-          </a>
-          <a href="https://continue.dev" target="_blank" title="Continue">
-            <img src="images/providers/continue.svg" alt="Continue" width="22" height="22">
-          </a>
-          <a href="https://zed.dev" target="_blank" title="Zed">
-            <img src="images/providers/zed.svg" alt="Zed" width="22" height="22">
-          </a>
-          <a href="https://trae.ai" target="_blank" title="Trae">
-            <img src="images/providers/trae.svg" alt="Trae" width="22" height="22">
-          </a>
-          <a href="https://conductor.build" target="_blank" title="Conductor">
-            <img src="images/providers/conductor.svg" alt="Conductor" width="22" height="22">
-          </a>
+        <ul class="hero-proof">
+          <li>Free and open source</li>
+          <li>Read only on your code</li>
+          <li>Installs in one command</li>
+        </ul>
+        <div class="works-with">
+          <div class="works-with-label">Works with</div>
+          <div class="works-with-icons">
+            <span title="Claude Code"><img src="images/providers/anthropic.svg" alt="Claude Code" width="22" height="22"></span>
+            <span title="Cursor"><img src="images/providers/cursor.svg" alt="Cursor" width="22" height="22"></span>
+            <span title="Codex CLI"><img src="images/providers/openai.svg" alt="Codex CLI" width="22" height="22"></span>
+            <span title="GitHub Copilot"><img src="images/providers/github.svg" alt="GitHub Copilot" width="22" height="22"></span>
+            <span title="Gemini CLI"><img src="images/providers/gemini.svg" alt="Gemini CLI" width="22" height="22"></span>
+            <span title="Windsurf"><img src="images/providers/windsurf.svg" alt="Windsurf" width="22" height="22"></span>
+            <span class="works-with-more" style="width:auto;border:none;background:none;">and 10 more</span>
+          </div>
         </div>
       </div>
+      <figure class="hero-video">
+        <video autoplay loop muted playsinline preload="metadata" aria-label="Demo of the /increment skill scoping a feature">
+          <source src="videos/increment.mp4" type="video/mp4">
+        </video>
+        <figcaption>/increment scoping a feature from the codebase</figcaption>
+      </figure>
     </div>
   </header>
 
-  <!-- 01 PROBLEM -->
-  <section id="problem">
+  <!-- PROBLEM -->
+  <section id="problem" class="reveal">
     <div class="container">
-      <div class="section-label">01 &mdash; The Problem</div>
-      <h2>Product craft happens too far from the codebase.</h2>
-      <p>Decisions are made in docs, slides, and chat &mdash; disconnected from the codebase where the truth is.</p>
+      <div class="section-label">The problem</div>
+      <h2>Product decisions are made far from where the truth lives.</h2>
+      <p>The spec says one thing, the code does another, and the data sits in a third tool. You find out at review time.</p>
       <ul class="problem-list">
         <li>
-          <span class="bullet">&mdash;</span>
-          <span class="text"><strong>Products are increasingly more complex in the AI Era</strong> &mdash; Most of the spec relates to an invisible logic. It's not anymore about UI. It's much more about agents, sub-agents, skills, tools, memory management, etc.</span>
+          <span class="bullet">01</span>
+          <span class="text"><strong>The product is now mostly invisible logic.</strong> Agents, tools, prompts and memory. You cannot spec what you cannot see from a Figma file.</span>
         </li>
         <li>
-          <span class="bullet">&mdash;</span>
-          <span class="text"><strong>Product scoping without access to the codebase becomes less relevant</strong> &mdash; AI Harness tools such as Claude Code or others allow product people to query the codebase without knowing how to code.</span>
+          <span class="bullet">02</span>
+          <span class="text"><strong>Specs written without the code go stale on day one.</strong> Coding agents now let you ask the codebase directly, no programming needed.</span>
         </li>
         <li>
-          <span class="bullet">&mdash;</span>
-          <span class="text"><strong>Every source of truth should be accessible to AI-harness</strong> &mdash; With coding, data from Analytics, Database, Competitors website etc. can be gathered in a central source of context for product thinking.</span>
+          <span class="bullet">03</span>
+          <span class="text"><strong>Your context is scattered.</strong> Analytics, database, backlog and competitor sites can all be read from the same place your agent already works.</span>
         </li>
       </ul>
-      <p style="margin-top: 2rem;">Acumen fixes this by embedding product craft where the building happens &mdash; skills that read your codebase and an organised knowledge layer before they write a single line.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="reveal">
+    <div class="container">
+      <div class="section-label">How it works</div>
+      <h2>From install to a scoped increment in three commands.</h2>
+      <p>Open your repo in any coding agent that supports the <a href="https://agents.md" target="_blank" rel="noopener" style="color: var(--fg); border-bottom: 1px solid var(--border);">agents.md</a> spec. Each skill suggests the next one.</p>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-number">Step 1</span>
+          <h3>Install the skills</h3>
+          <p>One command. It detects your tool and drops the skills into your project.</p>
+          <pre data-location="how_it_works">npx skills add VGrss/acumen</pre>
+        </li>
+        <li class="step">
+          <span class="step-number">Step 2</span>
+          <h3>Teach it your product</h3>
+          <p>A guided one time setup that reads the code and asks about users, market and metrics.</p>
+          <pre data-location="how_it_works">/teach-acumen</pre>
+        </li>
+        <li class="step">
+          <span class="step-number">Step 3</span>
+          <h3>Find, explore, scope</h3>
+          <p>Surface the real problem, compare ten solution shapes, then write a shippable spec.</p>
+          <pre data-location="how_it_works">/diagnose
+/workshop
+/increment</pre>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- 02 SKILLS -->
-  <section id="skills">
+  <section id="skills" class="reveal">
     <div class="container">
-      <div class="section-label">02 &mdash; Skills</div>
-      <h2>19 skills. Each one reads your product's context before it writes a single line.</h2>
-      <p>Each skill is a focused product operation &mdash; grounded in your codebase and knowledge layer, not generic prompting.</p>
+      <div class="section-label">Skills</div>
+      <h2>19 skills, from first diagnosis to release notes.</h2>
+      <p>Each skill is one focused product job, grounded in your codebase and context files instead of generic prompting. Pick one to see it run.</p>
 
       <!-- Periodic Table -->
       <div class="periodic-table-wrap">
@@ -1364,7 +1580,7 @@
             <div class="element-group-items">
               <div class="element element--context" data-skill="teach">
                 <div class="element-abbr">Te</div>
-                <div class="element-name">teach</div>
+                <div class="element-name">teach-acumen</div>
                 <div class="element-tooltip">One-time setup that gathers product context and saves it to .acumen.md</div>
               </div>
               <div class="element element--context" data-skill="scout">
@@ -1442,7 +1658,7 @@
               </div>
               <div class="element element--craft" data-skill="critique">
                 <div class="element-abbr">Cr</div>
-                <div class="element-name">critique</div>
+                <div class="element-name">critique-product</div>
                 <div class="element-tooltip">Evaluate and validate a PM artifact &mdash; score for rigor, test riskiest assumptions</div>
               </div>
             </div>
@@ -1469,7 +1685,7 @@
             <div class="element-group-items">
               <div class="element element--meta" data-skill="update">
                 <div class="element-abbr">Up</div>
-                <div class="element-name">update</div>
+                <div class="element-name">update-acumen</div>
                 <div class="element-tooltip">Fetch the latest Acumen skills from GitHub and update local copies</div>
               </div>
               <div class="element element--meta" data-skill="cheatsheet">
@@ -1498,7 +1714,7 @@
           <div class="skill-carousel-nav-group">
             <div class="skill-carousel-nav-label">Context</div>
             <div class="skill-carousel-nav-item active" data-skill="teach">
-              <span class="nav-abbr" style="color:#c4636c">Te</span> teach
+              <span class="nav-abbr" style="color:#c4636c">Te</span> teach-acumen
             </div>
             <div class="skill-carousel-nav-item" data-skill="scout">
               <span class="nav-abbr" style="color:#c4636c">Sc</span> scout
@@ -1543,7 +1759,7 @@
               <span class="nav-abbr" style="color:#3da63d">In</span> increment
             </div>
             <div class="skill-carousel-nav-item" data-skill="critique">
-              <span class="nav-abbr" style="color:#3da63d">Cr</span> critique
+              <span class="nav-abbr" style="color:#3da63d">Cr</span> critique-product
             </div>
           </div>
           <div class="skill-carousel-nav-group">
@@ -1558,7 +1774,7 @@
           <div class="skill-carousel-nav-group">
             <div class="skill-carousel-nav-label">Meta</div>
             <div class="skill-carousel-nav-item" data-skill="update">
-              <span class="nav-abbr" style="color:#7a5a9a">Up</span> update
+              <span class="nav-abbr" style="color:#7a5a9a">Up</span> update-acumen
             </div>
             <div class="skill-carousel-nav-item" data-skill="cheatsheet">
               <span class="nav-abbr" style="color:#7a5a9a">Cs</span> cheatsheet
@@ -1580,14 +1796,14 @@
           </div>
           <div class="skill-carousel-detail-text">
             <div class="skill-carousel-detail-header">
-              <h3 id="skill-detail-name">/teach</h3>
+              <h3 id="skill-detail-name">/teach-acumen</h3>
               <span class="skill-layer" id="skill-detail-layer">Context</span>
             </div>
             <p class="skill-carousel-detail-desc" id="skill-detail-desc">One-time setup that gathers product context for your project and saves it to .acumen.md. It guides you through exploring the codebase, asking product-focused questions about users, market, business model, strategy, and metrics, then synthesizes findings into persistent context.</p>
             <div class="skill-carousel-detail-examples" id="skill-detail-examples">
               <div class="skill-carousel-detail-examples-label">Examples</div>
-              <code>/teach</code>
-              <code>/teach after the pivot to B2B</code>
+              <code>/teach-acumen</code>
+              <code>/teach-acumen after the pivot to B2B</code>
             </div>
           </div>
         </div>
@@ -1596,10 +1812,17 @@
     </div>
   </section>
 
-  <!-- 03 CONTEXT SYSTEM -->
-  <section id="context">
+  <!-- TAGLINE -->
+  <section class="tagline" aria-label="What Acumen does">
     <div class="container">
-      <div class="section-label">03 &mdash; Context System</div>
+      <p id="tagline-text">Every skill reads your code, your data and your users before it writes a single line of spec.</p>
+    </div>
+  </section>
+
+  <!-- 03 CONTEXT SYSTEM -->
+  <section id="context" class="reveal">
+    <div class="container">
+      <div class="section-label">Context system</div>
       <h2>Context that lives where the code lives.</h2>
       <p>Acumen closes the distance with persistent context files that live in your repo, versioned alongside code. Every skill reads them before it writes. The more you use Acumen, the sharper the output gets.</p>
 
@@ -1727,70 +1950,16 @@
           </tbody>
         </table>
         </div>
-        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--fg-faint); font-style: italic;">Example value chain. Yours is generated from your product's actual workflow by /teach-acumen.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 04 INSTALL -->
-  <section id="install">
-    <div class="container">
-      <div class="section-label">04 &mdash; Get Started</div>
-      <h2>Install in under a minute.</h2>
-      <p>Acumen follows the <a href="https://agents.md" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">agents.md</a> spec. Drop the skills into your AI tool and go.</p>
-      <div class="install-steps">
-        <div class="install-step">
-          <div class="install-step-number">Step 1</div>
-          <h4>Open your codebase</h4>
-          <p>Use any coding agent that supports the <a href="https://agents.md" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border);">agents.md</a> spec. It works with read-only access rights.</p>
-          <div class="install-step-icons">
-            <a href="https://claude.ai/code" target="_blank" title="Claude Code"><img src="images/providers/anthropic.svg" alt="Claude Code" width="20" height="20"></a>
-            <a href="https://cursor.com" target="_blank" title="Cursor"><img src="images/providers/cursor.svg" alt="Cursor" width="20" height="20"></a>
-            <a href="https://windsurf.com" target="_blank" title="Windsurf"><img src="images/providers/windsurf.svg" alt="Windsurf" width="20" height="20"></a>
-            <a href="https://github.com/google-gemini/gemini-cli" target="_blank" title="Gemini CLI"><img src="images/providers/gemini.svg" alt="Gemini CLI" width="20" height="20"></a>
-            <a href="https://github.com/openai/codex" target="_blank" title="Codex CLI"><img src="images/providers/openai.svg" alt="Codex CLI" width="20" height="20"></a>
-            <a href="https://github.com/features/copilot" target="_blank" title="GitHub Copilot"><img src="images/providers/github.svg" alt="GitHub Copilot" width="20" height="20"></a>
-            <a href="https://kiro.dev" target="_blank" title="Kiro"><img src="images/providers/kiro.svg" alt="Kiro" width="20" height="20"></a>
-            <a href="https://opencode.ai" target="_blank" title="OpenCode"><img src="images/providers/opencode.svg" alt="OpenCode" width="20" height="20"></a>
-            <a href="https://ampcode.com" target="_blank" title="Amp"><img src="images/providers/amp.svg" alt="Amp" width="20" height="20"></a>
-            <a href="https://cline.bot" target="_blank" title="Cline"><img src="images/providers/cline.svg" alt="Cline" width="20" height="20"></a>
-            <a href="https://aider.chat" target="_blank" title="Aider"><img src="images/providers/aider.svg" alt="Aider" width="20" height="20"></a>
-            <a href="https://roocode.com" target="_blank" title="Roo Code"><img src="images/providers/roocode.svg" alt="Roo Code" width="20" height="20"></a>
-            <a href="https://continue.dev" target="_blank" title="Continue"><img src="images/providers/continue.svg" alt="Continue" width="20" height="20"></a>
-            <a href="https://zed.dev" target="_blank" title="Zed"><img src="images/providers/zed.svg" alt="Zed" width="20" height="20"></a>
-            <a href="https://trae.ai" target="_blank" title="Trae"><img src="images/providers/trae.svg" alt="Trae" width="20" height="20"></a>
-            <a href="https://conductor.build" target="_blank" title="Conductor"><img src="images/providers/conductor.svg" alt="Conductor" width="20" height="20"></a>
-          </div>
-        </div>
-
-        <div class="install-step">
-          <div class="install-step-number">Step 2</div>
-          <h4>Install Acumen</h4>
-          <pre><span class="comment"># One command, auto-detects your tool</span>
-npx skills add VGrss/acumen</pre>
-        </div>
-
-        <div class="install-step">
-          <div class="install-step-number">Step 3</div>
-          <h4>Teach &amp; go</h4>
-          <pre><span class="comment"># One-time product context</span>
-/teach-acumen
-
-<span class="comment"># Then let the skills guide you</span>
-/diagnose
-/orientation
-/workshop</pre>
-          <p>Each skill suggests the next one. Just follow the flow.</p>
-        </div>
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--fg-faint);">Example value chain. Yours is generated from your product's actual workflow by /teach-acumen.</p>
       </div>
     </div>
   </section>
 
   <!-- 05 FOR WHO -->
-  <section id="for-who">
+  <section id="for-who" class="reveal">
     <div class="container">
-      <div class="section-label">05 &mdash; For Who</div>
-      <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 2.5rem; max-width: 640px;">The stack is collapsing. Product &laquo;&raquo; Design &laquo;&raquo; Developer: all become <strong>Builders</strong> with a speciality.</p>
+      <div class="section-label">Who it is for</div>
+      <p style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 2.5rem; max-width: 640px;">Built first for <strong>product managers</strong> who work next to the code. Designers and developers use the same skills to bring product judgment into their own work.</p>
 
       <div class="for-who-grid">
         <div class="for-who-card for-who-card--value">
@@ -1810,14 +1979,14 @@ npx skills add VGrss/acumen</pre>
         </div>
       </div>
 
-      <p style="font-size: 1rem; color: var(--fg-muted); line-height: 1.6;">Every profile benefits from reinforcing their <strong>Product Acumen</strong>.</p>
+      
     </div>
   </section>
 
   <!-- 06 WHAT'S NEW + FAQ -->
   <section id="faq">
     <div class="container">
-      <div class="section-label">06 &mdash; What's New &amp; FAQ</div>
+      <div class="section-label">FAQ and what is new</div>
       <div class="split-section">
 
         <!-- LEFT: What's New -->
@@ -1910,6 +2079,23 @@ npx skills add VGrss/acumen</pre>
           <h3>FAQ</h3>
 
           <div class="faq-item">
+            <div class="faq-q">Do I need to know how to code?</div>
+            <div class="faq-a">No. You talk to your coding agent in plain language and the skills do the reading. Knowing where your repo lives is enough.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Will it change my code?</div>
+            <div class="faq-a">No. The skills only read the codebase. They write markdown files in <code>.acumen/</code>, which is gitignored by default, so nothing lands in your product.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Where does my data go?</div>
+            <div class="faq-a">Nowhere new. Acumen is a set of text files. It runs inside the AI tool you already use, under that tool's data policy, and sends nothing to us.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">How is this different from just prompting Claude?</div>
+            <div class="faq-a">Each skill carries a tested method (five whys, scope ladder, slop test) and reads your saved context files first. You get the same rigor every time instead of rewriting the prompt and the background on each run.</div>
+          </div>
+
+          <div class="faq-item">
             <div class="faq-q">How do I install Acumen?</div>
             <div class="faq-a">Run <code>npx skills add VGrss/acumen</code> for auto-detection, or copy the <code>.agents</code> and <code>.claude</code> directories into your project root.</div>
           </div>
@@ -1939,6 +2125,19 @@ npx skills add VGrss/acumen</pre>
     </div>
   </section>
 
+  <!-- FINAL CTA -->
+  <section class="final-cta reveal" id="get-started">
+    <div class="container">
+      <h2>Give your coding agent product judgment.</h2>
+      <p>Free, open source and read only. Running in under a minute.</p>
+      <div class="hero-install" data-cmd="npx skills add VGrss/acumen">
+        <code>npx skills add VGrss/acumen</code>
+        <button type="button" class="copy-cmd" data-location="final_cta" aria-label="Copy install command">Copy</button>
+      </div>
+    </div>
+  </section>
+  </main>
+
   <!-- FOOTER -->
   <footer>
     <div class="container">
@@ -1955,11 +2154,17 @@ npx skills add VGrss/acumen</pre>
   </footer>
 
   <script>
-    // Close mobile nav on link click
+    // Mobile nav toggle with aria-expanded
+    const navEl = document.getElementById('nav');
+    const navToggle = navEl.querySelector('.nav-toggle');
+    function setNav(open) {
+      navEl.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    navToggle.addEventListener('click', () => setNav(!navEl.classList.contains('open')));
     document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('nav').classList.remove('open');
-      });
+      link.addEventListener('click', () => setNav(false));
     });
 
     // Highlight active section in nav
@@ -1970,8 +2175,9 @@ npx skills add VGrss/acumen</pre>
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           navLinks.forEach(link => {
-            link.style.color = link.getAttribute('href') === '#' + entry.target.id
-              ? 'var(--fg)' : '';
+            const current = link.getAttribute('href') === '#' + entry.target.id;
+            link.style.color = current ? 'var(--fg)' : '';
+            if (current) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
           });
         }
       });
@@ -1983,7 +2189,7 @@ npx skills add VGrss/acumen</pre>
   <script>
     // Skill data with examples
     const skillData = {
-      teach: { name: '/teach', layer: 'Context', desc: 'One-time setup that gathers product context for your project and saves it to .acumen.md. It guides you through exploring the codebase, asking product-focused questions about users, market, business model, strategy, and metrics, then synthesizes findings into persistent context.', examples: ['/teach', '/teach after the pivot to B2B'] },
+      teach: { name: '/teach-acumen', layer: 'Context', desc: 'One-time setup that gathers product context for your project and saves it to .acumen.md. It guides you through exploring the codebase, asking product-focused questions about users, market, business model, strategy, and metrics, then synthesizes findings into persistent context.', examples: ['/teach-acumen', '/teach-acumen after the pivot to B2B'] },
       scout: { name: '/scout', layer: 'Context', desc: 'Build and maintain a living competitor map. Supports quick scans and deep competitive analysis. Maps competitors using job-to-be-done thinking, categorizing them as direct, indirect, or adjacent. Includes deep analysis mode with moat evaluation and positioning.', examples: ['/scout quick', '/scout deep on Notion'] },
       persona: { name: '/persona', layer: 'Context', desc: 'Build and maintain behavioral personas grounded in real user patterns. Builds personas from behavior outward\u2014not demographics\u2014capturing the job they hire the product to do, context of use, pain points, success criteria, and feedback signals.', examples: ['/persona', '/persona power users only'] },
       features: { name: '/features', layer: 'Context', desc: 'Build and maintain a lightweight feature inventory. Scans the codebase for feature surfaces, maps each feature to personas, tracks status and metrics, groups into coherent areas, and identifies gaps, decay, and unmeasured features.', examples: ['/features', '/features map to personas'] },
@@ -1995,10 +2201,10 @@ npx skills add VGrss/acumen</pre>
       workshop: { name: '/workshop', layer: 'Ideate', desc: 'Diverge on one problem or opportunity \u2014 generate 10 genuinely different solution shapes before committing. Spans the scope ladder (band-aid \u2192 category) and nature axis (UX, automation, AI, integration, and more), uses divergence generators and a collapse test, then converges and hands the chosen shape to /increment.', examples: ['/workshop integration onboarding', '/workshop expanding into enterprise'] },
       roadmap: { name: '/roadmap', layer: 'Craft', desc: 'Plan a sequence of bets, break into shippable increments, prioritize. Organizes by strategic themes, sequences by dependencies and compounding value, breaks into vertical slices, and includes triage mode for backlog prioritization.', examples: ['/roadmap Q3', '/roadmap triage the backlog'] },
       increment: { name: '/increment', layer: 'Craft', desc: 'Scope a product increment end-to-end \u2014 context, spec, implementation, wireframes, and engineering considerations. Produces a comprehensive spec including the bet, opportunity, personas, success metrics, scope tiers, and BEFORE/AFTER wireframes of the key screens with the job to be done on each.', examples: ['/increment self-serve team onboarding', '/increment real-time collaboration'] },
-      critique: { name: '/critique', layer: 'Craft', desc: 'Evaluate and validate a PM artifact \u2014 score for rigor, test riskiest assumptions. Runs the AI Slop Test (12 tells), scores across 9 dimensions, identifies riskiest assumptions with validation methods, and provides a ship/tighten/rethink verdict.', examples: ['/critique-product the PRD I just wrote', '/critique-product our Q3 roadmap'] },
+      critique: { name: '/critique-product', layer: 'Craft', desc: 'Evaluate and validate a PM artifact \u2014 score for rigor, test riskiest assumptions. Runs the AI Slop Test (12 tells), scores across 9 dimensions, identifies riskiest assumptions with validation methods, and provides a ship/tighten/rethink verdict.', examples: ['/critique-product the PRD I just wrote', '/critique-product our Q3 roadmap'] },
       narrate: { name: '/narrate', layer: 'Communicate', desc: 'Write product communication for any audience, even when stakes are high. Adapts across five formats: executive summary, engineering brief, customer communication, investor update, and tradeoff negotiation.', examples: ['/narrate board update Q2', '/narrate eng brief for search rewrite'] },
       changelog: { name: '/changelog', layer: 'Communicate', desc: 'Write a changelog from recent PRs and commits, grounded in feature context. Gathers commit history, grounds changes in feature context, categorizes into new/improved/fixed/changed, and generates benefit-first, jargon-free copy.', examples: ['/changelog last 7 days', '/changelog since v2.1'] },
-      update: { name: '/update', layer: 'Meta', desc: 'Fetch the latest Acumen skills from GitHub and update local copies. Syncs content into source/skills/, distributes to .agents/skills/, and creates symlinks in .claude/skills/. Reports what\u2019s new, removed, and unchanged.', examples: ['/update-acumen', '/update-acumen --force'] },
+      update: { name: '/update-acumen', layer: 'Meta', desc: 'Fetch the latest Acumen skills from GitHub and update local copies. Syncs content into source/skills/, distributes to .agents/skills/, and creates symlinks in .claude/skills/. Reports what\u2019s new, removed, and unchanged.', examples: ['/update-acumen', '/update-acumen --force'] },
       cheatsheet: { name: '/cheatsheet', layer: 'Meta', desc: 'Print a quick-reference cheatsheet of all Acumen skills, organized by layer. Shows every skill with a one-line description in a compact, scannable box format.', examples: ['/cheatsheet'] },
       feedback: { name: '/feedback', layer: 'Meta', desc: 'Walk through structured feedback and submit it as a GitHub Discussion. Guides you through problem, impact, and optional solution, then formats and submits to the Acumen repo.', examples: ['/feedback', '/feedback I have a skill idea'] },
       catchup: { name: '/catchup', layer: 'Meta', desc: 'Pull latest code from main and summarize recent changes in product-friendly terms. Protects your .acumen/ context files, then translates commits and PRs into what shipped, improved, and was fixed \u2014 plus suggested next Acumen skills to run.', examples: ['/catchup', '/catchup since Monday'] }
@@ -2063,8 +2269,14 @@ npx skills add VGrss/acumen</pre>
   </script>
 
   <script>
-    document.querySelectorAll('.install-step pre').forEach(pre => {
+    function trackCopy(text, location) {
+      if (window.posthog) posthog.capture('install_command_copied', { command: text.slice(0, 80), location: location });
+    }
+
+    // Copy buttons on code blocks
+    document.querySelectorAll('.step pre').forEach(pre => {
       const btn = document.createElement('button');
+      btn.type = 'button';
       btn.className = 'copy-btn';
       btn.textContent = 'Copy';
       btn.addEventListener('click', () => {
@@ -2078,23 +2290,74 @@ npx skills add VGrss/acumen</pre>
             btn.textContent = 'Copy';
             btn.classList.remove('copied');
           }, 2000);
-          posthog.capture('install_command_copied', { command: text.slice(0, 80) });
+          trackCopy(text, pre.dataset.location || 'how_it_works');
         });
       });
       pre.appendChild(btn);
     });
+
+    // Primary install command (hero + final CTA)
+    document.querySelectorAll('.hero-install').forEach(box => {
+      const btn = box.querySelector('.copy-cmd');
+      const label = btn.textContent;
+      btn.addEventListener('click', () => {
+        const text = box.dataset.cmd;
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = 'Copied';
+          setTimeout(() => { btn.textContent = label; }, 2000);
+          trackCopy(text, btn.dataset.location);
+        }).catch(() => {
+          btn.textContent = 'Select and copy';
+        });
+      });
+    });
+
+    // Keyboard access for clickable skill tiles and carousel items
+    document.querySelectorAll('.periodic-table .element[data-skill], .skill-carousel-nav-item').forEach(el => {
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+      });
+    });
+
+    // Section reveals, once per section
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); revealObs.unobserve(entry.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // Tagline: words light up one at a time as they cross the trigger line
+    (function () {
+      const p = document.getElementById('tagline-text');
+      if (!p) return;
+      const words = p.textContent.trim().split(/\s+/);
+      p.innerHTML = words.map(w => '<span class="w">' + w + '</span>').join(' ');
+      const spans = p.querySelectorAll('.w');
+      const wordObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('on'); wordObs.unobserve(entry.target); }
+        });
+      }, { rootMargin: '0px 0px -35% 0px' });
+      spans.forEach((s, i) => { s.style.transitionDelay = (i % 4) * 40 + 'ms'; wordObs.observe(s); });
+    })();
+
+    // Live GitHub star count as proof, hidden if the API is unavailable
+    fetch('https://api.github.com/repos/VGrss/Acumen')
+      .then(r => r.ok ? r.json() : null)
+      .then(d => {
+        if (!d || typeof d.stargazers_count !== 'number' || d.stargazers_count < 10) return;
+        const el = document.querySelector('.gh-stars');
+        el.textContent = ' \u2605 ' + d.stargazers_count;
+        el.hidden = false;
+      })
+      .catch(() => {});
   </script>
 
   <script>
     // PostHog event tracking
-
-    // Hero CTAs
-    document.querySelector('a.btn-primary[href="#install"]')?.addEventListener('click', function() {
-      posthog.capture('get_started_clicked');
-    });
-    document.querySelector('a.btn-secondary[href="#problem"]')?.addEventListener('click', function() {
-      posthog.capture('why_acumen_clicked');
-    });
 
     // GitHub link clicks (nav + footer)
     document.querySelectorAll('a[href*="github.com/VGrss/Acumen"]').forEach(function(link) {
